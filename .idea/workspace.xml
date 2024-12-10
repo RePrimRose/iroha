@@ -4,16 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="add main page">
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Login/Login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Main/MainPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/SignUp/SignUp.js" afterDir="false" />
+    <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="modify docker-compose">
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Login/LoginPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Login/LoginSection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/SignUp/SignUpPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/SignUp/SignUpSection.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header/Header.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +139,23 @@
       <option name="project" value="LOCAL" />
       <updated>1733853987350</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add main page">
+      <option name="closed" value="true" />
+      <created>1733855512378</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1733855512378</updated>
+    </task>
+    <task id="LOCAL-00006" summary="modify docker-compose">
+      <option name="closed" value="true" />
+      <created>1733855544118</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1733855544118</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,7 +175,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="add main page" />
-    <option name="LAST_COMMIT_MESSAGE" value="add main page" />
+    <MESSAGE value="modify docker-compose" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify docker-compose" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

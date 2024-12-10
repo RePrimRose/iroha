@@ -1,40 +1,24 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 const Header = () => {
     return (
         <header className="bg-sakura shadow-md">
             <div className="container mx-auto flex justify-between items-center py-4 px-6">
                 {/* 로고 */}
-                <div className="text-traditionalBlue font-bold text-2xl">
+                <Link
+                    className="text-traditionalBlue font-bold text-2xl"
+                    to="/">
                     IROHA
-                </div>
+                </Link>
 
                 {/* 네비게이션 메뉴 */}
                 <nav className="hidden md:flex space-x-6">
-                    <a
-                        href="#home"
+                    <Link
                         className="text-gray-800 hover:text-traditionalBlue transition"
-                    >
-                        홈
-                    </a>
-                    <a
-                        href="#learn"
-                        className="text-gray-800 hover:text-traditionalBlue transition"
-                    >
-                        단어 학습
-                    </a>
-                    <a
-                        href="#test"
-                        className="text-gray-800 hover:text-traditionalBlue transition"
-                    >
-                        레벨 테스트
-                    </a>
-                    <a
-                        href="#progress"
-                        className="text-gray-800 hover:text-traditionalBlue transition"
-                    >
-                        내 학습 기록
-                    </a>
+                        to="/login">
+                        로그인
+                    </Link>
                 </nav>
 
                 {/* 모바일 메뉴 버튼 */}
