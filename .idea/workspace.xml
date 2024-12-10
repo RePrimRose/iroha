@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="first commit">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Footer/Footer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Header/Header.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Main/AdditionalSection.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Main/MainSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+    <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="add main page">
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Main/MainSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Main/MainSection.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +38,9 @@
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -120,7 +115,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733334973992</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add main page">
+      <option name="closed" value="true" />
+      <created>1733850761154</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1733850761154</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,7 +142,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="add main page" />
+    <option name="LAST_COMMIT_MESSAGE" value="add main page" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

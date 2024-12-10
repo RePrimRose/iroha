@@ -13,23 +13,13 @@ const MainSection = () => {
                     IROHA와 함께 단어 학습, 문장 연습, 그리고 레벨 테스트를 통해 일본어 실력을 향상시켜보세요.
                 </p>
                 {/* Call-to-Action 버튼 */}
-                <div className="flex justify-center space-x-4">
-                    <div>
-                        <a
-                            href="#level-test"
-                            className="bg-traditionalBlue text-white py-3 px-8 rounded-lg shadow-md hover:bg-blue-700 transition"
-                        >
-                            레벨 테스트 시작하기
-                        </a>
-                    </div>
-                    <div>
-                        <a
-                            href="#level-test"
-                            className="bg-traditionalBlue text-white py-3 px-8 rounded-lg shadow-md hover:bg-blue-700 transition"
-                        >
-                            레벨 테스트 시작하기
-                        </a>
-                    </div>
+                <div>
+                    <a
+                        href="#level-test"
+                        className="bg-traditionalBlue text-white py-3 px-8 rounded-lg shadow-md hover:bg-blue-700 transition"
+                    >
+                        레벨 테스트 시작하기
+                    </a>
                 </div>
             </div>
         </section>
