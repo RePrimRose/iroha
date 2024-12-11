@@ -1,22 +1,25 @@
 services:
-  frontend:
+  frontend-builder:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    ports:
-      - "3000:3000"
+    container_name: frontend-builder
+    command: ["npm", "run", "build"]
     volumes:
-      - /app/node_modules
-      - ./frontend:/app
+      - ./frontend/build:/frontend/build
+    networks:
+      - app-network
     environment:
-      - CHOKIDAR_USEPOLLING=true
-      - WDS_SOCKET_PORT=3000
+      - REACT_APP_BACKEND_URL=http://backend:8080
   backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
+    container_name: backend
     ports:
       - "8080:8080"
+    networks:
+      - app-network
     environment:
       - SPRING_PROFILES_ACTIVE=dev
       - DB_URL=${DB_URL}
@@ -28,6 +31,9 @@ services:
       - "80:80"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-    depends_on:
-      - frontend
-      - backend
+      - ./frontend/build:/usr/share/nginx/html
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge

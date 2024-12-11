@@ -1,8 +1,31 @@
 import React, { useState } from 'react';
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 const SignupSection = () => {
   const [idChecked, setIdChecked] = useState(false);
   const [nicknameChecked, setNicknameChecked] = useState(false);
+  const [userid, setUserid] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post("http://localhost:8080/api/users", {
+        userid: userid,
+        username: username,
+        password: password
+      });
+
+      navigate("/login");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleIdCheck = () => {
     // 중복 확인 로직 추가
@@ -38,6 +61,7 @@ const SignupSection = () => {
                   id="id"
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-traditionalBlue"
                   placeholder="아이디를 입력하세요"
+                  onChange={(e) => setUserid(e.target.value)}
               />
             </div>
             {idChecked && (
@@ -59,6 +83,7 @@ const SignupSection = () => {
                   id="password"
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-traditionalBlue"
                   placeholder="비밀번호를 입력하세요"
+                  onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <div className="mb-4">
@@ -91,6 +116,7 @@ const SignupSection = () => {
                   id="nickname"
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-traditionalBlue"
                   placeholder="닉네임을 입력하세요"
+                  onChange={(e) => setUsername(e.target.value)}
               />
             </div>
             {nicknameChecked && (
@@ -99,7 +125,10 @@ const SignupSection = () => {
           </div>
 
           {/* 회원가입 버튼 */}
-          <button className="w-full bg-traditionalBlue text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition">
+          <button
+              type="submit"
+              onClick={handleSubmit}
+              className="w-full bg-traditionalBlue text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition">
             회원가입
           </button>
         </div>
