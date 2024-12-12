@@ -5,11 +5,15 @@ import {useNavigate} from "react-router-dom";
 const SignupSection = () => {
   const [idChecked, setIdChecked] = useState(false);
   const [nicknameChecked, setNicknameChecked] = useState(false);
+  const [passwordChecked, setPasswordChecked] = useState(false);
   const [userid, setUserid] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
+
+  let idTimer;
+  let nameTimer;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,17 +31,72 @@ const SignupSection = () => {
     }
   };
 
-  const handleIdCheck = () => {
-    // 중복 확인 로직 추가
-    alert('ID 중복 확인!');
-    setIdChecked(true);
+  const validateId = (id) => {
+    const idRegex = /^[a-zA-Z0-9]+$/;
+    if (!idRegex.test(id)) {
+      return "ID는 영문자와 숫자만 입력 가능합니다.";
+    }
+    if (id.length < 5 || id.length > 20) {
+      return "ID는 5~20자로 입력해야 합니다.";
+    }
+    return null;
   };
 
-  const handleNicknameCheck = () => {
-    // 중복 확인 로직 추가
-    alert('닉네임 중복 확인!');
-    setNicknameChecked(true);
+  const handleIdCheck = async (e) => {
+    const value = e.target.value;
+    setUserid(value);
+    if(idTimer) {
+      clearTimeout(idTimer);
+    }
+    idTimer = setTimeout(async () => {
+      if(value) {
+        try {
+          const response = await axios.post("http://localhost:8080/api/auth/id-check",
+              {
+                userid: value
+              });
+          if(!response.data.exists) {
+            setIdChecked(true)
+          } else {
+            setIdChecked(false)
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    }, 500);
   };
+
+  const handleNicknameCheck = async (e) => {
+    const value = e.target.value;
+    setUsername(value);
+    clearTimeout(nameTimer);
+    nameTimer = setTimeout(async () => {
+      if(value) {
+        try {
+          const response = await axios.post("http://localhost:8080/api/auth/name-check",
+              {
+                username: value
+              })
+          if(!response.data.exists) {
+            setNicknameChecked(true)
+          } else {
+            setNicknameChecked(false)
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    }, 500);
+  };
+
+  const checkPassword = (e) => {
+    if(password !== e.target.value) {
+      setPasswordChecked(true)
+    } else {
+      setPasswordChecked(false)
+    }
+  }
 
   return (
       <section className="bg-gray-100 py-16">
@@ -61,7 +120,7 @@ const SignupSection = () => {
                   id="id"
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-traditionalBlue"
                   placeholder="아이디를 입력하세요"
-                  onChange={(e) => setUserid(e.target.value)}
+                  onChange={(e) => handleIdCheck(e)}
               />
             </div>
             {idChecked && (
@@ -98,7 +157,11 @@ const SignupSection = () => {
                   id="password"
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-traditionalBlue"
                   placeholder="비밀번호를 한번 더 입력하세요"
+                  onChange={e => checkPassword(e)}
               />
+              {passwordChecked && (
+                  <p className="text-red-600 text-sm mt-2">비밀번호가 다릅니다.</p>
+              )}
             </div>
           </div>
 
@@ -116,7 +179,7 @@ const SignupSection = () => {
                   id="nickname"
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-traditionalBlue"
                   placeholder="닉네임을 입력하세요"
-                  onChange={(e) => setUsername(e.target.value)}
+                  onChange={(e) => handleNicknameCheck(e)}
               />
             </div>
             {nicknameChecked && (

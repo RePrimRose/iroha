@@ -27,14 +27,14 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         String userid = null;
         String jwt = null;
 
-        if ("/api/auth/login".equals(request.getRequestURI()) || "/api/users".equals(request.getRequestURI())) {
+        if ("/api/auth/**".equals(request.getRequestURI()) || "/api/users".equals(request.getRequestURI())) {
             filterChain.doFilter(request, response);
             return;
         }
 
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             jwt = authHeader.substring(7);
-            userid = jwtUtil.extractUserid(userid);
+            userid = jwtUtil.extractUserid(jwt);
         }
 
         if (userid != null && SecurityContextHolder.getContext().getAuthentication() == null) {

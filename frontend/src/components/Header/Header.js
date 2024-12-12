@@ -1,7 +1,37 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
+import axios from "axios";
 
 const Header = () => {
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [username, setUsername] = useState("");
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+
+        const getAuthenticated = async () => {
+            try {
+                if (token) {
+                    const response = await axios.post("http://localhost:8080/api/auth/check",
+                        {},
+                        {
+                            headers: {
+                                Authorization: `Bearer ${token}`,
+                            },
+                        }
+                    );
+
+                    setUsername(response.data.username);
+                    setIsAuthenticated(true);
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        getAuthenticated();
+    }, []);
+
     return (
         <header className="bg-sakura shadow-md">
             <div className="container mx-auto flex justify-between items-center py-4 px-6">
@@ -14,11 +44,21 @@ const Header = () => {
 
                 {/* 네비게이션 메뉴 */}
                 <nav className="hidden md:flex space-x-6">
-                    <Link
-                        className="text-gray-800 hover:text-traditionalBlue transition"
-                        to="/login">
-                        로그인
-                    </Link>
+                    {
+                        isAuthenticated ? (
+                            <Link
+                                className="text-gray-800 hover:text-traditionalBlue transition"
+                                to="/">
+                                로그아웃
+                            </Link>
+                        ) : (
+                            <Link
+                                className="text-gray-800 hover:text-traditionalBlue transition"
+                                to="/login">
+                                로그인
+                            </Link>
+                        )
+                    }
                 </nav>
 
                 {/* 모바일 메뉴 버튼 */}

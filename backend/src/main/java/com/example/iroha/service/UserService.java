@@ -23,11 +23,19 @@ public class UserService {
     }
 
     public User findUserByUserId(String userId) {
-        return userRepository.findByUserid(userId);
+        return userRepository.findByUserid(userId).orElse(null);
     }
 
     public User findUserByUserName(String userName) {
-        return userRepository.findByUsername(userName);
+        return userRepository.findByUsername(userName).orElse(null);
+    }
+
+    public boolean existUserByUserId(String userId) {
+        return userRepository.findByUserid(userId).isPresent();
+    }
+
+    public boolean existUserByUserName(String userName) {
+        return userRepository.findByUsername(userName).isPresent();
     }
 
     public boolean authenticateUser(String userId, String password) {

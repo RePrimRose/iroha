@@ -30,9 +30,9 @@ public class JwtUtil {
                 .getSubject();
     }
 
-    public boolean validateToken(String token, String username) {
-        String extractedUsername = extractUserid(token);
-        return extractedUsername.equals(username) && !isTokenExpired(token);
+    public boolean validateToken(String token, String userid) {
+        String extractedUserid = extractUserid(token);
+        return extractedUserid.equals(userid) && !isTokenExpired(token);
     }
 
     private boolean isTokenExpired(String token) {

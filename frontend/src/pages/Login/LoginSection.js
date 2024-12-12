@@ -17,9 +17,7 @@ const LoginSection = () => {
                 password: password
             });
 
-            console.log(response.data)
             const token = response.data.token;
-            console.log(token)
             localStorage.setItem('token', token);
 
             navigate("/");
