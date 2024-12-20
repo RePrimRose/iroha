@@ -6,6 +6,11 @@ const Header = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [username, setUsername] = useState("");
 
+    const logout = () => {
+        localStorage.removeItem('token');
+        window.location.reload()
+    }
+
     useEffect(() => {
         const token = localStorage.getItem('token');
 
@@ -46,11 +51,12 @@ const Header = () => {
                 <nav className="hidden md:flex space-x-6">
                     {
                         isAuthenticated ? (
-                            <Link
-                                className="text-gray-800 hover:text-traditionalBlue transition"
-                                to="/">
+                            <button
+                                className="bg-transparent text-gray-800 hover:text-red-600 focus:outline-none"
+                                onClick={logout}
+                            >
                                 로그아웃
-                            </Link>
+                            </button>
                         ) : (
                             <Link
                                 className="text-gray-800 hover:text-traditionalBlue transition"

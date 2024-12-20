@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import {checkPassword, handleIdCheck, handleNicknameCheck, handleSubmit} from "./SignUpUtils";
 
 const SignupSection = () => {
   const [idChecked, setIdChecked] = useState(false);
+  const [idMessage, setIdMessage] = useState("");
   const [nicknameChecked, setNicknameChecked] = useState(false);
   const [passwordChecked, setPasswordChecked] = useState(false);
   const [userid, setUserid] = useState("");
@@ -14,89 +15,6 @@ const SignupSection = () => {
 
   let idTimer;
   let nameTimer;
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await axios.post("http://localhost:8080/api/users", {
-        userid: userid,
-        username: username,
-        password: password
-      });
-
-      navigate("/login");
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const validateId = (id) => {
-    const idRegex = /^[a-zA-Z0-9]+$/;
-    if (!idRegex.test(id)) {
-      return "ID는 영문자와 숫자만 입력 가능합니다.";
-    }
-    if (id.length < 5 || id.length > 20) {
-      return "ID는 5~20자로 입력해야 합니다.";
-    }
-    return null;
-  };
-
-  const handleIdCheck = async (e) => {
-    const value = e.target.value;
-    setUserid(value);
-    if(idTimer) {
-      clearTimeout(idTimer);
-    }
-    idTimer = setTimeout(async () => {
-      if(value) {
-        try {
-          const response = await axios.post("http://localhost:8080/api/auth/id-check",
-              {
-                userid: value
-              });
-          if(!response.data.exists) {
-            setIdChecked(true)
-          } else {
-            setIdChecked(false)
-          }
-        } catch (error) {
-          console.error(error);
-        }
-      }
-    }, 500);
-  };
-
-  const handleNicknameCheck = async (e) => {
-    const value = e.target.value;
-    setUsername(value);
-    clearTimeout(nameTimer);
-    nameTimer = setTimeout(async () => {
-      if(value) {
-        try {
-          const response = await axios.post("http://localhost:8080/api/auth/name-check",
-              {
-                username: value
-              })
-          if(!response.data.exists) {
-            setNicknameChecked(true)
-          } else {
-            setNicknameChecked(false)
-          }
-        } catch (error) {
-          console.error(error);
-        }
-      }
-    }, 500);
-  };
-
-  const checkPassword = (e) => {
-    if(password !== e.target.value) {
-      setPasswordChecked(true)
-    } else {
-      setPasswordChecked(false)
-    }
-  }
 
   return (
       <section className="bg-gray-100 py-16">
@@ -114,18 +32,21 @@ const SignupSection = () => {
             >
               아이디
             </label>
-            <div className="flex items-center space-x-4">
+            <div className="relative items-center space-x-4">
               <input
                   type="text"
                   id="id"
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-traditionalBlue"
                   placeholder="아이디를 입력하세요"
-                  onChange={(e) => handleIdCheck(e)}
+                  onChange={(e) => handleIdCheck(e, idTimer, setUserid, setIdChecked, setIdMessage)}
               />
+              {idChecked && (
+                  <div
+                      className="absolute left-0 mt-2 p-2 bg-red-100 text-red-700 text-sm rounded shadow-lg before:absolute before:top-[-6px] before:left-3 before:border-4 before:border-transparent before:border-b-red-100">
+                    {idMessage}
+                  </div>
+              )}
             </div>
-            {idChecked && (
-                <p className="text-green-600 text-sm mt-2">사용 가능한 아이디입니다.</p>
-            )}
           </div>
 
           {/* 비밀번호 입력 */}
@@ -152,16 +73,21 @@ const SignupSection = () => {
               >
                 비밀번호 확인
               </label>
-              <input
-                  type="password"
-                  id="password"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-traditionalBlue"
-                  placeholder="비밀번호를 한번 더 입력하세요"
-                  onChange={e => checkPassword(e)}
-              />
-              {passwordChecked && (
-                  <p className="text-red-600 text-sm mt-2">비밀번호가 다릅니다.</p>
-              )}
+              <div className="relative items-center space-x-4">
+                <input
+                    type="password"
+                    id="password"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-traditionalBlue"
+                    placeholder="비밀번호를 한번 더 입력하세요"
+                    onChange={e => checkPassword(e, password, setPasswordChecked)}
+                />
+                {passwordChecked && (
+                    <div
+                        className="absolute left-0 mt-2 p-2 bg-red-100 text-red-700 text-sm rounded shadow-lg before:absolute before:top-[-6px] before:left-3 before:border-4 before:border-transparent before:border-b-red-100">
+                      비밀번호가 다릅니다.
+                    </div>
+                )}
+              </div>
             </div>
           </div>
 
@@ -173,24 +99,27 @@ const SignupSection = () => {
             >
               닉네임
             </label>
-            <div className="flex items-center space-x-4">
+            <div className="relative items-center space-x-4">
               <input
                   type="text"
                   id="nickname"
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-traditionalBlue"
                   placeholder="닉네임을 입력하세요"
-                  onChange={(e) => handleNicknameCheck(e)}
+                  onChange={(e) => handleNicknameCheck(e, nameTimer, setUsername, setNicknameChecked)}
               />
+              {nicknameChecked && (
+                  <div
+                      className="absolute left-0 mt-2 p-2 bg-red-100 text-red-700 text-sm rounded shadow-lg before:absolute before:top-[-6px] before:left-3 before:border-4 before:border-transparent before:border-b-red-100">
+                    중복된 닉네임이 있습니다.
+                  </div>
+              )}
             </div>
-            {nicknameChecked && (
-                <p className="text-green-600 text-sm mt-2">사용 가능한 닉네임입니다.</p>
-            )}
           </div>
 
           {/* 회원가입 버튼 */}
           <button
               type="submit"
-              onClick={handleSubmit}
+              onClick={(e) => handleSubmit(e, userid, username, password, navigate)}
               className="w-full bg-traditionalBlue text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition">
             회원가입
           </button>
