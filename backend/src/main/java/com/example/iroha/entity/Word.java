@@ -16,6 +16,8 @@ public class Word {
 
     private String furigana;
 
+    private String meaning;
+
     @Column(length = 10)
     private String level;
 }
