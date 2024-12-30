@@ -18,10 +18,10 @@ public class Kanji {
     private String meanings;
 
     @Column(columnDefinition = "JSON")
-    private String on;
+    private String onYomi;
 
     @Column(columnDefinition = "JSON")
-    private String kun;
+    private String kunYomi;
 
     private String pronunciation;
 
