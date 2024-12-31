@@ -5,7 +5,7 @@ import LoginSection from "./LoginSection";
 
 const LoginPage = () => {
     return (
-        <div>
+        <div className="min-h-screen flex flex-col bg-gray-100">
             <Header></Header>
             <LoginSection></LoginSection>
             <Footer></Footer>

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import axios from "axios";
 
-const Header = () => {
+const Header = ({ onAuthStatus }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [username, setUsername] = useState("");
 
@@ -25,17 +25,18 @@ const Header = () => {
                             },
                         }
                     );
-
                     setUsername(response.data.username);
                     setIsAuthenticated(true);
+                    onAuthStatus(true);
                 }
             } catch (error) {
                 console.error(error);
+                onAuthStatus(false);
             }
         };
 
         getAuthenticated();
-    }, []);
+    }, [onAuthStatus]);
 
     return (
         <header className="bg-sakura shadow-md">

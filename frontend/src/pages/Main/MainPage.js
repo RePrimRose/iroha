@@ -5,11 +5,13 @@ import AdditionalSection from "./AdditionalSection";
 import Footer from "../../components/Footer/Footer";
 
 const MainPage = () => {
+    const [isAuthenticated, setIsAuthenticated] = React.useState(false);
+
     return (
-        <div>
-            <Header></Header>
+        <div className="min-h-screen flex flex-col bg-gray-100">
+            <Header onAuthStatus={setIsAuthenticated}></Header>
             <MainSection></MainSection>
-            <AdditionalSection></AdditionalSection>
+            <AdditionalSection isAuthenticated={isAuthenticated}></AdditionalSection>
             <Footer></Footer>
         </div>
     );

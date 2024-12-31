@@ -27,7 +27,7 @@ const LoginSection = () => {
     };
 
     return (
-        <section className="bg-gray-100 py-16">
+        <section className="flex-grow flex flex-col items-center justify-center">
             <div className="container mx-auto px-6 max-w-md bg-white shadow-lg rounded-lg p-8">
                 {/* 섹션 제목 */}
                 <h2 className="text-2xl font-bold text-traditionalBlue text-center mb-8">
