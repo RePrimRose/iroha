@@ -4,21 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="함수와 페이지 기능 분리 및 회원가입 안내말 표시">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/entity/Kanji.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/entity/TestSentence.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/entity/Word.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/repository/KanjiRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/repository/TestSentenceRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/repository/WordRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/KanjiService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/TestSentenceService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/WordService.java" afterDir="false" />
+    <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="한자, 단어, 테스트 문장 엔티티 생성">
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Kanji/KanjiData.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Kanji/KanjiPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Kanji/KanjiSelection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Learning/LearningPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Learning/LearningSection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Main/LinkCardSection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Main/NormalCardSection.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.gradle/8.11.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gradle/8.11.1/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.gradle/8.11.1/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gradle/8.11.1/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.gradle/8.11.1/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gradle/8.11.1/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Login/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Login/LoginPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Login/LoginSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Login/LoginSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Main/AdditionalSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Main/AdditionalSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Main/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Main/MainPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,27 +63,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/park1/Documents/iroha/iroha/backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "프로젝트",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/park1/Documents/iroha/iroha/backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;프로젝트&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\park1\OneDrive\문서\iroha" />
@@ -120,6 +120,8 @@
       <workItem from="1733805226409" duration="98000" />
       <workItem from="1734673469556" duration="57000" />
       <workItem from="1735539968891" duration="1060000" />
+      <workItem from="1735541722661" duration="45000" />
+      <workItem from="1735626906758" duration="4577000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -153,7 +155,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734673517946</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="한자, 단어, 테스트 문장 엔티티 생성">
+      <option name="closed" value="true" />
+      <created>1735541758604</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1735541758604</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,7 +186,8 @@
     </ignored-roots>
     <MESSAGE value="first commit" />
     <MESSAGE value="함수와 페이지 기능 분리 및 회원가입 안내말 표시" />
-    <option name="LAST_COMMIT_MESSAGE" value="함수와 페이지 기능 분리 및 회원가입 안내말 표시" />
+    <MESSAGE value="한자, 단어, 테스트 문장 엔티티 생성" />
+    <option name="LAST_COMMIT_MESSAGE" value="한자, 단어, 테스트 문장 엔티티 생성" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
