@@ -10,7 +10,7 @@ const KanjiSelection = () => {
                 {levels.map((level) => (
                     <Link key={level}
                           className="w-40 h-40 bg-white shadow-md rounded-lg flex items-center justify-center text-xl font-bold hover:bg-blue-100 transition"
-                          to={`./${level}`}>
+                          to={`./${level}?page=1`}>
                         {level}
                     </Link>
                 ))}

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+@Table(name = "kanji")
 @Entity
 @Getter @Setter
 public class Kanji {
@@ -12,6 +13,7 @@ public class Kanji {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "kanji")
     private String kanji;
 
     @Column(columnDefinition = "JSON")
