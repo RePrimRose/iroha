@@ -5,6 +5,7 @@ import LoginPage from "./pages/Login/LoginPage";
 import SignUpPage from "./pages/SignUp/SignUpPage";
 import LearningPage from "./pages/Learning/LearningPage";
 import KanjiPage from "./pages/Kanji/KanjiPage";
+import WordPage from "./pages/Word/WordPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path="/signup" element={<SignUpPage/>}/>
             <Route path="/learning" element={<LearningPage/>}/>
             <Route path="/kanji/:level?/:kanji?" element={<KanjiPage/>}/>
+            <Route path="/word/:level?/:word?" element={<WordPage/>}/>
         </Routes>
     </div>
   );

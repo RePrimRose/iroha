@@ -20,11 +20,11 @@ const KanjiData = () => {
                     }
                 });
                 setKanjiData(response.data);
-                console.log(response.data);
             } catch (error) {
                 console.error(error);
             }
-        }
+        };
+
         fetchData();
     }, [kanji]);
 

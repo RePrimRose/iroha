@@ -13,7 +13,6 @@ public class KanjiService {
 
     private final KanjiRepository kanjiRepository;
 
-    @Autowired
     public KanjiService(KanjiRepository kanjiRepository) {
         this.kanjiRepository = kanjiRepository;
     }
