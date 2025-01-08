@@ -15,3 +15,11 @@ export const getPageNumbers = (totalPages, currentPage) => {
 
     return Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
 };
+
+export const handleReadingClick = (reading) => {
+    const utterance = new SpeechSynthesisUtterance(reading.replace(/[()]/g, ""));
+    utterance.lang = 'ja-JP';
+    utterance.pitch = 1;
+    utterance.rate = 1;
+    window.speechSynthesis.speak(utterance);
+};

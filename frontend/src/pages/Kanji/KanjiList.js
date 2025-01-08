@@ -52,7 +52,7 @@ const KanjiList = () => {
                         className="w-40 h-40 bg-white shadow-md rounded-lg flex items-center justify-center cursor-pointer hover:shadow-lg transition"
                         to={`${location.pathname}/${kanji.kanji}`}>
                         <img
-                            src={`https://elasticbeanstalk-ap-northeast-2-339712908446.s3.ap-northeast-2.amazonaws.com/japanese_kanji_pictures/${kanji.kanji}.jpg`}
+                            src={`/kanji/${kanji.kanji}.jpg`}
                             alt={kanji.kanji}
                             className="w-24 h-24 object-contain"
                         />

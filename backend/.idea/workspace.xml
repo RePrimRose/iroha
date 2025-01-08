@@ -5,20 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30eaf832-8c80-4c85-b3c3-9906bea7089b" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/controller/KanjiController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/dto/KanjiProjection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/Utils/Utils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/Kanji/KanjiList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/iroha.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/iroha.main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/entity/Kanji.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/entity/Kanji.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/repository/KanjiRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/repository/KanjiRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/KanjiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/KanjiService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/Utils/Utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/Utils/Utils.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Kanji/KanjiData.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Kanji/KanjiData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Kanji/KanjiPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Kanji/KanjiPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Kanji/KanjiSelection.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Kanji/KanjiSelection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Kanji/KanjiList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Kanji/KanjiList.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,6 +129,7 @@
       <workItem from="1734015762648" duration="10005000" />
       <workItem from="1735540440210" duration="1143000" />
       <workItem from="1736220405119" duration="9506000" />
+      <workItem from="1736320782549" duration="1683000" />
     </task>
     <servers />
   </component>
