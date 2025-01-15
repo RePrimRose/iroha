@@ -44,14 +44,14 @@ const WordList = () => {
 
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col items-center">
-            <h1 className="text-2xl font-bold my-6">한자 목록</h1>
+            <h1 className="text-2xl font-bold my-6">단어 목록</h1>
             <div className="grid grid-cols-3 gap-4">
                 {wordList.map((word) => (
                     <Link
-                        key={word.word}
+                        key={word.id}
                         className="w-40 h-40 bg-white shadow-md rounded-lg flex items-center justify-center cursor-pointer hover:shadow-lg transition"
                         to={`${location.pathname}/${word.word}`}>
-                        {word.word}
+                        {word.word}<br/>{word.furigana}
                     </Link>
                 ))}
             </div>

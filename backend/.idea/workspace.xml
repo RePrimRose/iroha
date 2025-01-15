@@ -5,20 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30eaf832-8c80-4c85-b3c3-9906bea7089b" name="변경" comment="변경">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/controller/WordController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/dto/WordProjection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/Word/WordData.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/Word/WordList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/Word/WordPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/Word/WordSelection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/controller/TestSentenceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/dto/SentenceProjection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/repository/KanjiRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/repository/KanjiRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/dto/WordProjection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/dto/WordProjection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/entity/TestSentence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/entity/TestSentence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/repository/TestSentenceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/repository/TestSentenceRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/repository/WordRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/repository/WordRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/KanjiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/KanjiService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/WordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/WordService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Kanji/KanjiData.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Kanji/KanjiData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/TestSentenceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/TestSentenceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Word/WordData.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Word/WordData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Word/WordList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Word/WordList.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,6 +137,9 @@
       <workItem from="1736220405119" duration="9506000" />
       <workItem from="1736320782549" duration="1683000" />
       <workItem from="1736332644019" duration="734000" />
+      <workItem from="1736334677619" duration="25000" />
+      <workItem from="1736838640256" duration="7463000" />
+      <workItem from="1736901259313" duration="3070000" />
     </task>
     <servers />
   </component>

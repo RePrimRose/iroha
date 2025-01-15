@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface WordRepository extends PagingAndSortingRepository<Word, Long> {
 
-    @Query("SELECT w.word AS word FROM Word w WHERE w.level = :level")
+    @Query("SELECT w.word AS word, w.furigana AS furigana FROM Word w WHERE w.level = :level")
     Page<WordProjection> findAllByLevel(String level, Pageable pageable);
 
     Word findWordByWord(String word);

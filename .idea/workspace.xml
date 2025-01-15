@@ -4,18 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="한자 이미지 추가">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/dto/WordProjection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Word/WordData.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Word/WordList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Word/WordPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Word/WordSelection.js" afterDir="false" />
+    <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="단어 관련 페이지 추가">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/controller/TestSentenceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/dto/SentenceProjection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/dto/WordProjection.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/dto/WordProjection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/entity/TestSentence.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/entity/TestSentence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/repository/TestSentenceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/repository/TestSentenceRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/repository/WordRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/repository/WordRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/WordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/WordService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Kanji/KanjiData.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Kanji/KanjiData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/TestSentenceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/TestSentenceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Word/WordData.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Word/WordData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Word/WordList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Word/WordList.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +121,11 @@
       <workItem from="1735626906758" duration="4683000" />
       <workItem from="1736220392697" duration="12677000" />
       <workItem from="1736320761360" duration="4347000" />
-      <workItem from="1736330979031" duration="2064000" />
+      <workItem from="1736330979031" duration="2554000" />
+      <workItem from="1736334124174" duration="574000" />
+      <workItem from="1736334717169" duration="118000" />
+      <workItem from="1736838632000" duration="2821000" />
+      <workItem from="1736901251842" duration="2199000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -203,7 +207,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736325236462</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="단어 관련 페이지 추가">
+      <option name="closed" value="true" />
+      <created>1736333552692</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1736333552692</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,7 +243,8 @@
     <MESSAGE value="한자 리스트 및 세부 페이지 작성" />
     <MESSAGE value="한자 세부 페이지 수정" />
     <MESSAGE value="한자 이미지 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="한자 이미지 추가" />
+    <MESSAGE value="단어 관련 페이지 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="단어 관련 페이지 추가" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
