@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="단어 페이지 예문 추가 및 리스트 페이지 오류 해결">
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Test/Order/OrderPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Test/Select/SelectPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Test/Select/TestSelection.js" afterDir="false" />
+    <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="퀴즈 선택 페이지 추가">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Main/LinkCardSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Main/LinkCardSection.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,6 +120,8 @@
       <workItem from="1736838632000" duration="2821000" />
       <workItem from="1736901251842" duration="2286000" />
       <workItem from="1737444271215" duration="1735000" />
+      <workItem from="1737975160266" duration="25000" />
+      <workItem from="1738052741060" duration="600000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -222,7 +219,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736904822763</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="퀴즈 선택 페이지 추가">
+      <option name="closed" value="true" />
+      <created>1737975175024</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1737975175024</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,7 +257,8 @@
     <MESSAGE value="한자 이미지 추가" />
     <MESSAGE value="단어 관련 페이지 추가" />
     <MESSAGE value="단어 페이지 예문 추가 및 리스트 페이지 오류 해결" />
-    <option name="LAST_COMMIT_MESSAGE" value="단어 페이지 예문 추가 및 리스트 페이지 오류 해결" />
+    <MESSAGE value="퀴즈 선택 페이지 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="퀴즈 선택 페이지 추가" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

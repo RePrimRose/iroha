@@ -5,17 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30eaf832-8c80-4c85-b3c3-9906bea7089b" name="변경" comment="변경">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/controller/TestSentenceController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/dto/SentenceProjection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/entity/CorrectAnswer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/repository/CorrectAnswerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/CorrectAnswerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/dto/WordProjection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/dto/WordProjection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/entity/TestSentence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/entity/TestSentence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/repository/TestSentenceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/repository/TestSentenceRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/repository/WordRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/repository/WordRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/TestSentenceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/TestSentenceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Word/WordData.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Word/WordData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Word/WordList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Word/WordList.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,8 +46,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -80,28 +74,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.backend 빌드.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Spring Boot.IrohaApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/park1/Documents/iroha/iroha/backend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.backend 빌드.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.IrohaApplication.executor": "Debug",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/park1/Documents/iroha/iroha",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="IrohaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="iroha.main" />
@@ -140,6 +134,7 @@
       <workItem from="1736334677619" duration="25000" />
       <workItem from="1736838640256" duration="7463000" />
       <workItem from="1736901259313" duration="3070000" />
+      <workItem from="1738053916933" duration="1722000" />
     </task>
     <servers />
   </component>
