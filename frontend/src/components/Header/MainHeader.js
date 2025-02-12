@@ -1,9 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import axios from "axios";
+import {useDispatch, useSelector} from "react-redux";
+import {setIsAuthenticated} from "../../redux/authenticationSlice";
 
-const Header = ({ onAuthStatus }) => {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+const MainHeader = () => {
+    const isAuthenticated = useSelector((state) => state.authentication.isAuthenticated);
+    const dispatch = useDispatch();
     const [username, setUsername] = useState("");
 
     const logout = () => {
@@ -26,17 +29,15 @@ const Header = ({ onAuthStatus }) => {
                         }
                     );
                     setUsername(response.data.username);
-                    setIsAuthenticated(true);
-                    onAuthStatus(true);
+                    dispatch(setIsAuthenticated(true));
                 }
             } catch (error) {
                 console.error(error);
-                onAuthStatus(false);
             }
         };
 
         getAuthenticated();
-    }, [onAuthStatus]);
+    }, []);
 
     return (
         <header className="bg-sakura shadow-md">
@@ -92,4 +93,4 @@ const Header = ({ onAuthStatus }) => {
     );
 };
 
-export default Header;
+export default MainHeader;

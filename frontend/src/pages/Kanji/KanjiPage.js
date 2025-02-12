@@ -1,7 +1,7 @@
 import {useParams} from "react-router-dom";
 import KanjiSelection from "./KanjiSelection";
 import KanjiList from "./KanjiList";
-import Header from "../../components/Header/Header";
+import MainHeader from "../../components/Header/MainHeader";
 import Footer from "../../components/Footer/Footer";
 import KanjiData from "./KanjiData";
 
@@ -10,7 +10,7 @@ const KanjiPage = () => {
 
     return (
         <div className="min-h-screen flex flex-col bg-gray-100">
-            <Header/>
+            <MainHeader/>
             {
                 level ? (
                     kanji ? <KanjiData/> : <KanjiList/>

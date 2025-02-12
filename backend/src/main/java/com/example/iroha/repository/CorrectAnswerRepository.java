@@ -13,4 +13,7 @@ public interface CorrectAnswerRepository extends JpaRepository<CorrectAnswer, Lo
 
     @Query("SELECT c FROM CorrectAnswer c WHERE c.user.id = :userId AND c.type = :type ORDER BY c.reviewTime ASC ")
     List<CorrectAnswer> findByUserAndType(@Param("userId") Long userId, @Param("type") String type);
+
+    @Query("SELECT c FROM CorrectAnswer c WHERE c.itemId = :itemId AND c.type = :type AND c.user.id = :userId")
+    CorrectAnswer findByItemIdAndTypeAndUserId(Long itemId, String type, Long userId);
 }

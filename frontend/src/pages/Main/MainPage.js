@@ -1,17 +1,15 @@
 import React from "react";
-import Header from "../../components/Header/Header";
+import MainHeader from "../../components/Header/MainHeader";
 import MainSection from "./MainSection";
 import AdditionalSection from "./AdditionalSection";
 import Footer from "../../components/Footer/Footer";
 
 const MainPage = () => {
-    const [isAuthenticated, setIsAuthenticated] = React.useState(false);
-
     return (
         <div className="min-h-screen flex flex-col bg-gray-100">
-            <Header onAuthStatus={setIsAuthenticated}></Header>
+            <MainHeader></MainHeader>
             <MainSection></MainSection>
-            <AdditionalSection isAuthenticated={isAuthenticated}></AdditionalSection>
+            <AdditionalSection></AdditionalSection>
             <Footer></Footer>
         </div>
     );

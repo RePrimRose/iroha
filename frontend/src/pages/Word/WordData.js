@@ -35,7 +35,7 @@ const WordData = () => {
                         Authorization: `Bearer ${token}`,
                     }
                 });
-                console.log(response.data);
+                setSentenceData(response.data);
             } catch (error) {
                 console.error(error);
             }

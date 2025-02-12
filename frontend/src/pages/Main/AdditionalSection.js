@@ -1,8 +1,11 @@
 import React from 'react';
 import NormalCardSection from "./NormalCardSection";
 import LinkCardSection from "./LinkCardSection";
+import {useDispatch, useSelector} from "react-redux";
 
-const AdditionalSection = ({ isAuthenticated }) => {
+const AdditionalSection = () => {
+    const isAuthenticated = useSelector((state) => state.authentication.isAuthenticated);
+
     return (
         <section className="flex-grow flex flex-col items-center justify-center">
             <div className="container mx-auto px-6">

@@ -1,9 +1,17 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import axios from "axios";
+import {useDispatch} from "react-redux";
+import {setCurrProgress, setTotalProgress} from "../../../redux/testProgressSlice";
 
 const OrderPage = () => {
-    const sentenceParts = ["저는", "아침에", "산책을", "했습니다"];
+    const [sentenceParts, setSentenceParts] = useState([]);
+    const [translationParts, setTranslationParts] = useState([]);
+    const [testId, setTestId] = useState();
     const [answer, setAnswer] = useState([]);
     const [draggedIndex, setDraggedIndex] = useState(null);
+
+    const token = localStorage.getItem('token');
+    const dispatch = useDispatch();
 
     const handleAddToAnswer = (part) => {
         setAnswer((prev) => [...prev, part]);
@@ -27,10 +35,69 @@ const OrderPage = () => {
         setDraggedIndex(null);
     };
 
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.post('http://localhost/api/sentence/inOrderTest',
+                    {
+                        type: 'inorder'
+                    },
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    }
+                );
+                setSentenceParts(JSON.parse(response.data.testSentence.dividedSentence));
+                setTranslationParts(response.data.testSentence.translate);
+                setTestId(response.data.testSentence.id);
+                dispatch(setTotalProgress(response.data.totalProgress));
+                dispatch(setCurrProgress(response.data.currProgress));
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        fetchData();
+    }, []);
+
+    const handleSubmit = async () => {
+        alert(answer);
+        try {
+            const response = await axios.post('http://localhost/api/sentence/inOrderTest',
+                {
+                    type: 'inorder',
+                    testId: testId,
+                    answer: answer.join("")
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
+            console.log(response.data);
+            setSentenceParts(JSON.parse(response.data.testSentence.dividedSentence));
+            setTranslationParts(response.data.testSentence.translate);
+            setTestId(response.data.testSentence.id);
+            setAnswer([]);
+            dispatch(setCurrProgress(response.data.currProgress));
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    if (!testId) {
+        return <p>로딩 중...</p>;
+    }
+
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
-            {/* 제목 */}
-            <h1 className="text-3xl font-bold mb-8">순서 맞추기 테스트</h1>
+
+            {/* 번역 문장 */}
+            <p className="text-lg text-gray-700 italic mb-4 w-2/3 text-center">
+                "{translationParts}"
+            </p>
 
             {/* 정답칸 */}
             <div className="p-6 bg-white shadow-md rounded-lg w-2/3 max-w-3xl mb-8">
@@ -67,6 +134,14 @@ const OrderPage = () => {
                     ))}
                 </div>
             </div>
+
+            {/* 제출 버튼 */}
+            <button
+                onClick={handleSubmit}
+                className="mt-8 px-6 py-3 bg-green-500 text-white text-lg font-semibold rounded-lg hover:bg-green-600 transition"
+            >
+                제출
+            </button>
         </div>
     );
 };

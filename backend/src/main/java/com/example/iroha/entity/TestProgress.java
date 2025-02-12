@@ -1,15 +1,17 @@
 package com.example.iroha.entity;
 
+import com.example.iroha.util.JsonUtil;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
-@Setter
 @Getter
-public class CorrectAnswer {
+@Setter
+public class TestProgress {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,17 +20,17 @@ public class CorrectAnswer {
     @JoinColumn(name = "userid", nullable = false)
     private User user;
 
-    @Column(nullable = false)
-    private String type;
+    private String testType;
 
     @Column(nullable = false)
-    private Long itemId;
+    private int totalProgress = 0;
 
     @Column(nullable = false)
-    private LocalDateTime reviewTime;
-
-    private int days;
+    private int reviewProgress = 0;
 
     @Column(nullable = false)
-    private boolean receivedScore;
+    private LocalDateTime lastSolveTime = LocalDateTime.now();
+
+    @Convert(converter = JsonUtil.class)
+    private List<Long> wrongTestIds;
 }

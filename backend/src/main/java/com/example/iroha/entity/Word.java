@@ -12,10 +12,13 @@ public class Word {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String word;
 
+    @Column(nullable = false)
     private String furigana;
 
+    @Column(nullable = false)
     private String meaning;
 
     @Column(length = 10)

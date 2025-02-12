@@ -4,8 +4,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="퀴즈 선택 페이지 추가">
+    <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="퀴즈 로직 구현 중">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/dto/RequestData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/entity/TestProgress.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/repository/TestProgressRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/TestProgressService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/util/JsonUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/util/ScoreUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Header/TestHeader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/redux/authenticationSlice.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/redux/testProgressSlice.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/controller/TestSentenceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/controller/TestSentenceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/entity/CorrectAnswer.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/entity/CorrectAnswer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/entity/Word.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/entity/Word.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/repository/CorrectAnswerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/repository/CorrectAnswerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/repository/TestSentenceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/repository/TestSentenceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/CorrectAnswerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/CorrectAnswerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/TestSentenceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/TestSentenceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header/MainHeader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Kanji/KanjiPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Kanji/KanjiPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Learning/LearningPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Learning/LearningPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Login/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Login/LoginPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Main/AdditionalSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Main/AdditionalSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Main/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Main/MainPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/SignUp/SignUpPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/SignUp/SignUpPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Test/Order/OrderPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Test/Order/OrderPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Test/Select/SelectPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Test/Select/SelectPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Word/WordData.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Word/WordData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Word/WordPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Word/WordPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,6 +153,15 @@
       <workItem from="1737444271215" duration="1735000" />
       <workItem from="1737975160266" duration="25000" />
       <workItem from="1738052741060" duration="600000" />
+      <workItem from="1738055651322" duration="24000" />
+      <workItem from="1738566090368" duration="600000" />
+      <workItem from="1738648183866" duration="802000" />
+      <workItem from="1738743636528" duration="1593000" />
+      <workItem from="1738904278195" duration="4821000" />
+      <workItem from="1738909933532" duration="4000" />
+      <workItem from="1739191489840" duration="1144000" />
+      <workItem from="1739362340789" duration="3369000" />
+      <workItem from="1739365761347" duration="2623000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -227,7 +267,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737975175024</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="퀴즈 로직 구현 중">
+      <option name="closed" value="true" />
+      <created>1738055667192</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1738055667192</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,7 +306,8 @@
     <MESSAGE value="단어 관련 페이지 추가" />
     <MESSAGE value="단어 페이지 예문 추가 및 리스트 페이지 오류 해결" />
     <MESSAGE value="퀴즈 선택 페이지 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="퀴즈 선택 페이지 추가" />
+    <MESSAGE value="퀴즈 로직 구현 중" />
+    <option name="LAST_COMMIT_MESSAGE" value="퀴즈 로직 구현 중" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
