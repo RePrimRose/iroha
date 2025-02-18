@@ -51,13 +51,16 @@ public class CorrectAnswerService {
         correctAnswerRepository.save(correctAnswer);
     }
 
-    public List<CorrectAnswer> findCorrectAnswerByUserId(Long userId, String type) {
-        return correctAnswerRepository.findByUserAndType(userId, type);
+    public Long findReviewTestIdByUserId(Long userId, String type) {
+        List<CorrectAnswer> correctAnswerList = correctAnswerRepository.findByUserAndType(userId, type);
+        CorrectAnswer correctAnswer = correctAnswerList.get(0);
+
+        if(correctAnswer.getReviewTime().isBefore(LocalDateTime.now())) return correctAnswer.getItemId();
+
+        return null;
     }
 
     public CorrectAnswer findCorrectAnswerByItemId(Long itemId, String type, Long userId) {
-        CorrectAnswer correctAnswer = correctAnswerRepository.findByItemIdAndTypeAndUserId(itemId, type, userId);
-        if(correctAnswer != null && correctAnswer.getReviewTime().isAfter(LocalDateTime.now())) return null;
-        return correctAnswer;
+        return correctAnswerRepository.findByItemIdAndTypeAndUserId(itemId, type, userId);
     }
 }

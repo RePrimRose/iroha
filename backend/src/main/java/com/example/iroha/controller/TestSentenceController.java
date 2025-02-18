@@ -64,20 +64,25 @@ public class TestSentenceController {
 
         if(testProgressService.isTestOver(user)) {
             if(testProgressService.isReviewOver(user)) return ResponseEntity.ok("Test Over");
-        } else {
-            // 리뷰 문제 제출 방식 고치기
-            if(testProgressService.isNextReview(user) && correctAnswerService.findCorrectAnswerByItemId(testId, type, user.getId()) != null) {
-                testSentence = testSentenceService.findTestSentenceById(testId);
-            } else {
-                testSentence = testSentenceService.findNextInOrderTest(user, type);
+            else {
+                testSentence = testSentenceService.findTestSentenceById(testProgress.getWrongTestIds().get(0));
             }
+        } else {
+            Long reviewTestId = null;
+
+            if(testProgressService.isNextReview(user)) {
+                reviewTestId = correctAnswerService.findReviewTestIdByUserId(user.getId(), type);
+            }
+
+            testSentence = (reviewTestId != null)
+                    ? testSentenceService.findTestSentenceById(reviewTestId)
+                    : testSentenceService.findNextInOrderTest(user, type);
         }
 
         Map<String, Object> response = new HashMap<>();
         response.put("testSentence", testSentence);
         response.put("isCorrect", isCorrect);
-        // 유저 정보 그대로 주지 말고 현재 풀어야하는 전체 문제 수, 현재 푼 문제만 주기
-        response.put("currProgress", testProgress.getTotalProgress() + testProgress.getReviewProgress());
+        response.put("currProgress", testProgress.getTotalProgress());
         response.put("totalProgress", user.getProblemsPerDay());
 
         return ResponseEntity.ok(response);

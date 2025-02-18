@@ -5,6 +5,7 @@ import com.example.iroha.entity.User;
 import com.example.iroha.repository.TestProgressRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +19,25 @@ public class TestProgressService {
         this.testProgressRepository = testProgressRepository;
     }
 
+    /**
+     * 사용자의 테스트 진행 상황을 가져옵니다.
+     * 만약 사용자의 마지막 풀이 날짜가 오늘과 다르면,
+     * 총 진행도(totalProgress)와 복습 진행도(reviewProgress)를 초기화합니다.
+     *
+     * @param user 테스트 진행도를 조회할 사용자 객체
+     * @return 사용자의 {@link TestProgress} 객체
+     */
     public TestProgress getTestProgress(User user) {
-        return testProgressRepository.findByUser(user);
+        TestProgress testProgress = testProgressRepository.findByUser(user);
+        boolean isToday = testProgress.getLastSolveTime().toLocalDate().equals(LocalDate.now());
+
+        if(!isToday) {
+            testProgress.setReviewProgress(0);
+            testProgress.setTotalProgress(0);
+            testProgress.setWrongTestIds(new ArrayList<>());
+        }
+
+        return testProgress;
     }
 
     public void createTestProgress(User user) {
@@ -32,16 +50,18 @@ public class TestProgressService {
         TestProgress testProgress = testProgressRepository.findByUser(user);
         List<Long> wrongIds = testProgress.getWrongTestIds();
 
-        if(isReview) {
-            testProgress.setReviewProgress(testProgress.getReviewProgress() + 1);
-        }
-        testProgress.setTotalProgress(testProgress.getTotalProgress() + 1);
+        if(isReview) testProgress.setReviewProgress(testProgress.getReviewProgress() + 1);
+        if(isCorrect) testProgress.setTotalProgress(testProgress.getTotalProgress() + 1);
         testProgress.setLastSolveTime(LocalDateTime.now());
 
         if(!isCorrect) {
             if(wrongIds == null) wrongIds = new ArrayList<>();
-            wrongIds.add(id);
-            testProgress.setWrongTestIds(wrongIds);
+            if(!wrongIds.contains(id)) {
+                wrongIds.add(id);
+                testProgress.setWrongTestIds(wrongIds);
+            }
+        } else if(isReview && wrongIds != null) {
+            wrongIds.remove(id);
         }
 
         testProgressRepository.save(testProgress);
@@ -56,7 +76,7 @@ public class TestProgressService {
     /* 테스트 끝 여부 판단 */
     public boolean isTestOver(User user) {
         TestProgress testProgress = testProgressRepository.findByUser(user);
-        return testProgress.getTotalProgress() == user.getProblemsPerDay();
+        return testProgress.getTotalProgress() >= user.getProblemsPerDay();
     }
 
     /* 테스트가 끝 이후 틀린 문제 여부 판단 */

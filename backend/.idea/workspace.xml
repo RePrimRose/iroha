@@ -5,38 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30eaf832-8c80-4c85-b3c3-9906bea7089b" name="변경" comment="변경">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/dto/RequestData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/entity/TestProgress.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/repository/TestProgressRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/TestProgressService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/util/JsonUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/util/ScoreUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/components/Header/TestHeader.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/redux/authenticationSlice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/redux/testProgressSlice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/iroha.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/iroha.main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/controller/TestSentenceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/controller/TestSentenceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/entity/CorrectAnswer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/entity/CorrectAnswer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/entity/Word.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/entity/Word.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/repository/CorrectAnswerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/repository/CorrectAnswerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/repository/TestSentenceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/repository/TestSentenceRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/CorrectAnswerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/CorrectAnswerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/TestSentenceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/TestSentenceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/Header/MainHeader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Kanji/KanjiPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Kanji/KanjiPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Learning/LearningPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Learning/LearningPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Login/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Login/LoginPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Main/AdditionalSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Main/AdditionalSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Main/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Main/MainPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/SignUp/SignUpPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/SignUp/SignUpPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Test/Order/OrderPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Test/Order/OrderPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Test/Select/SelectPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Test/Select/SelectPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Word/WordData.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Word/WordData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Word/WordPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Word/WordPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/TestProgressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/TestProgressService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,12 +65,12 @@
     &quot;assignee&quot;: &quot;RePrimRose&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/RePrimRose/iroha.git&quot;,
-    &quot;accountId&quot;: &quot;50991186-0af7-4d02-9dcd-c6accf4e55db&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/RePrimRose/iroha.git",
+    "accountId": "9aaff5c0-2646-4ffa-aa05-be90df7da7df"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -101,28 +79,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.backend 빌드.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Spring Boot.IrohaApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/park1/Documents/iroha/iroha/backend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.backend 빌드.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.IrohaApplication.executor": "Debug",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/park1/Documents/iroha/backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="IrohaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="iroha.main" />
@@ -135,8 +114,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
-        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.24978.46" />
+        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-IU-243.24978.46" />
       </set>
     </attachedChunks>
   </component>
@@ -169,10 +148,15 @@
       <workItem from="1739191500613" duration="1130000" />
       <workItem from="1739362915120" duration="2263000" />
       <workItem from="1739367839194" duration="635000" />
+      <workItem from="1739856178036" duration="5361000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
