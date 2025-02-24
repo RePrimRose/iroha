@@ -1,15 +1,21 @@
 package com.example.iroha.service;
 
+import com.example.iroha.dto.RequestData;
+import com.example.iroha.dto.test.InOrderTestDTO;
+import com.example.iroha.dto.test.TestDTO;
+import com.example.iroha.entity.CorrectAnswer;
+import com.example.iroha.entity.TestProgress;
 import com.example.iroha.entity.TestSentence;
 import com.example.iroha.entity.User;
 import com.example.iroha.repository.TestSentenceRepository;
+import com.example.iroha.util.NormalizeJapaneseText;
+import com.example.iroha.util.Pair;
 import com.example.iroha.util.ScoreUtil;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Service
@@ -17,10 +23,12 @@ import java.util.concurrent.ThreadLocalRandom;
 public class TestSentenceService {
 
     private final TestSentenceRepository testSentenceRepository;
+    private final TestProgressService testProgressService;
     private final CorrectAnswerService correctAnswerService;
 
-    public TestSentenceService(TestSentenceRepository testSentenceRepository, CorrectAnswerService correctAnswerService) {
+    public TestSentenceService(TestSentenceRepository testSentenceRepository, TestProgressService testProgressService, CorrectAnswerService correctAnswerService) {
         this.testSentenceRepository = testSentenceRepository;
+        this.testProgressService = testProgressService;
         this.correctAnswerService = correctAnswerService;
     }
 
@@ -41,6 +49,47 @@ public class TestSentenceService {
 
     public boolean checkAnswer(Long id, String answer) {
         Optional<TestSentence> sentence = testSentenceRepository.findById(id);
-        return Objects.equals(answer, sentence.get().getSentence());
+        answer = NormalizeJapaneseText.normalizeJapaneseText(answer);
+
+        return Objects.equals(answer,  NormalizeJapaneseText.normalizeJapaneseText(sentence.get().getSentence()));
+    }
+
+    public TestDTO processTestSentence(User user, TestProgress testProgress, String type) {
+        if (testProgressService.isTestOver(user, type)) {
+            return testProgressService.isReviewOver(user, type) ? null :
+                    convertToDTO(findTestSentenceById(testProgress.getWrongTestIds().get(type).get(0)));
+        }
+
+        Long reviewTestId = testProgressService.isNextReview(user, type)
+                ? correctAnswerService.findReviewTestIdByUserId(user.getId(), type)
+                : null;
+
+        return reviewTestId != null
+                ? convertToDTO(findTestSentenceById(reviewTestId))
+                : convertToDTO(findNextInOrderTest(user, type));
+    }
+
+    private InOrderTestDTO convertToDTO(TestSentence testSentence) {
+        if (testSentence == null) return null;
+
+        return new InOrderTestDTO(
+                testSentence.getId(),
+                testSentence.getSentence(),
+                parseQuestion(testSentence)
+        );
+    }
+
+    private List<Pair<String, String>> parseQuestion(TestSentence testSentence) {
+        List<Pair<String, String>> question = new ArrayList<>();
+        List<String> dividedSentence = testSentence.getDividedSentence();
+        List<String> dividedSentenceWithRuby = testSentence.getDividedSentenceWithRuby();
+
+        for (int i = 0; i < dividedSentence.size(); i++) {
+            question.add(new Pair<>(dividedSentence.get(i), dividedSentenceWithRuby.get(i)));
+        }
+
+        Collections.shuffle(question);
+
+        return question;
     }
 }

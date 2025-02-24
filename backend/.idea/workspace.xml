@@ -5,16 +5,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30eaf832-8c80-4c85-b3c3-9906bea7089b" name="변경" comment="변경">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/controller/TestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/dto/test/FillBlankTestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/dto/test/InOrderTestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/dto/test/SelectTestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/dto/test/TestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/test/TestService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/util/NormalizeJapaneseText.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/util/Pair.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/util/json/JsonConvertToMapDateTimeUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/util/json/JsonConvertToMapIntegerUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/util/json/JsonConvertToMapListLongUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/util/json/JsonConvertToMapLongUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/public/image/check-mark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/public/image/cross-mark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/public/sound/fail.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/public/sound/success.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/iroha.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/iroha.main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/controller/KanjiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/controller/KanjiController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/controller/TestSentenceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/controller/TestSentenceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/controller/WordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/controller/WordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/dto/KanjiProjection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/dto/projection/KanjiProjection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/dto/SentenceProjection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/dto/projection/SentenceProjection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/dto/WordProjection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/dto/projection/WordProjection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/entity/TestProgress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/entity/TestProgress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/entity/TestSentence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/entity/TestSentence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/repository/KanjiRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/repository/KanjiRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/repository/WordRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/repository/WordRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/CorrectAnswerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/CorrectAnswerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/KanjiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/KanjiService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/TestProgressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/TestProgressService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/TestSentenceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/TestSentenceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/WordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/WordService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/util/JsonUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/util/json/JsonConvertToListStringUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/components/Header/TestHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/Header/TestHeader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Test/Order/OrderPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Test/Order/OrderPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Test/Select/TestSelection.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Test/Select/TestSelection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nginx/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/../nginx/nginx.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,12 +94,12 @@
     &quot;assignee&quot;: &quot;RePrimRose&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/RePrimRose/iroha.git",
-    "accountId": "9aaff5c0-2646-4ffa-aa05-be90df7da7df"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/RePrimRose/iroha.git&quot;,
+    &quot;accountId&quot;: &quot;9aaff5c0-2646-4ffa-aa05-be90df7da7df&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -79,29 +108,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.backend 빌드.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.IrohaApplication.executor": "Debug",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/park1/Documents/iroha/backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.backend 빌드.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.IrohaApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/park1/Documents/iroha/backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.iroha.util.json" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="IrohaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="iroha.main" />
@@ -149,6 +183,11 @@
       <workItem from="1739362915120" duration="2263000" />
       <workItem from="1739367839194" duration="635000" />
       <workItem from="1739856178036" duration="5361000" />
+      <workItem from="1739943093505" duration="3594000" />
+      <workItem from="1740031512861" duration="1751000" />
+      <workItem from="1740033968579" duration="552000" />
+      <workItem from="1740120934917" duration="3263000" />
+      <workItem from="1740378788573" duration="11554000" />
     </task>
     <servers />
   </component>

@@ -1,4 +1,4 @@
-package com.example.iroha.dto;
+package com.example.iroha.dto.projection;
 
 public interface WordProjection {
     String getWord();

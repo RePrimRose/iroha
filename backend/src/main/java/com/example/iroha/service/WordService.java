@@ -1,9 +1,8 @@
 package com.example.iroha.service;
 
-import com.example.iroha.dto.WordProjection;
+import com.example.iroha.dto.projection.WordProjection;
 import com.example.iroha.entity.Word;
 import com.example.iroha.repository.WordRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

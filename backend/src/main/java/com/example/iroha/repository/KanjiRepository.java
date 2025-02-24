@@ -1,6 +1,6 @@
 package com.example.iroha.repository;
 
-import com.example.iroha.dto.KanjiProjection;
+import com.example.iroha.dto.projection.KanjiProjection;
 import com.example.iroha.entity.Kanji;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

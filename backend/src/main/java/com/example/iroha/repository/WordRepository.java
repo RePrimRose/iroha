@@ -1,6 +1,6 @@
 package com.example.iroha.repository;
 
-import com.example.iroha.dto.WordProjection;
+import com.example.iroha.dto.projection.WordProjection;
 import com.example.iroha.entity.Word;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

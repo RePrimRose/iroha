@@ -1,8 +1,13 @@
 package com.example.iroha.entity;
 
+import com.example.iroha.util.json.JsonConvertToMapIntegerUtil;
+import com.example.iroha.util.json.JsonConvertToMapLongUtil;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Entity
 @Getter @Setter
@@ -24,11 +29,11 @@ public class User {
     @Column(nullable = false)
     private int score = 0;
 
-    @Column(nullable = false)
-    private int problemsPerDay = 10;
+    @Column(columnDefinition = "JSON")
+    @Convert(converter = JsonConvertToMapIntegerUtil.class)
+    private Map<String, Integer> problemsPerDay = new HashMap<>();
 
-    // 일일 문제 제외 추가 문제 정하기. (아마 문제의 타입별로 정해야 할 것 JSON으로 할지 고민.)
-
-    @Column(nullable = false)
-    private double reviewRatio = 0.3;
+    @Column(columnDefinition = "JSON")
+    @Convert(converter = JsonConvertToMapLongUtil.class)
+    private Map<String, Long> reviewRatio = new HashMap<>();
 }

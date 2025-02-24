@@ -1,9 +1,12 @@
 package com.example.iroha.entity;
 
+import com.example.iroha.util.json.JsonConvertToListStringUtil;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+
+import java.util.List;
 
 @Entity
 @Getter @Setter @ToString
@@ -19,11 +22,13 @@ public class TestSentence {
     @Column(columnDefinition = "TEXT")
     private String translate;
 
+    @Convert(converter = JsonConvertToListStringUtil.class)
     @Column(columnDefinition = "JSON")
-    private String dividedSentence;
+    private List<String> dividedSentence;
 
+    @Convert(converter = JsonConvertToListStringUtil.class)
     @Column(columnDefinition = "JSON")
-    private String dividedSentenceWithRuby;
+    private List<String> dividedSentenceWithRuby;
 
     @Column(columnDefinition = "TEXT")
     private String sentenceWithRuby;

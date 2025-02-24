@@ -53,6 +53,9 @@ public class CorrectAnswerService {
 
     public Long findReviewTestIdByUserId(Long userId, String type) {
         List<CorrectAnswer> correctAnswerList = correctAnswerRepository.findByUserAndType(userId, type);
+
+        if(correctAnswerList.isEmpty()) return null;
+
         CorrectAnswer correctAnswer = correctAnswerList.get(0);
 
         if(correctAnswer.getReviewTime().isBefore(LocalDateTime.now())) return correctAnswer.getItemId();

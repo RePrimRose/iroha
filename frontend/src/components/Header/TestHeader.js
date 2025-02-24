@@ -29,9 +29,7 @@ const TestHeader = ({ onBack }) => {
                 <div className="absolute left-1/2 transform -translate-x-1/2 w-full max-w-[300px]">
                     <div className="relative w-full bg-white rounded-full h-6 shadow-md">
                         <div
-                            className={`h-6 rounded-full transition-all duration-500 ${
-                                progress > 70 ? "bg-green-500" : progress > 40 ? "bg-yellow-500" : "bg-red-500"
-                            }`}
+                            className="h-6 rounded-full transition-all duration-500 bg-green-500"
                             style={{ width: `${progress}%` }}
                         />
                         <div className="absolute inset-0 flex items-center justify-center text-traditionalBlue text-sm font-bold">

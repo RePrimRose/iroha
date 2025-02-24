@@ -1,9 +1,8 @@
 package com.example.iroha.service;
 
-import com.example.iroha.dto.KanjiProjection;
+import com.example.iroha.dto.projection.KanjiProjection;
 import com.example.iroha.entity.Kanji;
 import com.example.iroha.repository.KanjiRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

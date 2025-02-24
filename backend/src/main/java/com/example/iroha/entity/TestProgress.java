@@ -1,12 +1,17 @@
 package com.example.iroha.entity;
 
-import com.example.iroha.util.JsonUtil;
+import com.example.iroha.util.json.JsonConvertToMapDateTimeUtil;
+import com.example.iroha.util.json.JsonConvertToMapIntegerUtil;
+import com.example.iroha.util.json.JsonConvertToMapListLongUtil;
+import com.example.iroha.util.json.JsonConvertToMapLongUtil;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Entity
 @Getter
@@ -20,17 +25,23 @@ public class TestProgress {
     @JoinColumn(name = "userid", nullable = false)
     private User user;
 
-    private String testType;
+    @Convert(converter = JsonConvertToMapLongUtil.class)
+    @Column(columnDefinition = "JSON")
+    private Map<String, Long> testType = new HashMap<>();;
 
-    @Column(nullable = false)
-    private int totalProgress = 0;
+    @Convert(converter = JsonConvertToMapIntegerUtil.class)
+    @Column(columnDefinition = "JSON")
+    private Map<String, Integer> totalProgress = new HashMap<>();;
 
-    @Column(nullable = false)
-    private int reviewProgress = 0;
+    @Convert(converter = JsonConvertToMapIntegerUtil.class)
+    @Column(columnDefinition = "JSON")
+    private Map<String, Integer> reviewProgress = new HashMap<>();;
 
-    @Column(nullable = false)
-    private LocalDateTime lastSolveTime = LocalDateTime.now();
+    @Convert(converter = JsonConvertToMapDateTimeUtil.class)
+    @Column(columnDefinition = "JSON")
+    private Map<String, LocalDateTime> lastSolveTime = new HashMap<>();;
 
-    @Convert(converter = JsonUtil.class)
-    private List<Long> wrongTestIds;
+    @Convert(converter = JsonConvertToMapListLongUtil.class)
+    @Column(columnDefinition = "JSON")
+    private Map<String, List<Long>> wrongTestIds = new HashMap<>();;
 }

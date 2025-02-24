@@ -8,6 +8,8 @@ const OrderPage = () => {
     const [translationParts, setTranslationParts] = useState([]);
     const [testId, setTestId] = useState();
     const [answer, setAnswer] = useState([]);
+    const [showToast, setShowToast] = useState(false);
+    const [isCorrect, setIsCorrect] = useState(false);
     const [draggedIndex, setDraggedIndex] = useState(null);
 
     const token = localStorage.getItem('token');
@@ -61,8 +63,42 @@ const OrderPage = () => {
         fetchData();
     }, []);
 
-    const handleSubmit = async () => {
-        alert(answer);
+    const handleSubmitAnswer = async () => {
+        try {
+            const response = await axios.post('http://localhost/api/sentence/inOrderTest/check-answer',
+                {
+                    testId: testId,
+                    answer: answer.join("")
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
+
+            const isCorrect = response.data.isCorrect;
+            setShowToast(true);
+            setIsCorrect(isCorrect);
+
+            const playSound = () => {
+                const audio = new Audio(isCorrect ? "/sound/success.mp3" : "/sound/fail.mp3");
+                audio.play().catch(err => console.log(err));
+            }
+
+            playSound();
+
+            setTimeout(() => {
+                setShowToast(false);
+                getQuestion();
+            }, 2000);
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const getQuestion = async () => {
         try {
             const response = await axios.post('http://localhost/api/sentence/inOrderTest',
                 {
@@ -76,7 +112,6 @@ const OrderPage = () => {
                     },
                 }
             );
-            console.log(response.data);
             setSentenceParts(JSON.parse(response.data.testSentence.dividedSentence));
             setTranslationParts(response.data.testSentence.translate);
             setTestId(response.data.testSentence.id);
@@ -93,6 +128,16 @@ const OrderPage = () => {
 
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
+
+            {showToast && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                    <img
+                        src={isCorrect ? "/image/check-mark.png" : "/image/cross-mark.png"}
+                        alt={isCorrect ? "정답" : "오답"}
+                        className="w-32 h-32 object-contain drop-shadow-lg"
+                    />
+                </div>
+            )}
 
             {/* 번역 문장 */}
             <p className="text-lg text-gray-700 italic mb-4 w-2/3 text-center">
@@ -137,7 +182,7 @@ const OrderPage = () => {
 
             {/* 제출 버튼 */}
             <button
-                onClick={handleSubmit}
+                onClick={handleSubmitAnswer}
                 className="mt-8 px-6 py-3 bg-green-500 text-white text-lg font-semibold rounded-lg hover:bg-green-600 transition"
             >
                 제출

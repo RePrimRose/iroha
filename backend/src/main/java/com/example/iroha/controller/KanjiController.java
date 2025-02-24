@@ -1,6 +1,6 @@
 package com.example.iroha.controller;
 
-import com.example.iroha.dto.KanjiProjection;
+import com.example.iroha.dto.projection.KanjiProjection;
 import com.example.iroha.entity.Kanji;
 import com.example.iroha.service.KanjiService;
 import org.springframework.beans.factory.annotation.Autowired;

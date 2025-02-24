@@ -1,6 +1,6 @@
 package com.example.iroha.controller;
 
-import com.example.iroha.dto.WordProjection;
+import com.example.iroha.dto.projection.WordProjection;
 import com.example.iroha.entity.Word;
 import com.example.iroha.service.WordService;
 import org.springframework.data.domain.Page;

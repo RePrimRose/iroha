@@ -7,8 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class TestProgressService {
@@ -27,65 +26,87 @@ public class TestProgressService {
      * @param user 테스트 진행도를 조회할 사용자 객체
      * @return 사용자의 {@link TestProgress} 객체
      */
-    public TestProgress getTestProgress(User user) {
+    public TestProgress getTestProgress(User user, String type) {
         TestProgress testProgress = testProgressRepository.findByUser(user);
-        boolean isToday = testProgress.getLastSolveTime().toLocalDate().equals(LocalDate.now());
+
+        if (testProgress == null) {
+            testProgress = new TestProgress();
+            testProgress.setUser(user);
+            testProgressRepository.save(testProgress);
+        }
+
+        Map<String, LocalDateTime> lastSolveTime = testProgress.getLastSolveTime();
+        boolean isToday = lastSolveTime.containsKey(type) && lastSolveTime.get(type).toLocalDate().equals(LocalDate.now());
 
         if(!isToday) {
-            testProgress.setReviewProgress(0);
-            testProgress.setTotalProgress(0);
-            testProgress.setWrongTestIds(new ArrayList<>());
+            Map<String, Integer> reviewProgress = testProgress.getReviewProgress();
+            Map<String, Integer> totalProgress = testProgress.getTotalProgress();
+
+            totalProgress.put(type, 0);
+            reviewProgress.put(type, 0);
+            lastSolveTime.put(type, LocalDateTime.now());
+
+            testProgress.setReviewProgress(reviewProgress);
+            testProgress.setTotalProgress(totalProgress);
+            testProgress.setLastSolveTime(lastSolveTime);
+            testProgress.setWrongTestIds(new HashMap<>());
         }
 
         return testProgress;
     }
 
-    public void createTestProgress(User user) {
-        TestProgress testProgress = new TestProgress();
-        testProgress.setUser(user);
-        testProgressRepository.save(testProgress);
-    }
-
-    public void updateTestProgress(User user, Long id, boolean isCorrect, boolean isReview) {
+    public void updateTestProgress(User user, Long id, String type, boolean isCorrect, boolean isReview) {
         TestProgress testProgress = testProgressRepository.findByUser(user);
-        List<Long> wrongIds = testProgress.getWrongTestIds();
 
-        if(isReview) testProgress.setReviewProgress(testProgress.getReviewProgress() + 1);
-        if(isCorrect) testProgress.setTotalProgress(testProgress.getTotalProgress() + 1);
-        testProgress.setLastSolveTime(LocalDateTime.now());
+        Map<String, Integer> reviewProgress = testProgress.getReviewProgress();
+        Map<String, Integer> totalProgress = testProgress.getTotalProgress();
+        Map<String, List<Long>> wrongTestIds = testProgress.getWrongTestIds();
+        Map<String, LocalDateTime> lastSolveTime = testProgress.getLastSolveTime();
 
-        if(!isCorrect) {
-            if(wrongIds == null) wrongIds = new ArrayList<>();
-            if(!wrongIds.contains(id)) {
-                wrongIds.add(id);
-                testProgress.setWrongTestIds(wrongIds);
-            }
-        } else if(isReview && wrongIds != null) {
-            wrongIds.remove(id);
-        }
+        List<Long> wrongIds = wrongTestIds.computeIfAbsent(type, k -> new ArrayList<>());
+
+        if(isReview && !wrongIds.contains(id)) reviewProgress.put(type, reviewProgress.get(type) + 1);
+        if(isCorrect) totalProgress.put(type, totalProgress.get(type) + 1);
+
+        if(!isCorrect && !wrongIds.contains(id)) wrongIds.add(id);
+        if(isCorrect && isReview) wrongIds.remove(id);
+
+        lastSolveTime.put(type, LocalDateTime.now());
+
+        testProgress.setReviewProgress(reviewProgress);
+        testProgress.setTotalProgress(totalProgress);
+        testProgress.setLastSolveTime(lastSolveTime);
 
         testProgressRepository.save(testProgress);
     }
 
     /* 다음 문제의 유형 판단 */
-    public boolean isNextReview(User user) {
+    public boolean isNextReview(User user, String type) {
         TestProgress testProgress = testProgressRepository.findByUser(user);
-        return testProgress.getReviewProgress() < user.getProblemsPerDay() * user.getReviewRatio();
+
+        Map<String, Integer> reviewProgress = testProgress.getReviewProgress();
+        Map<String, Integer> problemPerDay = user.getProblemsPerDay();
+        Map<String, Long> reviewRatio = user.getReviewRatio();
+
+        return reviewProgress.get(type) < problemPerDay.get(type) * reviewRatio.get(type);
     }
 
     /* 테스트 끝 여부 판단 */
-    public boolean isTestOver(User user) {
+    public boolean isTestOver(User user, String type) {
         TestProgress testProgress = testProgressRepository.findByUser(user);
-        return testProgress.getTotalProgress() >= user.getProblemsPerDay();
+
+        Map<String, Integer> totalProgress = testProgress.getTotalProgress();
+        Map<String, Integer> problemPerDay = user.getProblemsPerDay();
+        Map<String, List<Long>> wrongTestIds = testProgress.getWrongTestIds();
+
+        return totalProgress.get(type) + wrongTestIds.get(type).size() >= problemPerDay.get(type);
     }
 
     /* 테스트가 끝 이후 틀린 문제 여부 판단 */
-    public boolean isReviewOver(User user) {
+    public boolean isReviewOver(User user, String type) {
         TestProgress testProgress = testProgressRepository.findByUser(user);
-        List<Long> wrongIds = testProgress.getWrongTestIds();
-        if (wrongIds == null) {
-            return true;
-        }
+        List<Long> wrongIds = testProgress.getWrongTestIds().computeIfAbsent(type, k -> new ArrayList<>());;
+
         return wrongIds.isEmpty();
     }
 }
