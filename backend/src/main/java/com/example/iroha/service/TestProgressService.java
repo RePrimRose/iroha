@@ -32,7 +32,6 @@ public class TestProgressService {
         if (testProgress == null) {
             testProgress = new TestProgress();
             testProgress.setUser(user);
-            testProgressRepository.save(testProgress);
         }
 
         Map<String, LocalDateTime> lastSolveTime = testProgress.getLastSolveTime();
@@ -41,6 +40,9 @@ public class TestProgressService {
         if(!isToday) {
             Map<String, Integer> reviewProgress = testProgress.getReviewProgress();
             Map<String, Integer> totalProgress = testProgress.getTotalProgress();
+            Map<String, List<Long>> wrongTestIds = testProgress.getWrongTestIds();
+            List<Long> wrongTestIdList = new ArrayList<>();
+            wrongTestIds.put(type, wrongTestIdList);
 
             totalProgress.put(type, 0);
             reviewProgress.put(type, 0);
@@ -49,14 +51,28 @@ public class TestProgressService {
             testProgress.setReviewProgress(reviewProgress);
             testProgress.setTotalProgress(totalProgress);
             testProgress.setLastSolveTime(lastSolveTime);
-            testProgress.setWrongTestIds(new HashMap<>());
+            testProgress.setWrongTestIds(wrongTestIds);
+        }
+
+        testProgressRepository.save(testProgress);
+
+        return testProgress;
+    }
+
+    public TestProgress getTestProgress(User user) {
+        TestProgress testProgress = testProgressRepository.findByUser(user);
+
+        if (testProgress == null) {
+            testProgress = new TestProgress();
+            testProgress.setUser(user);
+            testProgressRepository.save(testProgress);
         }
 
         return testProgress;
     }
 
     public void updateTestProgress(User user, Long id, String type, boolean isCorrect, boolean isReview) {
-        TestProgress testProgress = testProgressRepository.findByUser(user);
+        TestProgress testProgress = getTestProgress(user, type);
 
         Map<String, Integer> reviewProgress = testProgress.getReviewProgress();
         Map<String, Integer> totalProgress = testProgress.getTotalProgress();
@@ -82,18 +98,18 @@ public class TestProgressService {
 
     /* 다음 문제의 유형 판단 */
     public boolean isNextReview(User user, String type) {
-        TestProgress testProgress = testProgressRepository.findByUser(user);
+        TestProgress testProgress = getTestProgress(user, type);
 
         Map<String, Integer> reviewProgress = testProgress.getReviewProgress();
         Map<String, Integer> problemPerDay = user.getProblemsPerDay();
-        Map<String, Long> reviewRatio = user.getReviewRatio();
+        Map<String, Double> reviewRatio = user.getReviewRatio();
 
         return reviewProgress.get(type) < problemPerDay.get(type) * reviewRatio.get(type);
     }
 
     /* 테스트 끝 여부 판단 */
     public boolean isTestOver(User user, String type) {
-        TestProgress testProgress = testProgressRepository.findByUser(user);
+        TestProgress testProgress = getTestProgress(user, type);
 
         Map<String, Integer> totalProgress = testProgress.getTotalProgress();
         Map<String, Integer> problemPerDay = user.getProblemsPerDay();
@@ -104,7 +120,7 @@ public class TestProgressService {
 
     /* 테스트가 끝 이후 틀린 문제 여부 판단 */
     public boolean isReviewOver(User user, String type) {
-        TestProgress testProgress = testProgressRepository.findByUser(user);
+        TestProgress testProgress = getTestProgress(user, type);
         List<Long> wrongIds = testProgress.getWrongTestIds().computeIfAbsent(type, k -> new ArrayList<>());;
 
         return wrongIds.isEmpty();

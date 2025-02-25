@@ -1,9 +1,15 @@
 import { useSelector } from "react-redux";
+import {useNavigate, useParams} from "react-router-dom";
 
-const TestHeader = ({ onBack }) => {
-    const totalProgress = useSelector((state) => state.testProgress.totalProgress);
-    const currProgress = useSelector((state) => state.testProgress.currProgress);
-    const progress = (currProgress / totalProgress) * 100;
+const TestHeader = () => {
+    const {type} = useParams();
+    const progress = useSelector((state) => state.testProgress.progressByType[type] || { total: 0, current: 0});
+
+    const navigate = useNavigate();
+
+    const onBack = () => {
+        navigate(-1);
+    }
 
     return (
         <header className="bg-sakura shadow-md">
@@ -30,10 +36,10 @@ const TestHeader = ({ onBack }) => {
                     <div className="relative w-full bg-white rounded-full h-6 shadow-md">
                         <div
                             className="h-6 rounded-full transition-all duration-500 bg-green-500"
-                            style={{ width: `${progress}%` }}
+                            style={{ width: `${progress.current / progress.total * 100}%` }}
                         />
                         <div className="absolute inset-0 flex items-center justify-center text-traditionalBlue text-sm font-bold">
-                            {currProgress} / {totalProgress}
+                            {progress.current} / {progress.total}
                         </div>
                     </div>
                 </div>

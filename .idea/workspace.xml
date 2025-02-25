@@ -4,46 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="퀴즈 구현 및 오류 수정">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/controller/TestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/dto/test/FillBlankTestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/dto/test/InOrderTestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/dto/test/SelectTestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/dto/test/TestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/test/TestService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/util/NormalizeJapaneseText.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/util/Pair.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/util/json/JsonConvertToMapDateTimeUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/util/json/JsonConvertToMapIntegerUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/util/json/JsonConvertToMapListLongUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/util/json/JsonConvertToMapLongUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/image/check-mark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/image/cross-mark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/sound/fail.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/sound/success.mp3" afterDir="false" />
+    <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="refactor: improve exam submission functionality">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/util/json/JsonConvertToMapDoubleUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/controller/KanjiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/controller/KanjiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/controller/TestSentenceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/controller/TestSentenceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/controller/WordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/controller/WordController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/dto/KanjiProjection.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/dto/projection/KanjiProjection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/dto/SentenceProjection.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/dto/projection/SentenceProjection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/dto/WordProjection.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/dto/projection/WordProjection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/entity/TestProgress.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/entity/TestProgress.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/entity/TestSentence.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/entity/TestSentence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/dto/test/InOrderTestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/dto/test/InOrderTestDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/repository/KanjiRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/repository/KanjiRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/repository/WordRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/repository/WordRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/CorrectAnswerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/CorrectAnswerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/KanjiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/KanjiService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/repository/TestProgressRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/repository/TestProgressRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/TestProgressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/TestProgressService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/TestSentenceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/TestSentenceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/WordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/WordService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/util/JsonUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/util/json/JsonConvertToListStringUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/test/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/test/TestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/util/json/JsonConvertToMapDateTimeUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/util/json/JsonConvertToMapDateTimeUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Header/TestHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header/TestHeader.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/Test/Order/OrderPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Test/Order/OrderPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/Test/Select/TestSelection.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Test/Select/TestSelection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/nginx/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/testProgressSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/testProgressSlice.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,28 +66,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/park1/Documents/iroha/backend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;C:/Users/park1/AppData/Roaming/JetBrains/IntelliJIdea2024.3/node/versions/22.14.0/node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;프로젝트&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/park1/Documents/iroha/backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "C:/Users/park1/AppData/Roaming/JetBrains/IntelliJIdea2024.3/node/versions/22.14.0/node",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "프로젝트",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\park1\Documents\iroha" />
@@ -179,7 +157,8 @@
       <workItem from="1740031506552" duration="599000" />
       <workItem from="1740033964263" duration="558000" />
       <workItem from="1740120920723" duration="719000" />
-      <workItem from="1740378777320" duration="4458000" />
+      <workItem from="1740378777320" duration="4666000" />
+      <workItem from="1740456989888" duration="18416000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -301,7 +280,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739862703999</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="refactor: improve exam submission functionality">
+      <option name="closed" value="true" />
+      <created>1740391034425</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1740391034425</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,7 +321,8 @@
     <MESSAGE value="퀴즈 선택 페이지 추가" />
     <MESSAGE value="퀴즈 로직 구현 중" />
     <MESSAGE value="퀴즈 구현 및 오류 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="퀴즈 구현 및 오류 수정" />
+    <MESSAGE value="refactor: improve exam submission functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: improve exam submission functionality" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

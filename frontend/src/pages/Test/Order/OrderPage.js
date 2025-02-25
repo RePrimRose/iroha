@@ -1,7 +1,9 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
-import {useDispatch} from "react-redux";
-import {setCurrProgress, setTotalProgress} from "../../../redux/testProgressSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {setCurrProgress, setProgress, setTotalProgress} from "../../../redux/testProgressSlice";
+import {useNavigate, useParams} from "react-router-dom";
+import {type} from "@testing-library/user-event/dist/type";
 
 const OrderPage = () => {
     const [sentenceParts, setSentenceParts] = useState([]);
@@ -10,10 +12,14 @@ const OrderPage = () => {
     const [answer, setAnswer] = useState([]);
     const [showToast, setShowToast] = useState(false);
     const [isCorrect, setIsCorrect] = useState(false);
+    const [isTestFinished, setIsTestFinished] = useState(false);
     const [draggedIndex, setDraggedIndex] = useState(null);
 
+    const {type} = useParams();
+    const progress = useSelector((state) => state.testProgress.progressByType[type] || { total: 0, current: 0});
     const token = localStorage.getItem('token');
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleAddToAnswer = (part) => {
         setAnswer((prev) => [...prev, part]);
@@ -42,7 +48,7 @@ const OrderPage = () => {
             try {
                 const response = await axios.post('http://localhost/api/sentence/inOrderTest',
                     {
-                        type: 'inorder'
+                        type: type
                     },
                     {
                         headers: {
@@ -50,11 +56,18 @@ const OrderPage = () => {
                         },
                     }
                 );
-                setSentenceParts(JSON.parse(response.data.testSentence.dividedSentence));
-                setTranslationParts(response.data.testSentence.translate);
-                setTestId(response.data.testSentence.id);
-                dispatch(setTotalProgress(response.data.totalProgress));
-                dispatch(setCurrProgress(response.data.currProgress));
+
+                dispatch(setProgress({ type: type, total: response.data.totalProgress, current: response.data.currProgress }));
+
+                if (!response.data.test) {
+                    setIsTestFinished(true);
+                    return;
+                }
+
+                const sentence = response.data.test.question.map((item) => item.first);
+                setSentenceParts(sentence);
+                setTranslationParts(response.data.test.translate);
+                setTestId(response.data.test.id);
             } catch (error) {
                 console.log(error);
             }
@@ -102,7 +115,7 @@ const OrderPage = () => {
         try {
             const response = await axios.post('http://localhost/api/sentence/inOrderTest',
                 {
-                    type: 'inorder',
+                    type: 'sentence-inOrder',
                     testId: testId,
                     answer: answer.join("")
                 },
@@ -112,18 +125,52 @@ const OrderPage = () => {
                     },
                 }
             );
-            setSentenceParts(JSON.parse(response.data.testSentence.dividedSentence));
-            setTranslationParts(response.data.testSentence.translate);
-            setTestId(response.data.testSentence.id);
+
+            dispatch(setProgress({ type: type, total: response.data.totalProgress, current: response.data.currProgress }));
+
+            if (!response.data.test) {
+                setIsTestFinished(true);
+                return;
+            }
+
+            const sentence = response.data.test.question.map((item) => item.first);
+            setSentenceParts(sentence);
+            setTranslationParts(response.data.test.translate);
+            setTestId(response.data.test.id);
             setAnswer([]);
-            dispatch(setCurrProgress(response.data.currProgress));
         } catch (error) {
             console.log(error);
         }
     };
 
-    if (!testId) {
-        return <p>로딩 중...</p>;
+    if (isTestFinished) {
+        return (
+            <Modal>
+                <h2 className="text-2xl font-bold text-gray-900">테스트 완료!</h2>
+                <p className="mt-4 text-lg text-gray-700">
+                    {progress.total}문제 중 <span className="font-bold text-blue-600">{progress.current}</span>문제를 해결했습니다.
+                </p>
+
+                <div className="w-full bg-gray-200 h-6 rounded-full overflow-hidden mt-4">
+                    <div
+                        className="h-full bg-green-500 transition-all"
+                        style={{ width: `${(progress.current / progress.total) * 100}%` }}
+                    ></div>
+                </div>
+
+                <p className="mt-4 text-lg text-gray-700">
+                    점수 변화: <span className="font-bold text-red-500">{0}</span> →{" "}
+                    <span className="font-bold text-green-500">{20}</span>
+                </p>
+
+                <button
+                    className="mt-6 px-6 py-3 bg-blue-500 text-white text-lg font-semibold rounded-lg hover:bg-blue-600 transition"
+                    onClick={() => navigate(-1)}
+                >
+                    돌아가기
+                </button>
+            </Modal>
+        );
     }
 
     return (
@@ -190,5 +237,11 @@ const OrderPage = () => {
         </div>
     );
 };
+
+const Modal = ({ children }) => (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="bg-white p-6 rounded-lg shadow-md text-center">{children}</div>
+    </div>
+);
 
 export default OrderPage;

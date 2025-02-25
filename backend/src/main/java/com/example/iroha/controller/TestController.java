@@ -1,30 +1,35 @@
 package com.example.iroha.controller;
 
 import com.example.iroha.JwtUtil;
+import com.example.iroha.entity.TestProgress;
+import com.example.iroha.service.TestProgressService;
 import com.example.iroha.service.test.TestService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.Map;
 
-@Controller
+@RestController
+@RequiredArgsConstructor
 @RequestMapping("/api/test")
 public class TestController {
 
     private final TestService testService;
     private final JwtUtil jwtUtil;
 
-    public TestController(TestService testService) {
-        this.testService = testService;
-        this.jwtUtil = new JwtUtil();
-    }
-
-    @GetMapping("/getTestProgress")
-    public ResponseEntity<?> getTestProgress(@RequestHeader("Authorization") String token, @RequestParam String type) {
+    @PostMapping("/getTestProgress")
+    public ResponseEntity<?> getTestProgress(@RequestHeader("Authorization") String token) {
         String userid = jwtUtil.extractUserid(token.substring(7));
+        TestProgress testProgress = testService.getTestProgress(userid);
+        Map<String, Object> response = new HashMap<>();
 
-        return ResponseEntity.ok(testService.getTestProgress(userid, type));
+        response.put("totalProgress", testProgress.getTotalProgress());
+        response.put("problemPerDay", testProgress.getUser().getProblemsPerDay());
+        response.put("reviewRatio", testProgress.getUser().getReviewRatio());
+
+        return ResponseEntity.ok(response);
     }
 
     @PostMapping("/settings")
@@ -32,8 +37,8 @@ public class TestController {
         String userid = jwtUtil.extractUserid(token.substring(7));
         String type = (String) requestBody.get("type");
         Integer problemPerDay = (Integer) requestBody.get("problemPerDay");
-        Long reviewRatio = (Long) requestBody.get("reviewRatio");
-        testService.setTestSettings(userid, problemPerDay, reviewRatio, type);
+        Integer reviewRatio = (Integer) requestBody.get("reviewRatio");
+        testService.setTestSettings(userid, problemPerDay, reviewRatio / 100.0, type);
 
         return ResponseEntity.ok(Map.of("success", true));
     }

@@ -75,7 +75,8 @@ public class TestSentenceService {
         return new InOrderTestDTO(
                 testSentence.getId(),
                 testSentence.getSentence(),
-                parseQuestion(testSentence)
+                parseQuestion(testSentence),
+                testSentence.getTranslate()
         );
     }
 

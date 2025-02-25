@@ -1,5 +1,6 @@
 package com.example.iroha.entity;
 
+import com.example.iroha.util.json.JsonConvertToMapDoubleUtil;
 import com.example.iroha.util.json.JsonConvertToMapIntegerUtil;
 import com.example.iroha.util.json.JsonConvertToMapLongUtil;
 import jakarta.persistence.*;
@@ -34,6 +35,6 @@ public class User {
     private Map<String, Integer> problemsPerDay = new HashMap<>();
 
     @Column(columnDefinition = "JSON")
-    @Convert(converter = JsonConvertToMapLongUtil.class)
-    private Map<String, Long> reviewRatio = new HashMap<>();
+    @Convert(converter = JsonConvertToMapDoubleUtil.class)
+    private Map<String, Double> reviewRatio = new HashMap<>();
 }
