@@ -39,7 +39,6 @@ const KanjiSelectPage = () => {
             dispatch(setProgress({ type: type, total: response.data.totalProgress, current: response.data.currProgress }));
 
             if (!response.data.test) {
-                setIsTestFinished(true);
                 setShowModal(true);
                 return;
             }

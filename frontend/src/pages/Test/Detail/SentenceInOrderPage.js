@@ -5,12 +5,13 @@ import {setCurrProgress, setProgress, setTotalProgress} from "../../../redux/tes
 import {useNavigate, useParams} from "react-router-dom";
 import {type} from "@testing-library/user-event/dist/type";
 
-const OrderPage = () => {
+const SentenceInOrderPage = () => {
     const [sentenceParts, setSentenceParts] = useState([]);
     const [translationParts, setTranslationParts] = useState([]);
     const [testId, setTestId] = useState();
     const [answer, setAnswer] = useState([]);
     const [showToast, setShowToast] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     const [isCorrect, setIsCorrect] = useState(false);
     const [isTestFinished, setIsTestFinished] = useState(false);
     const [draggedIndex, setDraggedIndex] = useState(null);
@@ -44,42 +45,14 @@ const OrderPage = () => {
     };
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.post('http://localhost/api/sentence/inOrderTest',
-                    {
-                        type: type
-                    },
-                    {
-                        headers: {
-                            Authorization: `Bearer ${token}`,
-                        },
-                    }
-                );
-
-                dispatch(setProgress({ type: type, total: response.data.totalProgress, current: response.data.currProgress }));
-
-                if (!response.data.test) {
-                    setIsTestFinished(true);
-                    return;
-                }
-
-                const sentence = response.data.test.question.map((item) => item.first);
-                setSentenceParts(sentence);
-                setTranslationParts(response.data.test.translate);
-                setTestId(response.data.test.id);
-            } catch (error) {
-                console.log(error);
-            }
-        }
-
-        fetchData();
+        getQuestion();
     }, []);
 
     const handleSubmitAnswer = async () => {
         try {
-            const response = await axios.post('http://localhost/api/sentence/inOrderTest/check-answer',
+            const response = await axios.post('http://localhost/api/test/check-answer',
                 {
+                    type: type,
                     testId: testId,
                     answer: answer.join("")
                 },
@@ -113,11 +86,9 @@ const OrderPage = () => {
 
     const getQuestion = async () => {
         try {
-            const response = await axios.post('http://localhost/api/sentence/inOrderTest',
+            const response = await axios.post('http://localhost/api/test/get-test',
                 {
-                    type: 'sentence-inOrder',
-                    testId: testId,
-                    answer: answer.join("")
+                    type: type
                 },
                 {
                     headers: {
@@ -129,7 +100,7 @@ const OrderPage = () => {
             dispatch(setProgress({ type: type, total: response.data.totalProgress, current: response.data.currProgress }));
 
             if (!response.data.test) {
-                setIsTestFinished(true);
+                setShowModal(true);
                 return;
             }
 
@@ -142,36 +113,6 @@ const OrderPage = () => {
             console.log(error);
         }
     };
-
-    if (isTestFinished) {
-        return (
-            <Modal>
-                <h2 className="text-2xl font-bold text-gray-900">테스트 완료!</h2>
-                <p className="mt-4 text-lg text-gray-700">
-                    {progress.total}문제 중 <span className="font-bold text-blue-600">{progress.current}</span>문제를 해결했습니다.
-                </p>
-
-                <div className="w-full bg-gray-200 h-6 rounded-full overflow-hidden mt-4">
-                    <div
-                        className="h-full bg-green-500 transition-all"
-                        style={{ width: `${(progress.current / progress.total) * 100}%` }}
-                    ></div>
-                </div>
-
-                <p className="mt-4 text-lg text-gray-700">
-                    점수 변화: <span className="font-bold text-red-500">{0}</span> →{" "}
-                    <span className="font-bold text-green-500">{20}</span>
-                </p>
-
-                <button
-                    className="mt-6 px-6 py-3 bg-blue-500 text-white text-lg font-semibold rounded-lg hover:bg-blue-600 transition"
-                    onClick={() => navigate(-1)}
-                >
-                    돌아가기
-                </button>
-            </Modal>
-        );
-    }
 
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
@@ -234,6 +175,31 @@ const OrderPage = () => {
             >
                 제출
             </button>
+
+            {showModal && (
+                <Modal>
+                    <h2 className="text-2xl font-bold text-gray-900">테스트 완료!</h2>
+                    <p className="mt-4 text-lg text-gray-700">
+                        {progress.total}문제 중 <span className="font-bold text-blue-600">{progress.current}</span>문제를 해결했습니다.
+                    </p>
+                    <div className="relative w-full bg-gray-200 h-6 rounded-full overflow-hidden mt-4">
+                        <div
+                            className="h-full bg-green-500 transition-all duration-1000 ease-in-out"
+                            style={{ width: `${(progress.current / progress.total) * 100}%` }}
+                        ></div>
+                        <div className="absolute inset-0 flex items-center justify-center text-traditionalBlue text-sm font-bold">
+                            {progress.current} / {progress.total}
+                        </div>
+                    </div>
+                    <button
+                        className="mt-6 px-6 py-3 bg-blue-500 text-white text-lg font-semibold rounded-lg hover:bg-blue-600 transition"
+                        onClick={() => navigate(-1)}
+                    >
+                        돌아가기
+                    </button>
+                </Modal>
+            )}
+
         </div>
     );
 };
@@ -244,4 +210,4 @@ const Modal = ({ children }) => (
     </div>
 );
 
-export default OrderPage;
+export default SentenceInOrderPage;
