@@ -16,7 +16,6 @@ const TestSelection = () => {
 
     const token = localStorage.getItem('token');
     const navigate = useNavigate();
-
     useEffect(() => {
         const fetchData = async () => {
             try {
