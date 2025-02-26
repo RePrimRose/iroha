@@ -7,10 +7,12 @@ import LearningPage from "./pages/Learning/LearningPage";
 import KanjiPage from "./pages/Kanji/KanjiPage";
 import WordPage from "./pages/Word/WordPage";
 import SelectPage from "./pages/Test/Select/SelectPage";
+import ScrollToTop from "./Utils/ScrollToTop";
 
 function App() {
   return (
     <div className="App">
+        <ScrollToTop />
         <Routes>
             <Route path="/" element={<MainPage/>}/>
             <Route path="/login" element={<LoginPage/>}/>
