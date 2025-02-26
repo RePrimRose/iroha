@@ -1,8 +1,8 @@
 package com.example.iroha.controller;
 
 import com.example.iroha.JwtUtil;
+import com.example.iroha.dto.RequestData;
 import com.example.iroha.entity.TestProgress;
-import com.example.iroha.service.TestProgressService;
 import com.example.iroha.service.test.TestService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -41,5 +41,19 @@ public class TestController {
         testService.setTestSettings(userid, problemPerDay, reviewRatio / 100.0, type);
 
         return ResponseEntity.ok(Map.of("success", true));
+    }
+
+    @PostMapping("/check-answer")
+    public ResponseEntity<?> checkAnswer(@RequestHeader("Authorization") String token, @RequestBody RequestData requestData) {
+        String userid = jwtUtil.extractUserid(token.substring(7));
+        boolean isCorrect = testService.processAnswer(userid, requestData, requestData.getType());
+
+        return ResponseEntity.ok(Map.of("isCorrect", isCorrect));
+    }
+
+    @PostMapping("/get-test")
+    public ResponseEntity<?> getTest(@RequestHeader("Authorization") String token, @RequestBody RequestData requestData) {
+        String userid = jwtUtil.extractUserid(token.substring(7));
+        return ResponseEntity.ok(testService.getNextTest(userid, requestData));
     }
 }

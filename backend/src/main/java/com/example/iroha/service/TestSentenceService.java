@@ -1,17 +1,15 @@
 package com.example.iroha.service;
 
-import com.example.iroha.dto.RequestData;
 import com.example.iroha.dto.test.InOrderTestDTO;
 import com.example.iroha.dto.test.TestDTO;
-import com.example.iroha.entity.CorrectAnswer;
 import com.example.iroha.entity.TestProgress;
 import com.example.iroha.entity.TestSentence;
 import com.example.iroha.entity.User;
 import com.example.iroha.repository.TestSentenceRepository;
+import com.example.iroha.service.test.TestProgressService;
 import com.example.iroha.util.NormalizeJapaneseText;
 import com.example.iroha.util.Pair;
 import com.example.iroha.util.ScoreUtil;
-import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

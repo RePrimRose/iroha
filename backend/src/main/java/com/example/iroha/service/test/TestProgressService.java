@@ -1,4 +1,4 @@
-package com.example.iroha.service;
+package com.example.iroha.service.test;
 
 import com.example.iroha.entity.TestProgress;
 import com.example.iroha.entity.User;
