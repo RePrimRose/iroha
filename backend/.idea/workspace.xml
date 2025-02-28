@@ -5,21 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30eaf832-8c80-4c85-b3c3-9906bea7089b" name="변경" comment="변경">
-      <change afterPath="$PROJECT_DIR$/../frontend/src/Utils/ScrollToTop.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/Test/Detail/KanjiSelectPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/controller/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/controller/TestSentenceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/controller/TestSentenceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/repository/KanjiRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/repository/KanjiRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/repository/WordRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/repository/WordRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/KanjiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/KanjiService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/TestProgressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/test/TestProgressService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/TestSentenceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/TestSentenceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/WordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/WordService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/test/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/test/TestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Test/Order/OrderPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Test/Detail/SentenceInOrderPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Test/Select/SelectPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Test/Select/SelectPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Test/Select/TestSelection.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Test/Select/TestSelection.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,6 +156,7 @@
       <workItem from="1740378788573" duration="11554000" />
       <workItem from="1740457000867" duration="15891000" />
       <workItem from="1740550970013" duration="4480000" />
+      <workItem from="1740741926770" duration="716000" />
     </task>
     <servers />
   </component>

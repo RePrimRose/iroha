@@ -21,6 +21,7 @@ public class TestService {
     private final TestProgressService testProgressService;
     private final TestSentenceService testSentenceService;
     private final KanjiService kanjiService;
+    private final WordService wordService;
     private final UserService userService;
 
     public Map<String, Object> getNextTest(String userId, RequestData requestData) {
@@ -33,6 +34,8 @@ public class TestService {
             testDTO = testSentenceService.processTestSentence(user, testProgress, type);
         } else if (Objects.equals(type, "kanji-kanji")) {
             testDTO = kanjiService.processKanji(user, testProgress, type);
+        } else if (Objects.equals(type, "word-word")) {
+            testDTO = wordService.processWord(user, testProgress, type);
         }
 
         return buildResponse(testDTO, testProgress, user, type);
@@ -61,6 +64,8 @@ public class TestService {
             isCorrect = testSentenceService.checkAnswer(requestData.getTestId(), requestData.getAnswer());
         } else if (Objects.equals(type, "kanji-kanji")) {
             isCorrect = kanjiService.checkAnswer(requestData.getTestId(), requestData.getAnswer());
+        } else if (Objects.equals(type, "word-word")) {
+            isCorrect = wordService.checkAnswer(requestData.getTestId(), requestData.getAnswer());
         }
 
         CorrectAnswer correctAnswer = correctAnswerService.findCorrectAnswerByItemId(requestData.getTestId(), type, user.getId());
