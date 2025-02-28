@@ -50,7 +50,7 @@ public class KanjiService {
         return Objects.equals(answer, kanji.getMeanings());
     }
 
-    public Kanji findNextKanji(User user, String type) {
+    private Kanji findNextKanji(User user, String type) {
         String level = ScoreUtil.getGrade(user.getScore());
         List<Kanji> kanjiList = kanjiRepository.findKanjiTest(level, type);
         int randomIndex = ThreadLocalRandom.current().nextInt(kanjiList.size());
