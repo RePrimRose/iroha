@@ -34,9 +34,16 @@ public class TestSentenceService {
         return testSentenceRepository.findBySentenceContaining(sentence);
     }
 
-    public TestSentence findNextInOrderTest(User user, String type) {
-        String level = ScoreUtil.getGrade(user.getScore());
+    public TestSentence findInitialInOrderTest(User user, String type) {
+        String level = ScoreUtil.getInitialLevel(user.getScore().getOrDefault(type, 0), type);
         List<TestSentence> testSentences = testSentenceRepository.findInOrderTest(level, type);
+        int randomIndex = ThreadLocalRandom.current().nextInt(testSentences.size());
+        return testSentences.get(randomIndex);
+    }
+
+    public TestSentence findNextInOrderTest(User user, String type, String currLevel, boolean isCorrect) {
+        String nextLevel = ScoreUtil.getNextLevel(user.getScore().getOrDefault(type, 0), type, currLevel, isCorrect);
+        List<TestSentence> testSentences = testSentenceRepository.findInOrderTest(nextLevel, type);
         int randomIndex = ThreadLocalRandom.current().nextInt(testSentences.size());
         return testSentences.get(randomIndex);
     }
@@ -52,7 +59,7 @@ public class TestSentenceService {
         return Objects.equals(answer,  NormalizeJapaneseText.normalizeJapaneseText(sentence.get().getSentence()));
     }
 
-    public TestDTO processTestSentence(User user, TestProgress testProgress, String type) {
+    public TestDTO processTestSentence(User user, TestProgress testProgress, String type, String level, boolean isCorrect) {
         if (testProgressService.isTestOver(user, type)) {
             return testProgressService.isReviewOver(user, type) ? null :
                     convertToDTO(findTestSentenceById(testProgress.getWrongTestIds().get(type).get(0)));
@@ -64,7 +71,9 @@ public class TestSentenceService {
 
         return reviewTestId != null
                 ? convertToDTO(findTestSentenceById(reviewTestId))
-                : convertToDTO(findNextInOrderTest(user, type));
+                : level != null
+                    ? convertToDTO(findNextInOrderTest(user, type, level, isCorrect))
+                    : convertToDTO(findInitialInOrderTest(user, type));
     }
 
     private InOrderTestDTO convertToDTO(TestSentence testSentence) {
@@ -73,6 +82,7 @@ public class TestSentenceService {
         return new InOrderTestDTO(
                 testSentence.getId(),
                 testSentence.getSentence(),
+                testSentence.getLevel(),
                 parseQuestion(testSentence),
                 testSentence.getTranslate()
         );

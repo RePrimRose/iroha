@@ -14,4 +14,7 @@ public interface TestSentenceRepository extends JpaRepository<TestSentence, Long
 
     @Query("SELECT ts FROM TestSentence ts WHERE ts.level = :level AND ts.id NOT IN (SELECT ca.itemId FROM CorrectAnswer ca WHERE ca.type = :type)")
     List<TestSentence> findInOrderTest(String level, String type);
+
+    @Query("SELECT ts FROM TestSentence ts WHERE ts.sentence LIKE concat('%', :word, '%') AND ts.id NOT IN (SELECT ca.itemId FROM CorrectAnswer ca WHERE ca.type = :type)")
+    List<TestSentence> findFillBlankTest(String word, String type);
 }

@@ -7,8 +7,8 @@ import lombok.Setter;
 public class FillBlankTestDTO extends TestDTO {
     private String question;
 
-    public FillBlankTestDTO(Long id, String answer, String question) {
-        super(id, answer);
+    public FillBlankTestDTO(Long id, String answer, String level, String question) {
+        super(id, answer, level);
         this.question = question;
     }
 }

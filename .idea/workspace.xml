@@ -4,12 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="refactor: modify modal functionality">
+    <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="fix: resolve issue with button not working due to server data">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/repository/WordRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/repository/WordRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/dto/RequestData.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/dto/RequestData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/dto/test/FillBlankTestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/dto/test/FillBlankTestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/dto/test/InOrderTestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/dto/test/InOrderTestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/dto/test/SelectTestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/dto/test/SelectTestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/dto/test/TestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/dto/test/TestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/repository/TestSentenceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/repository/TestSentenceRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/KanjiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/KanjiService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/TestSentenceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/TestSentenceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/WordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/WordService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/test/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/test/TestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/util/ScoreUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/util/ScoreUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Test/Detail/KanjiSelectPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Test/Detail/KanjiSelectPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Test/Detail/SentenceInOrderPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Test/Detail/SentenceInOrderPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Test/Detail/WordSelectPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Test/Detail/WordSelectPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +57,9 @@
 }</component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/frontend/package.json" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="보안 분석" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -148,7 +164,9 @@
       <workItem from="1740378777320" duration="4666000" />
       <workItem from="1740456989888" duration="18532000" />
       <workItem from="1740550953090" duration="6059000" />
-      <workItem from="1740741921647" duration="598000" />
+      <workItem from="1740741921647" duration="2310000" />
+      <workItem from="1740981931760" duration="2712000" />
+      <workItem from="1741069759654" duration="5290000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -326,7 +344,39 @@
       <option name="project" value="LOCAL" />
       <updated>1740559043722</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="refactor: change function visibility from public to private">
+      <option name="closed" value="true" />
+      <created>1740742688156</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1740742688156</updated>
+    </task>
+    <task id="LOCAL-00024" summary="feat: implement vocabulary test functionality">
+      <option name="closed" value="true" />
+      <created>1740742717294</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1740742717294</updated>
+    </task>
+    <task id="LOCAL-00025" summary="feat: add vocabulary test page">
+      <option name="closed" value="true" />
+      <created>1741069814653</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1741069814653</updated>
+    </task>
+    <task id="LOCAL-00026" summary="fix: resolve issue with button not working due to server data">
+      <option name="closed" value="true" />
+      <created>1741069908630</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1741069908630</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -365,7 +415,11 @@
     <MESSAGE value="refactor: merge test submission and answer processing" />
     <MESSAGE value="refactor: restructure test selection page" />
     <MESSAGE value="refactor: modify modal functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: modify modal functionality" />
+    <MESSAGE value="refactor: change function visibility from public to private" />
+    <MESSAGE value="feat: implement vocabulary test functionality" />
+    <MESSAGE value="feat: add vocabulary test page" />
+    <MESSAGE value="fix: resolve issue with button not working due to server data" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: resolve issue with button not working due to server data" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

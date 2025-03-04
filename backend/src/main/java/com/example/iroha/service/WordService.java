@@ -50,15 +50,23 @@ public class WordService {
         return Objects.equals(answer, word.getMeaning());
     }
 
-    private Word findNextWord(User user, String type) {
-        String level = ScoreUtil.getGrade(user.getScore());
+    private Word findInitialWord(User user, String type) {
+        String level = ScoreUtil.getInitialLevel(user.getScore().getOrDefault(type, 0), type);
         List<Word> wordList = wordRepository.findWordTest(level, type);
         int randomIndex = ThreadLocalRandom.current().nextInt(wordList.size());
 
         return wordList.get(randomIndex);
     }
 
-    public TestDTO processWord(User user, TestProgress testProgress, String type) {
+    private Word findNextWord(User user, String type, String currLevel, boolean isCorrect) {
+        String nextLevel = ScoreUtil.getNextLevel(user.getScore().getOrDefault(type, 0), type, currLevel, isCorrect);
+        List<Word> wordList = wordRepository.findWordTest(nextLevel, type);
+        int randomIndex = ThreadLocalRandom.current().nextInt(wordList.size());
+
+        return wordList.get(randomIndex);
+    }
+
+    public TestDTO processWord(User user, TestProgress testProgress, String type, String level, boolean isCorrect) {
         if (testProgressService.isTestOver(user, type)) {
             return testProgressService.isReviewOver(user, type) ? null :
                     convertToDTO(findWordById(testProgress.getWrongTestIds().get(type).get(0)));
@@ -70,7 +78,9 @@ public class WordService {
 
         return reviewTestId != null
                 ? convertToDTO(findWordById(reviewTestId))
-                : convertToDTO(findNextWord(user, type));
+                : level != null
+                    ? convertToDTO(findNextWord(user, type, level, isCorrect))
+                    : convertToDTO(findInitialWord(user, type));
     }
 
     private SelectTestDTO convertToDTO(Word word) {
@@ -79,6 +89,7 @@ public class WordService {
         return new SelectTestDTO(
                 word.getId(),
                 word.getMeaning(),
+                word.getLevel(),
                 word.getWord(),
                 getChoices(word.getWord(), word.getMeaning())
         );

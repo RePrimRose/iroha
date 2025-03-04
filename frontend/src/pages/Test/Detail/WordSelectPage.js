@@ -11,6 +11,7 @@ const WordSelectPage = () => {
     const [showToast, setShowToast] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [isCorrect, setIsCorrect] = useState(false);
+    const [level, setLevel] = useState("");
 
     const {type} = useParams();
     const progress = useSelector((state) => state.testProgress.progressByType[type] || { total: 0, current: 0});
@@ -22,11 +23,13 @@ const WordSelectPage = () => {
         getQuestion();
     }, []);
 
-    const getQuestion = async () => {
+    const getQuestion = async (isCorrect) => {
         try {
             const response = await axios.post('http://localhost/api/test/get-test',
                 {
-                    type: type
+                    type: type,
+                    level: level === "" ? null : level,
+                    isCorrect: isCorrect ? isCorrect : false
                 },
                 {
                     headers: {
@@ -45,6 +48,7 @@ const WordSelectPage = () => {
             setWord(response.data.test.question);
             setMeaningParts(response.data.test.choices);
             setTestId(response.data.test.id);
+            setLevel(response.data.test.level);
         } catch (error) {
             console.log(error);
         }
@@ -79,7 +83,7 @@ const WordSelectPage = () => {
 
             setTimeout(() => {
                 setShowToast(false);
-                getQuestion();
+                getQuestion(isCorrect);
             }, 2000);
 
         } catch (error) {
@@ -93,7 +97,7 @@ const WordSelectPage = () => {
             <div className="relative mb-14 flex flex-col items-center">
                 <h1 className="text-6xl font-bold relative">{word}</h1>
                 <div className="absolute -top-5 -right-8 bg-gray-800 text-white text-xs px-2 py-1 rounded-lg shadow-md">
-                    N5
+                    {level}
                 </div>
             </div>
 

@@ -50,15 +50,23 @@ public class KanjiService {
         return Objects.equals(answer, kanji.getMeanings());
     }
 
-    private Kanji findNextKanji(User user, String type) {
-        String level = ScoreUtil.getGrade(user.getScore());
+    private Kanji findInitialKanji(User user, String type) {
+        String level = ScoreUtil.getInitialLevel(user.getScore().getOrDefault(type, 0), type);
         List<Kanji> kanjiList = kanjiRepository.findKanjiTest(level, type);
         int randomIndex = ThreadLocalRandom.current().nextInt(kanjiList.size());
 
         return kanjiList.get(randomIndex);
     }
 
-    public TestDTO processKanji(User user, TestProgress testProgress, String type) {
+    private Kanji findNextKanji(User user, String type, String currLevel, boolean isCorrect) {
+        String nextLevel = ScoreUtil.getNextLevel(user.getScore().getOrDefault(type, 0), type, currLevel, isCorrect);
+        List<Kanji> kanjiList = kanjiRepository.findKanjiTest(nextLevel, type);
+        int randomIndex = ThreadLocalRandom.current().nextInt(kanjiList.size());
+
+        return kanjiList.get(randomIndex);
+    }
+
+    public TestDTO processKanji(User user, TestProgress testProgress, String type, String level, boolean isCorrect) {
         if (testProgressService.isTestOver(user, type)) {
             return testProgressService.isReviewOver(user, type) ? null :
                     convertToDTO(findKanjiById(testProgress.getWrongTestIds().get(type).get(0)));
@@ -70,7 +78,9 @@ public class KanjiService {
 
         return reviewTestId != null
                 ? convertToDTO(findKanjiById(reviewTestId))
-                : convertToDTO(findNextKanji(user, type));
+                : level != null
+                    ? convertToDTO(findNextKanji(user, type, level, isCorrect))
+                    : convertToDTO(findInitialKanji(user, type));
     }
 
     private SelectTestDTO convertToDTO(Kanji kanji) {
@@ -79,6 +89,7 @@ public class KanjiService {
         return new SelectTestDTO(
                 kanji.getId(),
                 kanji.getMeanings(),
+                kanji.getLevel(),
                 kanji.getKanji(),
                 getChoices(kanji.getKanji(), kanji.getMeanings())
         );

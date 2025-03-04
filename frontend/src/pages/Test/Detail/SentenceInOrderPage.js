@@ -13,6 +13,7 @@ const SentenceInOrderPage = () => {
     const [showToast, setShowToast] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [isCorrect, setIsCorrect] = useState(false);
+    const [level, setLevel] = useState("");
     const [isTestFinished, setIsTestFinished] = useState(false);
     const [draggedIndex, setDraggedIndex] = useState(null);
 
@@ -76,7 +77,7 @@ const SentenceInOrderPage = () => {
 
             setTimeout(() => {
                 setShowToast(false);
-                getQuestion();
+                getQuestion(isCorrect);
             }, 2000);
 
         } catch (error) {
@@ -84,11 +85,13 @@ const SentenceInOrderPage = () => {
         }
     }
 
-    const getQuestion = async () => {
+    const getQuestion = async (isCorrect) => {
         try {
             const response = await axios.post('http://localhost/api/test/get-test',
                 {
-                    type: type
+                    type: type,
+                    level: level === "" ? null : level,
+                    isCorrect: isCorrect ? isCorrect : false
                 },
                 {
                     headers: {
@@ -109,6 +112,7 @@ const SentenceInOrderPage = () => {
             setTranslationParts(response.data.test.translate);
             setTestId(response.data.test.id);
             setAnswer([]);
+            setLevel(response.data.test.level);
         } catch (error) {
             console.log(error);
         }

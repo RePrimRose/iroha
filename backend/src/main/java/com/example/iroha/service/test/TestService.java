@@ -28,14 +28,16 @@ public class TestService {
         String type = requestData.getType();
         User user = userService.findUserByUserId(userId);
         TestProgress testProgress = testProgressService.getTestProgress(user, type);
+        String level = requestData.getLevel();
+        boolean isCorrect = requestData.getIsCorrect();
 
         TestDTO testDTO = null;
         if (Objects.equals(type, "sentence-inOrder")) {
-            testDTO = testSentenceService.processTestSentence(user, testProgress, type);
+            testDTO = testSentenceService.processTestSentence(user, testProgress, type, level, isCorrect);
         } else if (Objects.equals(type, "kanji-kanji")) {
-            testDTO = kanjiService.processKanji(user, testProgress, type);
+            testDTO = kanjiService.processKanji(user, testProgress, type, level, isCorrect);
         } else if (Objects.equals(type, "word-word")) {
-            testDTO = wordService.processWord(user, testProgress, type);
+            testDTO = wordService.processWord(user, testProgress, type, level, isCorrect);
         }
 
         return buildResponse(testDTO, testProgress, user, type);
@@ -66,6 +68,15 @@ public class TestService {
             isCorrect = kanjiService.checkAnswer(requestData.getTestId(), requestData.getAnswer());
         } else if (Objects.equals(type, "word-word")) {
             isCorrect = wordService.checkAnswer(requestData.getTestId(), requestData.getAnswer());
+        }
+
+        if (isCorrect) {
+            Map<String, Integer> scores = user.getScore();
+            Integer score = scores.getOrDefault(type, 0);
+            score++;
+            scores.put(type, score);
+            user.setScore(scores);
+            userService.updateUser(user);
         }
 
         CorrectAnswer correctAnswer = correctAnswerService.findCorrectAnswerByItemId(requestData.getTestId(), type, user.getId());

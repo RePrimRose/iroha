@@ -27,8 +27,9 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false)
-    private int score = 0;
+    @Column(columnDefinition = "JSON")
+    @Convert(converter = JsonConvertToMapIntegerUtil.class)
+    private Map<String, Integer> score = new HashMap<>();
 
     @Column(columnDefinition = "JSON")
     @Convert(converter = JsonConvertToMapIntegerUtil.class)
