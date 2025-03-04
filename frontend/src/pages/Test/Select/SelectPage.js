@@ -5,6 +5,7 @@ import SentenceInOrderPage from "../Detail/SentenceInOrderPage";
 import TestHeader from "../../../components/Header/TestHeader";
 import KanjiSelectPage from "../Detail/KanjiSelectPage";
 import TestSelection from "./TestSelection";
+import WordSelectPage from "../Detail/WordSelectPage";
 
 const SelectPage = () => {
     const { type } = useParams();
@@ -15,6 +16,8 @@ const SelectPage = () => {
                 return <SentenceInOrderPage/>;
             case "kanji-kanji":
                 return <KanjiSelectPage/>;
+            case "word-word":
+                return <WordSelectPage/>;
             default:
                 return <TestSelection/>;
         }
