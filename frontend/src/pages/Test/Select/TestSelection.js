@@ -30,21 +30,44 @@ const TestSelection = () => {
 
                 const data = response.data;
 
-                setTestTypes(prevTestTypes => prevTestTypes.map(test => {
+                const updatedTestTypes = testTypes.map((test) => {
                     const type = test.type;
                     return {
                         ...test,
-                        totalProgress: data.problemPerDay[type] ?? test.totalProgress,
-                        currProgress: data.totalProgress[type] ?? test.currProgress,
-                        reviewRatio: data.reviewRatio[type] * 100 ?? test.reviewRatio,
+                        totalProgress: data.problemPerDay?.[type] ?? test.totalProgress,
+                        currProgress: data.totalProgress?.[type] ?? test.currProgress,
+                        reviewRatio: (data.reviewRatio?.[type] ?? test.reviewRatio / 100) * 100, // 백분율 변환
                     };
-                }));
-
-                testTypes.forEach(test => {
-                    const type = test.type;
-                    setProblemPerDay({ ...problemPerDay, [type]: test.totalProgress });
-                    setCustomInputs({ ...customInputs, [`count-${type}`]: test.totalProgress === "기타" ? "" : null });
                 });
+
+                setTestTypes(updatedTestTypes);
+
+                const updatedProblemPerDay = {};
+                const updatedReviewRatios = {};
+                const updatedCustomInputs = {};
+
+                updatedTestTypes.forEach((test) => {
+                    const type = test.type;
+                    const problemCount = data.problemPerDay?.[type] ?? test.totalProgress;
+                    const reviewRatio = (data.reviewRatio?.[type] ?? test.reviewRatio) * 100;
+
+                    const isCustomProblemCount = ![20, 40, 60, 80, 100].includes(problemCount);
+                    const isCustomReviewRatio = ![30, 50].includes(reviewRatio);
+
+                    updatedProblemPerDay[type] = isCustomProblemCount ? "기타" : problemCount;
+                    updatedReviewRatios[type] = isCustomReviewRatio ? "기타" : reviewRatio;
+
+                    if (isCustomProblemCount) {
+                        updatedCustomInputs[`count-${type}`] = problemCount.toString();
+                    }
+                    if (isCustomReviewRatio) {
+                        updatedCustomInputs[`review-${type}`] = reviewRatio.toString();
+                    }
+                });
+
+                setProblemPerDay(updatedProblemPerDay);
+                setReviewRatios(updatedReviewRatios);
+                setCustomInputs(updatedCustomInputs);
 
             } catch (e) {
                 console.error(e);
