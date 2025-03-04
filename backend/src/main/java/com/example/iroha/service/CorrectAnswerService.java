@@ -8,16 +8,19 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class CorrectAnswerService {
 
     private final CorrectAnswerRepository correctAnswerRepository;
+    private final UserService userService;
     private final UserRepository userRepository;
 
-    public CorrectAnswerService(CorrectAnswerRepository correctAnswerRepository, UserRepository userRepository) {
+    public CorrectAnswerService(CorrectAnswerRepository correctAnswerRepository, UserRepository userRepository, UserService userService) {
         this.correctAnswerRepository = correctAnswerRepository;
         this.userRepository = userRepository;
+        this.userService = userService;
     }
 
     public void saveCorrectAnswer(String userId, String type, Long itemId, boolean isCorrect) {
@@ -40,8 +43,14 @@ public class CorrectAnswerService {
         correctAnswerRepository.save(correctAnswer);
     }
 
-    public void updateCorrectAnswer(User user, CorrectAnswer correctAnswer) {
+    public void updateCorrectAnswer(User user, String type, CorrectAnswer correctAnswer) {
         if(correctAnswer.getReviewTime().isAfter(LocalDateTime.now().plusWeeks(1)) && !correctAnswer.isReceivedScore()) {
+            Map<String, Integer> scores = user.getScore();
+            Integer score = scores.getOrDefault(type, 0);
+            score++;
+            scores.put(type, score);
+            user.setScore(scores);
+            userService.updateUser(user);
             correctAnswer.setReceivedScore(true);
         }
 

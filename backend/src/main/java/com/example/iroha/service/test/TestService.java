@@ -85,7 +85,7 @@ public class TestService {
             correctAnswerService.saveCorrectAnswer(user.getUserid(), type, requestData.getTestId(), isCorrect);
             testProgressService.updateTestProgress(user, requestData.getTestId(), type, isCorrect, false);
         } else {
-            correctAnswerService.updateCorrectAnswer(user, correctAnswer);
+            correctAnswerService.updateCorrectAnswer(user, type, correctAnswer);
             testProgressService.updateTestProgress(user, requestData.getTestId(), type, isCorrect, true);
         }
 
