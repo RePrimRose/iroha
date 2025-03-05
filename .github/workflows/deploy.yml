@@ -105,4 +105,3 @@ jobs:
           aws elasticbeanstalk update-environment --application-name iroha \
             --environment-name ${{ env.EB_ENV_NAME }} \
             --version-label "v-${{ github.run_number }}"
-            --option-settings file://env-config.json
