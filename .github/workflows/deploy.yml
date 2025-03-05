@@ -45,6 +45,21 @@ jobs:
             --environment-name Iroha-env-1 \
             --option-settings file://env-config.json
 
+      - name: Build frontend
+        run: |
+          cd frontend
+          npm install
+          npm run build
+          cd ..
+
+      - name: Upload frontend build to S3
+        run: |
+          aws s3 sync ./frontend/build s3://elasticbeanstalk-${{ secrets.AWS_REGION }}-${{ secrets.AWS_ACCOUNT_ID }}/iroha/frontend/
+
+      - name: Upload nginx.conf to S3
+        run: |
+          aws s3 cp ./nginx/nginx.conf s3://elasticbeanstalk-${{ secrets.AWS_REGION }}-${{ secrets.AWS_ACCOUNT_ID }}/iroha/nginx.conf
+
       - name: Login to Amazon ECR
         run: |
           aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
