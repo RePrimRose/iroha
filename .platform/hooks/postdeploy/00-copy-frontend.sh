@@ -5,6 +5,8 @@ echo "🔍 Checking frontend build directory..."
 ls -lah /var/app/current/frontend || echo "❌ frontend directory not found!"
 ls -lah /var/app/current/frontend/build || echo "❌ frontend build directory not found!"
 
+echo "REACT_APP_BACKEND_URL=${REACT_APP_BACKEND_URL}" > /var/app/current/frontend/.env.production
+
 # React 빌드 파일 복사
 if [ -d "/var/app/current/frontend/build" ]; then
     echo "✅ Copying frontend build files to Nginx html directory..."
