@@ -88,6 +88,7 @@ jobs:
       - name: Create deployment package
         run: |
           mkdir deploy
+          mkdir deploy/frontend
           cp -r .platform deploy/.platform
           cp -r frontend/build deploy/frontend/build
           cp Dockerrun.aws.json deploy/Dockerrun.aws.json
