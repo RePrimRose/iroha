@@ -56,7 +56,12 @@ jobs:
 
       - name: Ensure Elastic Beanstalk Application Exists
         run: |
-          aws elasticbeanstalk describe-applications --query "Applications[*].ApplicationName" | grep -q "iroha-app" || aws elasticbeanstalk create-application --application-name iroha
+          APP_EXISTS=$(aws elasticbeanstalk describe-applications --query "Applications[*].ApplicationName" --output text | grep -w "iroha" || echo "no")
+          if [ "$APP_EXISTS" = "no" ]; then
+            aws elasticbeanstalk create-application --application-name iroha
+          else
+            echo "Elastic Beanstalk application 'iroha' already exists. Skipping creation."
+          fi
 
       - name: Get Current Elastic Beanstalk Environment Name
         id: get_env_name
