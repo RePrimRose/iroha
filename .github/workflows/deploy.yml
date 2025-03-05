@@ -108,12 +108,11 @@ jobs:
         run: |
           aws elasticbeanstalk create-application-version --application-name iroha \
             --version-label "v-${{ github.run_number }}" \
-            --source-bundle S3Bucket="elasticbeanstalk-${{ secrets.AWS_REGION }}-${{ secrets.AWS_ACCOUNT_ID }}",S3Key="my-app/Dockerrun.aws.json"
+            --source-bundle S3Bucket="elasticbeanstalk-${{ secrets.AWS_REGION }}-${{ secrets.AWS_ACCOUNT_ID }}",S3Key="iroha/deploy.zip"
 
       - name: Deploy to Elastic Beanstalk
         run: |
           aws elasticbeanstalk update-environment --application-name iroha \
             --environment-name ${{ env.EB_ENV_NAME }} \
             --version-label "v-${{ github.run_number }}"
-            --source-bundle S3Bucket="elasticbeanstalk-${{ secrets.AWS_REGION }}-${{ secrets.AWS_ACCOUNT_ID }}",S3Key="iroha/deploy.zip"
 
