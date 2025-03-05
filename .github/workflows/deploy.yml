@@ -50,6 +50,11 @@ jobs:
             "Logging": "/var/log/nginx"
           }' > Dockerrun.aws.json
 
+      - name: Upload Dockerrun.aws.json to S3
+        run: |
+          aws s3 cp Dockerrun.aws.json s3://elasticbeanstalk-${{ secrets.AWS_REGION }}-${{ secrets.AWS_ACCOUNT_ID }}/my-app/Dockerrun.aws.json
+
+
       - name: Deploy to Elastic Beanstalk
         run: |
           aws elasticbeanstalk create-application-version --application-name my-app \
