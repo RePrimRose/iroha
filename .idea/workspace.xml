@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="chore: set up CI/CD pipeline">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.platform/nginx/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/.platform/nginx/nginx.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,31 +151,7 @@
       <workItem from="1740741921647" duration="2310000" />
       <workItem from="1740981931760" duration="2712000" />
       <workItem from="1741069759654" duration="5649000" />
-      <workItem from="1741157420414" duration="15075000" />
-    </task>
-    <task id="LOCAL-00014" summary="퀴즈 로직 구현 중">
-      <option name="closed" value="true" />
-      <created>1738055667192</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1738055667192</updated>
-    </task>
-    <task id="LOCAL-00015" summary="퀴즈 구현 및 오류 수정">
-      <option name="closed" value="true" />
-      <created>1739862703998</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1739862703999</updated>
-    </task>
-    <task id="LOCAL-00016" summary="refactor: improve exam submission functionality">
-      <option name="closed" value="true" />
-      <created>1740391034425</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1740391034425</updated>
+      <workItem from="1741157420414" duration="16158000" />
     </task>
     <task id="LOCAL-00017" summary="refactor: improve exam submission functionality">
       <option name="closed" value="true" />
@@ -544,7 +521,31 @@
       <option name="project" value="LOCAL" />
       <updated>1741172460355</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="chore: set up CI/CD pipeline">
+      <option name="closed" value="true" />
+      <created>1741172733973</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1741172733973</updated>
+    </task>
+    <task id="LOCAL-00064" summary="chore: set up CI/CD pipeline">
+      <option name="closed" value="true" />
+      <created>1741173010249</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1741173010249</updated>
+    </task>
+    <task id="LOCAL-00065" summary="chore: set up CI/CD pipeline">
+      <option name="closed" value="true" />
+      <created>1741173417981</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1741173417981</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
