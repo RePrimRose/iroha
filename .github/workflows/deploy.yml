@@ -47,10 +47,9 @@ jobs:
 
       - name: Build frontend
         run: |
-          CI=false npm run build
           cd frontend
           npm install
-          npm run build
+          CI=false npm run build
           cd ..
 
       - name: Upload frontend build to S3
