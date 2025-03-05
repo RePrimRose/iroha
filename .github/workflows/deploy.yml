@@ -52,15 +52,15 @@ jobs:
 
       - name: Upload Dockerrun.aws.json to S3
         run: |
-          aws s3 cp Dockerrun.aws.json s3://elasticbeanstalk-${{ secrets.AWS_REGION }}-${{ secrets.AWS_ACCOUNT_ID }}/my-app/Dockerrun.aws.json
+          aws s3 cp Dockerrun.aws.json s3://elasticbeanstalk-${{ secrets.AWS_REGION }}-${{ secrets.AWS_ACCOUNT_ID }}/iroha/Dockerrun.aws.json
 
 
       - name: Deploy to Elastic Beanstalk
         run: |
-          aws elasticbeanstalk create-application-version --application-name my-app \
+          aws elasticbeanstalk create-application-version --application-name iroha \
             --version-label "v-${{ github.run_number }}" \
-            --source-bundle S3Bucket="elasticbeanstalk-${{ secrets.AWS_REGION }}-${{ secrets.AWS_ACCOUNT_ID }}",S3Key="my-app/Dockerrun.aws.json"
+            --source-bundle S3Bucket="elasticbeanstalk-${{ secrets.AWS_REGION }}-${{ secrets.AWS_ACCOUNT_ID }}",S3Key="iroha/Dockerrun.aws.json"
 
-          aws elasticbeanstalk update-environment --application-name my-app \
-            --environment-name my-app-env \
+          aws elasticbeanstalk update-environment --application-name iroha \
+            --environment-name iroha-env \
             --version-label "v-${{ github.run_number }}"
