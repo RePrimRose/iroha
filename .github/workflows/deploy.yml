@@ -87,7 +87,7 @@ jobs:
 
       - name: Upload deployment package to S3
         run: |
-          aws s3 cp deploy/deploy.zip s3://elasticbeanstalk-${{ secrets.AWS_REGION }}-${{ secrets.AWS_ACCOUNT_ID }}/my-app/deploy.zip
+          aws s3 cp deploy/deploy.zip s3://elasticbeanstalk-${{ secrets.AWS_REGION }}-${{ secrets.AWS_ACCOUNT_ID }}/iroha/deploy.zip
 
       - name: Ensure Elastic Beanstalk Application Exists
         run: |
@@ -115,5 +115,5 @@ jobs:
           aws elasticbeanstalk update-environment --application-name iroha \
             --environment-name ${{ env.EB_ENV_NAME }} \
             --version-label "v-${{ github.run_number }}"
-            --source-bundle S3Bucket="elasticbeanstalk-${{ secrets.AWS_REGION }}-${{ secrets.AWS_ACCOUNT_ID }}",S3Key="iroha/deploy/deploy.zip"
+            --source-bundle S3Bucket="elasticbeanstalk-${{ secrets.AWS_REGION }}-${{ secrets.AWS_ACCOUNT_ID }}",S3Key="iroha/deploy.zip"
 
