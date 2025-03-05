@@ -13,13 +13,14 @@ const TestSelection = () => {
     const [problemPerDay, setProblemPerDay] = useState({});
     const [reviewRatios, setReviewRatios] = useState({});
     const [customInputs, setCustomInputs] = useState({});
+    const API_BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
     const token = localStorage.getItem('token');
     const navigate = useNavigate();
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.post('http://localhost/api/test/getTestProgress', {
+                const response = await axios.post(`${API_BASE_URL}/test/getTestProgress`, {
                     },
                     {
                         headers: {
@@ -119,7 +120,7 @@ const TestSelection = () => {
 
     const handleSubmit = async (type, problemPerDay, reviewRatio) => {
         try {
-            const response = await axios.post('http://localhost/api/test/settings',
+            const response = await axios.post(`${API_BASE_URL}/test/settings`,
                 {
                     type: type,
                     problemPerDay: problemPerDay,

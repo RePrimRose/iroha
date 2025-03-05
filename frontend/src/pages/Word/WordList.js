@@ -12,11 +12,12 @@ const WordList = () => {
     const { level } = useParams();
     const [wordList, setWordList] = useState([]);
     const [totalPages, setTotalPages] = useState(0);
+    const API_BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
     useEffect(() => {
         const fetchWordList = async () => {
             try {
-                const response = await axios.get('http://localhost/api/word/list', {
+                const response = await axios.get(`${API_BASE_URL}/word/list`, {
                     params: {
                         page: page - 1,
                         size: 12,

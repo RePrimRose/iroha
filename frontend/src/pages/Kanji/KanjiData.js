@@ -5,13 +5,14 @@ import {handleReadingClick} from "../../Utils/Utils";
 
 const KanjiData = () => {
     const token = localStorage.getItem('token');
+    const API_BASE_URL = process.env.REACT_APP_BACKEND_URL;
     const {level, kanji} = useParams();
     const [kanjiData, setKanjiData] = useState();
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost/api/kanji/detail', {
+                const response = await axios.get(`${API_BASE_URL}/kanji/detail`, {
                     params: {
                         kanji: kanji
                     },

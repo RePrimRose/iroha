@@ -16,6 +16,7 @@ const SentenceInOrderPage = () => {
     const [level, setLevel] = useState("");
     const [isTestFinished, setIsTestFinished] = useState(false);
     const [draggedIndex, setDraggedIndex] = useState(null);
+    const API_BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
     const {type} = useParams();
     const progress = useSelector((state) => state.testProgress.progressByType[type] || { total: 0, current: 0});
@@ -51,7 +52,7 @@ const SentenceInOrderPage = () => {
 
     const handleSubmitAnswer = async () => {
         try {
-            const response = await axios.post('http://localhost/api/test/check-answer',
+            const response = await axios.post(`${API_BASE_URL}/test/check-answer`,
                 {
                     type: type,
                     testId: testId,
@@ -87,7 +88,7 @@ const SentenceInOrderPage = () => {
 
     const getQuestion = async (isCorrect) => {
         try {
-            const response = await axios.post('http://localhost/api/test/get-test',
+            const response = await axios.post(`${API_BASE_URL}/test/get-test`,
                 {
                     type: type,
                     level: level === "" ? null : level,

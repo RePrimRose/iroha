@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {setIsAuthenticated} from "../../redux/authenticationSlice";
 
 const MainHeader = () => {
+    const API_BASE_URL = process.env.REACT_APP_BACKEND_URL;
     const isAuthenticated = useSelector((state) => state.authentication.isAuthenticated);
     const dispatch = useDispatch();
     const [username, setUsername] = useState("");
@@ -20,7 +21,7 @@ const MainHeader = () => {
         const getAuthenticated = async () => {
             try {
                 if (token) {
-                    const response = await axios.post("http://localhost:8080/api/auth/check",
+                    const response = await axios.post(`${API_BASE_URL}/api/auth/check`,
                         {},
                         {
                             headers: {

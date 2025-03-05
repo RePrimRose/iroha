@@ -1,5 +1,7 @@
 import axios from "axios";
 
+const API_BASE_URL = process.env.REACT_APP_BACKEND_URL;
+
 {/* ID 유효성 검증 */}
 const validateId = (id) => {
     const idRegex = /^[a-zA-Z0-9]+$/;
@@ -31,7 +33,7 @@ export const handleIdCheck = async (e, idTimer, setUserid, setIdChecked, setIdMe
     idTimer = setTimeout(async () => {
         if(value) {
             try {
-                const response = await axios.post("http://localhost:8080/api/auth/id-check",
+                const response = await axios.post(`${API_BASE_URL}/auth/id-check`,
                     {
                         userid: value
                     });
@@ -58,7 +60,7 @@ export const handleNicknameCheck = async (e, nameTimer, setUsername, setNickname
     nameTimer = setTimeout(async () => {
         if(value) {
             try {
-                const response = await axios.post("http://localhost:8080/api/auth/name-check",
+                const response = await axios.post(`${API_BASE_URL}/auth/name-check`,
                     {
                         username: value
                     })
@@ -88,7 +90,7 @@ export const handleSubmit = async (e, userid, username, password, navigate) => {
     e.preventDefault();
 
     try {
-        const response = await axios.post("http://localhost:8080/api/users", {
+        const response = await axios.post(`${API_BASE_URL}/users`, {
             userid: userid,
             username: username,
             password: password

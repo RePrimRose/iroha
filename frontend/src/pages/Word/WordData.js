@@ -7,11 +7,12 @@ const WordData = () => {
     const {word} = useParams();
     const [wordData, setWordData] = useState();
     const [sentenceData, setSentenceData] = useState([]);
+    const API_BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
     useEffect(() => {
         const fetchWord = async () => {
             try {
-                const response = await axios.get('http://localhost/api/word/detail', {
+                const response = await axios.get(`${API_BASE_URL}/word/detail`, {
                     params: {
                         word: word
                     },
@@ -27,7 +28,7 @@ const WordData = () => {
 
         const fetchSentence = async () => {
             try {
-                const response = await axios.get('http://localhost/api/sentence/example', {
+                const response = await axios.get(`${API_BASE_URL}/sentence/example`, {
                     params: {
                         word: word
                     },

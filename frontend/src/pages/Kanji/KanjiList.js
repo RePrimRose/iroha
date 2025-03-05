@@ -4,6 +4,7 @@ import {Link, useLocation, useParams} from "react-router-dom";
 import {getPageNumbers} from "../../Utils/Utils";
 
 const KanjiList = () => {
+    const API_BASE_URL = process.env.REACT_APP_BACKEND_URL;
     const token = localStorage.getItem('token');
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
@@ -16,7 +17,7 @@ const KanjiList = () => {
     useEffect(() => {
         const fetchKanjiList = async () => {
             try {
-                const response = await axios.get('http://localhost/api/kanji/list', {
+                const response = await axios.get(`${API_BASE_URL}/kanji/list`, {
                     params: {
                         page: page - 1,
                         size: 12,
