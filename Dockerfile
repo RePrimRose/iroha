@@ -10,7 +10,7 @@ RUN npm run build
 FROM openjdk:17 AS backend-builder
 WORKDIR /app/backend
 COPY backend/ .
-RUN chmod +x gradlew && ./gradlew bootJar
+RUN chmod +x gradlew && sh gradlew bootJar
 RUN ./gradlew bootJar
 
 # Step 3: Create final container
