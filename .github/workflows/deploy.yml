@@ -25,7 +25,7 @@ jobs:
             {
             "Namespace": "aws:elasticbeanstalk:application:environment",
             "OptionName": "REACT_APP_BACKEND_URL",
-            "Value": "http://Iroha-env-1.ap-northeast-2.elasticbeanstalk.com/api"
+            "Value": "http://iroha-env-1.ap-northeast-2.elasticbeanstalk.com/api"
             },
             {
               "Namespace": "aws:elasticbeanstalk:application:environment",
