@@ -78,10 +78,18 @@ jobs:
             "Logging": "/var/log/nginx"
           }' > Dockerrun.aws.json
 
+      - name: Build frontend
+        run: |
+          cd frontend
+          npm install
+          npm run build
+          cd ..
+
       - name: Create deployment package
         run: |
           mkdir deploy
           cp -r .platform deploy/.platform
+          cp -r frontend/build deploy/frontend/build
           cp Dockerrun.aws.json deploy/Dockerrun.aws.json
           cd deploy && zip -r deploy.zip . && cd ..
 
