@@ -23,6 +23,11 @@ jobs:
         run: |
           aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
 
+      - name: Create ECR repository if not exists
+        run: |
+          aws ecr describe-repositories --repository-names my-backend || aws ecr create-repository --repository-name my-backend
+
+
       - name: Build and push Docker image
         run: |
           docker build -t my-backend ./backend
