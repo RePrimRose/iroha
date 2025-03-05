@@ -19,6 +19,32 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
+      - name: Generate env-config.json
+        run: |
+          echo '[
+            {
+              "Namespace": "aws:elasticbeanstalk:application:environment",
+              "OptionName": "DB_URL",
+              "Value": "${{ secrets.DB_URL }}"
+            },
+            {
+              "Namespace": "aws:elasticbeanstalk:application:environment",
+              "OptionName": "DB_USERNAME",
+              "Value": "${{ secrets.DB_USERNAME }}"
+            },
+            {
+              "Namespace": "aws:elasticbeanstalk:application:environment",
+              "OptionName": "DB_PASSWORD",
+              "Value": "${{ secrets.DB_PASSWORD }}"
+            }
+          ]' > env-config.json
+
+      - name: Update Elastic Beanstalk Environment Variables
+        run: |
+          aws elasticbeanstalk update-environment --application-name iroha \
+            --environment-name Iroha-env-1 \
+            --option-settings file://env-config.json
+
       - name: Login to Amazon ECR
         run: |
           aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
@@ -26,7 +52,6 @@ jobs:
       - name: Create ECR repository if not exists
         run: |
           aws ecr describe-repositories --repository-names my-backend || aws ecr create-repository --repository-name my-backend
-
 
       - name: Build and push Docker image
         run: |
@@ -80,3 +105,4 @@ jobs:
           aws elasticbeanstalk update-environment --application-name iroha \
             --environment-name ${{ env.EB_ENV_NAME }} \
             --version-label "v-${{ github.run_number }}"
+            --option-settings file://env-config.json
