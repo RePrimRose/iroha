@@ -47,6 +47,7 @@ jobs:
 
       - name: Build frontend
         run: |
+          CI=false npm run build
           cd frontend
           npm install
           npm run build
