@@ -152,15 +152,7 @@
       <workItem from="1740741921647" duration="2310000" />
       <workItem from="1740981931760" duration="2712000" />
       <workItem from="1741069759654" duration="5649000" />
-      <workItem from="1741157420414" duration="13415000" />
-    </task>
-    <task id="LOCAL-00011" summary="단어 관련 페이지 추가">
-      <option name="closed" value="true" />
-      <created>1736333552692</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1736333552692</updated>
+      <workItem from="1741157420414" duration="14097000" />
     </task>
     <task id="LOCAL-00012" summary="단어 페이지 예문 추가 및 리스트 페이지 오류 해결">
       <option name="closed" value="true" />
@@ -546,7 +538,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741170747772</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="chore: set up CI/CD pipeline">
+      <option name="closed" value="true" />
+      <created>1741171062078</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1741171062078</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
