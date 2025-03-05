@@ -14,6 +14,9 @@ RUN gradle bootJar --no-daemon
 FROM openjdk:17-jdk-slim AS final-container
 WORKDIR /app
 
+# Nginx 설치
+RUN apt-get update && apt-get install -y nginx supervisor
+
 # 백엔드 실행 파일 복사
 COPY --from=backend-builder /app/backend/build/libs/*.jar app.jar
 
@@ -25,9 +28,6 @@ COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
 # Supervisor 설정 복사 (백엔드 + Nginx 동시 실행)
 COPY .platform/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
-# Supervisor 설치
-RUN apt-get update && apt-get install -y supervisor
 
 # 실행 포트 노출
 EXPOSE 80 8080
