@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="chore: set up CI/CD pipeline" />
+    <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="chore: set up CI/CD pipeline">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.platform/nginx/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/.platform/nginx/nginx.conf" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -148,15 +151,7 @@
       <workItem from="1740741921647" duration="2310000" />
       <workItem from="1740981931760" duration="2712000" />
       <workItem from="1741069759654" duration="5649000" />
-      <workItem from="1741157420414" duration="18378000" />
-    </task>
-    <task id="LOCAL-00023" summary="refactor: change function visibility from public to private">
-      <option name="closed" value="true" />
-      <created>1740742688156</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1740742688156</updated>
+      <workItem from="1741157420414" duration="19136000" />
     </task>
     <task id="LOCAL-00024" summary="feat: implement vocabulary test functionality">
       <option name="closed" value="true" />
@@ -542,7 +537,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741175631970</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="chore: set up CI/CD pipeline">
+      <option name="closed" value="true" />
+      <created>1741176301833</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1741176301833</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
