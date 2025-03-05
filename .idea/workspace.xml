@@ -150,7 +150,7 @@
       <workItem from="1740741921647" duration="2310000" />
       <workItem from="1740981931760" duration="2712000" />
       <workItem from="1741069759654" duration="5649000" />
-      <workItem from="1741157420414" duration="7051000" />
+      <workItem from="1741157420414" duration="7230000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -496,7 +496,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741164463162</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="chore: set up CI/CD pipeline">
+      <option name="closed" value="true" />
+      <created>1741164633181</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1741164633181</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

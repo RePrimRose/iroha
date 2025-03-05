@@ -8,9 +8,10 @@ RUN npm run build
 
 # Step 2: Build Spring Boot backend
 FROM openjdk:17 AS backend-builder
+RUN apt-get update && apt-get install -y findutils
 WORKDIR /app/backend
 COPY backend/ .
-RUN chmod +x gradlew && sh gradlew bootJar
+RUN chmod +x gradlew && ./gradlew bootJar
 RUN ./gradlew bootJar
 
 # Step 3: Create final container
