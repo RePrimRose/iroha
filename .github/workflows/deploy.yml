@@ -45,20 +45,8 @@ jobs:
             --environment-name Iroha-env-1 \
             --option-settings file://env-config.json
 
-      - name: Build frontend
-        run: |
-          cd frontend
-          npm install
-          CI=false npm run build
-          cd ..
-
-      - name: Upload frontend build to S3
-        run: |
-          aws s3 sync ./frontend/build s3://elasticbeanstalk-${{ secrets.AWS_REGION }}-${{ secrets.AWS_ACCOUNT_ID }}/iroha/frontend/
-
-      - name: Upload nginx.conf to S3
-        run: |
-          aws s3 cp ./nginx/nginx.conf s3://elasticbeanstalk-${{ secrets.AWS_REGION }}-${{ secrets.AWS_ACCOUNT_ID }}/iroha/nginx.conf
+      - name: Set executable permission for postdeploy script
+        run: chmod +x .platform/hooks/postdeploy/00-copy-frontend.sh
 
       - name: Login to Amazon ECR
         run: |
@@ -68,11 +56,11 @@ jobs:
         run: |
           aws ecr describe-repositories --repository-names my-backend || aws ecr create-repository --repository-name my-backend
 
-      - name: Build and push Docker image
+      - name: Build Docker image
         run: |
-          docker build -t my-backend ./backend
-          docker tag my-backend ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/my-backend:latest
-          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/my-backend:latest
+          docker build -t iroha .
+          docker tag iroha ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/iroha:latest
+          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/iroha:latest
 
       - name: Generate Dockerrun.aws.json
         run: |
@@ -90,9 +78,16 @@ jobs:
             "Logging": "/var/log/nginx"
           }' > Dockerrun.aws.json
 
-      - name: Upload Dockerrun.aws.json to S3
+      - name: Create deployment package
         run: |
-          aws s3 cp Dockerrun.aws.json s3://elasticbeanstalk-${{ secrets.AWS_REGION }}-${{ secrets.AWS_ACCOUNT_ID }}/iroha/Dockerrun.aws.json
+          mkdir deploy
+          cp -r .platform deploy/.platform
+          cp Dockerrun.aws.json deploy/Dockerrun.aws.json
+          cd deploy && zip -r deploy.zip . && cd ..
+
+      - name: Upload deployment package to S3
+        run: |
+          aws s3 cp deploy/deploy.zip s3://elasticbeanstalk-${{ secrets.AWS_REGION }}-${{ secrets.AWS_ACCOUNT_ID }}/my-app/deploy.zip
 
       - name: Ensure Elastic Beanstalk Application Exists
         run: |

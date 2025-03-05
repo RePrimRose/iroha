@@ -52,7 +52,7 @@ const KanjiList = () => {
                         className="w-40 h-40 bg-white shadow-md rounded-lg flex items-center justify-center cursor-pointer hover:shadow-lg transition"
                         to={`${location.pathname}/${kanji.kanji}`}>
                         <img
-                            src={`/kanji/${kanji.kanji}.jpg`}
+                            src={`https://d1gowhuyxzyrhv.cloudfront.net/kanji/${kanji.kanji}.jpg`}
                             alt={kanji.kanji}
                             className="w-24 h-24 object-contain"
                         />

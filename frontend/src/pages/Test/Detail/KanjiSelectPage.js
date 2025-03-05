@@ -97,7 +97,7 @@ const KanjiSelectPage = () => {
 
             <div className="relative mb-14 flex flex-col items-center">
                 <img
-                    src={`/kanji/${kanji}.jpg`}
+                    src={`https://d1gowhuyxzyrhv.cloudfront.net/kanji/${kanji}.jpg`}
                     alt={kanji}
                     className="w-48 h-48 object-cover rounded-lg shadow-lg"
                 />

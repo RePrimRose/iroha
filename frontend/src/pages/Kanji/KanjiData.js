@@ -44,7 +44,7 @@ const KanjiData = () => {
             {/* 한자 이미지 */}
             <div className="mb-8">
                 <img
-                    src={`/kanji/${kanjiData.kanji}.jpg`}
+                    src={`https://d1gowhuyxzyrhv.cloudfront.net/kanji/${kanjiData.kanji}.jpg`}
                     alt={kanjiData.kanji}
                     className="w-40 h-40 object-cover rounded-lg shadow-lg"
                 />
