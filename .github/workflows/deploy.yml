@@ -85,6 +85,7 @@ jobs:
 
       - name: Build frontend
         run: |
+          export REACT_APP_BACKEND_URL="http://iroha-env-1.eba-ib363253.ap-northeast-2.elasticbeanstalk.com"
           cd frontend
           npm install
           CI=false npm run build
