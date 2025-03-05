@@ -150,15 +150,7 @@
       <workItem from="1740741921647" duration="2310000" />
       <workItem from="1740981931760" duration="2712000" />
       <workItem from="1741069759654" duration="5649000" />
-      <workItem from="1741157420414" duration="17331000" />
-    </task>
-    <task id="LOCAL-00020" summary="refactor: merge test submission and answer processing">
-      <option name="closed" value="true" />
-      <created>1740558863815</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1740558863815</updated>
+      <workItem from="1741157420414" duration="17630000" />
     </task>
     <task id="LOCAL-00021" summary="refactor: restructure test selection page">
       <option name="closed" value="true" />
@@ -544,7 +536,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741174819830</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="chore: set up CI/CD pipeline">
+      <option name="closed" value="true" />
+      <created>1741175082740</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1741175082740</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
