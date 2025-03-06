@@ -29,8 +29,9 @@ public class SecurityConfig {
     @Bean
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
-        config.addAllowedOrigin("http://iroha-env-1.eba-ib363253.ap-northeast-2.elasticbeanstalk.com");
-        config.addAllowedOrigin("http://localhost");
+//        config.addAllowedOrigin("http://iroha-env-1.eba-ib363253.ap-northeast-2.elasticbeanstalk.com");
+//        config.addAllowedOrigin("http://localhost");
+        config.addAllowedOrigin("*");
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         config.setAllowCredentials(true);
