@@ -8,6 +8,9 @@ WORKDIR /app
 COPY backend/gradlew /app/backend/gradlew
 COPY backend /app/backend
 
+# gradlew에 실행 권한 부여
+RUN chmod +x /app/backend/gradlew
+
 # Spring Boot 빌드
 RUN cd /app/backend && ./gradlew bootJar --no-daemon
 
