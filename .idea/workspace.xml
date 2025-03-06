@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="chore: set up CI/CD pipeline">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header/MainHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header/MainHeader.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,14 +154,8 @@
       <workItem from="1741157420414" duration="25574000" />
       <workItem from="1741232387450" duration="6826000" />
       <workItem from="1741241199370" duration="24000" />
-    </task>
-    <task id="LOCAL-00056" summary="chore: set up CI/CD pipeline">
-      <option name="closed" value="true" />
-      <created>1741168177537</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1741168177537</updated>
+      <workItem from="1741241433660" duration="13000" />
+      <workItem from="1741241732202" duration="21000" />
     </task>
     <task id="LOCAL-00057" summary="chore: set up CI/CD pipeline">
       <option name="closed" value="true" />
@@ -547,7 +541,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741238930491</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="chore: set up CI/CD pipeline">
+      <option name="closed" value="true" />
+      <created>1741241437607</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1741241437607</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
