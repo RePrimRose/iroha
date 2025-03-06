@@ -3,13 +3,15 @@ FROM openjdk:17-jdk-slim AS build
 
 WORKDIR /app
 
-# Gradle 설치
+# backend의 gradle 디렉토리와 gradlew 복사
 COPY backend/gradle /app/gradle
 COPY backend/gradlew /app/
+
+# backend 디렉토리 복사
 COPY backend /app/backend
 
-# Gradle wrapper에 실행 권한 부여
-RUN chmod +x /app/gradlew
+# Gradle wrapper에 실행 권한 부여 (backend 디렉토리 내 gradlew)
+RUN chmod +x /app/backend/gradlew
 
 # Spring Boot 빌드
 RUN cd /app/backend && ./gradlew bootJar --no-daemon
