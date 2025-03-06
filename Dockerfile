@@ -16,6 +16,8 @@ RUN chmod +x /app/backend/gradlew
 # Spring Boot 빌드
 RUN cd /app/backend && ./gradlew bootJar --no-daemon
 
+RUN ls /app/backend/build/libs/
+
 # 최종 이미지 생성
 FROM openjdk:17-jdk-slim
 
