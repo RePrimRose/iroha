@@ -45,6 +45,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http, CorsFilter corsFilter, JwtRequestFilter jwtRequestFilter) throws Exception {
         http
                 .addFilter(corsFilter)
+                .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/users").permitAll()
