@@ -57,7 +57,9 @@ jobs:
       # 5. EC2 Nginx에 적용할 설정 파일 준비
       - name: Prepare Nginx config for EC2
         run: |
-          cp .platform/nginx/nginx.conf deploy/.platform/nginx/nginx.conf
+          mkdir -p deploy/.platform/nginx  # 디렉토리 생성
+          cp .platform/nginx/nginx.conf deploy/.platform/nginx/nginx.conf  # 설정 파일 복사
+
 
       # 6. React 프론트엔드 빌드
       - name: Build frontend
