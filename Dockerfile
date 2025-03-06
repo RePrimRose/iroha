@@ -4,8 +4,8 @@ FROM openjdk:17-jdk-slim AS build
 WORKDIR /app
 
 # Gradle 설치
-COPY gradle /app/gradle
-COPY gradlew /app/
+COPY backend/gradle /app/gradle
+COPY backend/gradlew /app/
 COPY backend /app/backend
 
 # Gradle wrapper에 실행 권한 부여
