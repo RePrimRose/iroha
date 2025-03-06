@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="chore: set up CI/CD pipeline">
       <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,23 +152,7 @@
       <workItem from="1740981931760" duration="2712000" />
       <workItem from="1741069759654" duration="5649000" />
       <workItem from="1741157420414" duration="25574000" />
-      <workItem from="1741232387450" duration="773000" />
-    </task>
-    <task id="LOCAL-00030" summary="chore: set up CI/CD pipeline">
-      <option name="closed" value="true" />
-      <created>1741158636104</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1741158636104</updated>
-    </task>
-    <task id="LOCAL-00031" summary="chore: set up CI/CD pipeline">
-      <option name="closed" value="true" />
-      <created>1741158892840</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1741158892840</updated>
+      <workItem from="1741232387450" duration="1084000" />
     </task>
     <task id="LOCAL-00032" summary="chore: set up CI/CD pipeline">
       <option name="closed" value="true" />
@@ -545,7 +530,23 @@
       <option name="project" value="LOCAL" />
       <updated>1741233080364</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="chore: set up CI/CD pipeline">
+      <option name="closed" value="true" />
+      <created>1741233170950</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1741233170950</updated>
+    </task>
+    <task id="LOCAL-00080" summary="chore: set up CI/CD pipeline">
+      <option name="closed" value="true" />
+      <created>1741233259031</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1741233259031</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
