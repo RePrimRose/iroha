@@ -1,26 +1,26 @@
-# 베이스 이미지
-FROM openjdk:11-jdk AS build
+# OpenJDK 17 설치
+FROM openjdk:17-jdk-slim AS build
 
-# 작업 디렉토리 설정
 WORKDIR /app
 
-# /backend 폴더의 gradlew 파일과 프로젝트 파일을 복사
-COPY backend/gradlew /app/backend/gradlew
+# Gradle 설치
+COPY gradle /app/gradle
+COPY gradlew /app/
 COPY backend /app/backend
 
-# gradlew에 실행 권한 부여
-RUN chmod +x /app/backend/gradlew
+# Gradle wrapper에 실행 권한 부여
+RUN chmod +x ./gradlew
 
 # Spring Boot 빌드
 RUN cd /app/backend && ./gradlew bootJar --no-daemon
 
 # 최종 이미지 생성
-FROM openjdk:11-jre-slim
+FROM openjdk:17-jdk-slim
 
-# 작업 디렉토리 설정
 WORKDIR /app
 
-# 빌드된 jar 파일을 최종 이미지로 복사
-COPY --from=build /app/backend/build/libs/*.jar app.jar
+# 빌드된 jar 파일을 복사
+COPY --from=build /app/backend/build/libs/your-app.jar /app/your-app.jar
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# 애플리케이션 실행
+CMD ["java", "-jar", "/app/your-app.jar"]
