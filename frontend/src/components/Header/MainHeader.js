@@ -8,6 +8,7 @@ const MainHeader = () => {
     const API_BASE_URL = process.env.REACT_APP_BACKEND_URL;
     const isAuthenticated = useSelector((state) => state.authentication.isAuthenticated);
     const dispatch = useDispatch();
+    const [username, setUsername] = useState("");
 
     // 로그아웃
     const logout = () => {
