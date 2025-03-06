@@ -24,7 +24,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # 빌드된 jar 파일을 복사
-COPY --from=build /app/backend/build/libs/iroha.jar /app/iroha.jar
+COPY --from=build /app/backend/build/libs/iroha-0.0.1-SNAPSHOT.jar /app/iroha-0.0.1-SNAPSHOT.jar
 
 # 애플리케이션 실행
-CMD ["java", "-jar", "/app/iroha.jar"]
+CMD ["java", "-jar", "/app/iroha-0.0.1-SNAPSHOT.jar"]
