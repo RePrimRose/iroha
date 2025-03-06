@@ -9,7 +9,7 @@ COPY backend/gradlew /app/
 COPY backend /app/backend
 
 # Gradle wrapper에 실행 권한 부여
-RUN chmod +x ./app/gradlew
+RUN chmod +x /app/gradlew
 
 # Spring Boot 빌드
 RUN cd /app/backend && ./gradlew bootJar --no-daemon
