@@ -151,15 +151,7 @@
       <workItem from="1740981931760" duration="2712000" />
       <workItem from="1741069759654" duration="5649000" />
       <workItem from="1741157420414" duration="25574000" />
-      <workItem from="1741232387450" duration="4908000" />
-    </task>
-    <task id="LOCAL-00049" summary="chore: set up CI/CD pipeline">
-      <option name="closed" value="true" />
-      <created>1741165597283</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1741165597283</updated>
+      <workItem from="1741232387450" duration="5195000" />
     </task>
     <task id="LOCAL-00050" summary="chore: set up CI/CD pipeline">
       <option name="closed" value="true" />
@@ -545,7 +537,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741237110015</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="chore: set up CI/CD pipeline">
+      <option name="closed" value="true" />
+      <created>1741237346482</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1741237346482</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
