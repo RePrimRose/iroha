@@ -73,8 +73,8 @@ jobs:
       # 7. 배포 패키지 생성
       - name: Create deployment package
         run: |
-          mkdir deploy
-          mkdir deploy/frontend
+          mkdir -p deploy
+          mkdir -p deploy/frontend
           cp -r .platform deploy/.platform
           cp -r frontend/build deploy/frontend/build
           cp Dockerrun.aws.json deploy/Dockerrun.aws.json
