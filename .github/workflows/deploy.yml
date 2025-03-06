@@ -9,9 +9,11 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      # 1. GitHub 저장소 체크아웃
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      # 2. AWS 자격 증명 설정
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -19,6 +21,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
+      # 3. 환경 변수 설정 (backend URL 등)
       - name: Generate env-config.json
         run: |
           echo '[
@@ -44,45 +47,19 @@ jobs:
             }
           ]' > env-config.json
 
+      # 4. Elastic Beanstalk 환경 변수 업데이트
       - name: Update Elastic Beanstalk Environment Variables
         run: |
           aws elasticbeanstalk update-environment --application-name iroha \
             --environment-name Iroha-env-1 \
             --option-settings file://env-config.json
 
-      - name: Set executable permission for postdeploy script
-        run: chmod +x .platform/hooks/postdeploy/00-copy-frontend.sh
-
-      - name: Login to Amazon ECR
+      # 5. EC2 Nginx에 적용할 설정 파일 준비
+      - name: Prepare Nginx config for EC2
         run: |
-          aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
+          cp .platform/nginx/nginx.conf deploy/.platform/nginx/nginx.conf
 
-      - name: Create ECR repository if not exists
-        run: |
-          aws ecr describe-repositories --repository-names iroha || aws ecr create-repository --repository-name iroha
-
-      - name: Build Docker image
-        run: |
-          docker build -t iroha .
-          docker tag iroha ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/iroha:latest
-          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/iroha:latest
-
-      - name: Generate Dockerrun.aws.json
-        run: |
-          echo '{
-            "AWSEBDockerrunVersion": "1",
-            "Image": {
-              "Name": "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/iroha:latest",
-              "Update": "true"
-            },
-            "Ports": [
-              {
-                "ContainerPort": "8080"
-              }
-            ],
-            "Logging": "/var/log/nginx"
-          }' > Dockerrun.aws.json
-
+      # 6. React 프론트엔드 빌드
       - name: Build frontend
         run: |
           export REACT_APP_BACKEND_URL="http://iroha-env-1.eba-ib363253.ap-northeast-2.elasticbeanstalk.com/api"
@@ -91,6 +68,7 @@ jobs:
           CI=false npm run build
           cd ..
 
+      # 7. 배포 패키지 생성
       - name: Create deployment package
         run: |
           mkdir deploy
@@ -100,10 +78,12 @@ jobs:
           cp Dockerrun.aws.json deploy/Dockerrun.aws.json
           cd deploy && zip -r deploy.zip . && cd ..
 
+      # 8. S3에 배포 패키지 업로드
       - name: Upload deployment package to S3
         run: |
           aws s3 cp deploy/deploy.zip s3://elasticbeanstalk-${{ secrets.AWS_REGION }}-${{ secrets.AWS_ACCOUNT_ID }}/iroha/deploy.zip
 
+      # 9. Elastic Beanstalk 애플리케이션이 존재하는지 확인
       - name: Ensure Elastic Beanstalk Application Exists
         run: |
           APP_EXISTS=$(aws elasticbeanstalk describe-applications --query "Applications[*].ApplicationName" --output text | grep -w "iroha" || echo "no")
@@ -113,21 +93,30 @@ jobs:
             echo "Elastic Beanstalk application 'iroha' already exists. Skipping creation."
           fi
 
+      # 10. 현재 Elastic Beanstalk 환경 이름 가져오기
       - name: Get Current Elastic Beanstalk Environment Name
         id: get_env_name
         run: |
           ENV_NAME=$(aws elasticbeanstalk describe-environments --application-name iroha --query "Environments[0].EnvironmentName" --output text)
           echo "EB_ENV_NAME=$ENV_NAME" >> $GITHUB_ENV
 
+      # 11. 새로운 Elastic Beanstalk 애플리케이션 버전 생성
       - name: Create new Elastic Beanstalk application version
         run: |
           aws elasticbeanstalk create-application-version --application-name iroha \
             --version-label "v-${{ github.run_number }}" \
             --source-bundle S3Bucket="elasticbeanstalk-${{ secrets.AWS_REGION }}-${{ secrets.AWS_ACCOUNT_ID }}",S3Key="iroha/deploy.zip"
 
+      # 12. Elastic Beanstalk에 배포
       - name: Deploy to Elastic Beanstalk
         run: |
           aws elasticbeanstalk update-environment --application-name iroha \
             --environment-name ${{ env.EB_ENV_NAME }} \
             --version-label "v-${{ github.run_number }}"
 
+      # 13. EC2 Nginx에 정적 파일 및 설정 적용 (SSH를 통해)
+      - name: Copy static files and Nginx config to EC2
+        run: |
+          scp -i ${{ secrets.EC2_SSH_KEY }} -r deploy/frontend/build/* ec2-user@${{ secrets.EC2_IP }}:/usr/share/nginx/html/
+          scp -i ${{ secrets.EC2_SSH_KEY }} deploy/.platform/nginx/nginx.conf ec2-user@${{ secrets.EC2_IP }}:/etc/nginx/nginx.conf
+          ssh -i ${{ secrets.EC2_SSH_KEY }} ec2-user@${{ secrets.EC2_IP }} 'sudo systemctl restart nginx'
