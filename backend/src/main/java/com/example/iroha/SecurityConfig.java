@@ -29,9 +29,8 @@ public class SecurityConfig {
     @Bean
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
-//        config.addAllowedOrigin("http://iroha-env-1.eba-ib363253.ap-northeast-2.elasticbeanstalk.com");
-//        config.addAllowedOrigin("http://localhost");
-        config.addAllowedOrigin("*");
+        config.addAllowedOrigin("http://iroha-env-1.eba-ib363253.ap-northeast-2.elasticbeanstalk.com");
+        config.addAllowedOrigin("http://localhost");
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         config.setAllowCredentials(true);
@@ -46,7 +45,6 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http, CorsFilter corsFilter, JwtRequestFilter jwtRequestFilter) throws Exception {
         http
                 .addFilter(corsFilter)
-                .csrf().disable()
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/users").permitAll()
