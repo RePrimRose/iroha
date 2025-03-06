@@ -10,6 +10,7 @@ const MainHeader = () => {
     const dispatch = useDispatch();
     const [username, setUsername] = useState("");
 
+    // 롷그아웃
     const logout = () => {
         localStorage.removeItem('token');
         window.location.reload()
