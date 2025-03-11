@@ -63,7 +63,7 @@ const SignupSection = () => {
           </div>
 
           {/* 비밀번호 입력 */}
-          <div className="mb-4 flex-col">
+          <div className="mb-10 flex-col">
             <div className="mb-4">
               <label
                   htmlFor="password"
@@ -96,7 +96,7 @@ const SignupSection = () => {
                 />
                 {passwordChecked && (
                     <div
-                        className="absolute left-0 mt-2 p-2 bg-red-100 text-red-700 text-sm rounded">
+                        className="absolute -left-4 mt-2 p-2 bg-red-100 text-red-700 text-sm rounded">
                       비밀번호가 다릅니다.
                     </div>
                 )}
