@@ -115,7 +115,7 @@ const SignupSection = () => {
                 중복 확인
               </button>
               {isNicknameChecked && (
-                  <div className="absolute top-full left-0 mt-2 p-2 w-max text-sm rounded shadow-lg
+                  <div className="absolute top-full -left-4 p-2 w-max text-sm rounded shadow-lg
                     before:absolute before:top-[-6px] before:left-3 before:border-4 before:border-transparent">
                     {nicknameChecked ? (
                         <div className="bg-red-100 text-red-700 before:border-b-red-100 p-2 rounded">
