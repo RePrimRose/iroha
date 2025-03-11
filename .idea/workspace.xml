@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="chore: set up CI/CD pipeline">
+    <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="feat: prevent signup if password check fails or duplicate ID/nickname exists">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/SignUp/SignUpUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/SignUp/SignUpUtils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.platform/nginx/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/.platform/nginx/nginx.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,15 +157,7 @@
       <workItem from="1741241199370" duration="24000" />
       <workItem from="1741241433660" duration="13000" />
       <workItem from="1741241732202" duration="2430000" />
-      <workItem from="1741680027441" duration="566000" />
-    </task>
-    <task id="LOCAL-00063" summary="chore: set up CI/CD pipeline">
-      <option name="closed" value="true" />
-      <created>1741172733973</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1741172733973</updated>
+      <workItem from="1741680027441" duration="1702000" />
     </task>
     <task id="LOCAL-00064" summary="chore: set up CI/CD pipeline">
       <option name="closed" value="true" />
@@ -550,7 +543,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741243581424</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="feat: prevent signup if password check fails or duplicate ID/nickname exists">
+      <option name="closed" value="true" />
+      <created>1741680738372</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1741680738372</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -595,7 +596,8 @@
     <MESSAGE value="fix: resolve issue with button not working due to server data" />
     <MESSAGE value="feat: add score and level system" />
     <MESSAGE value="chore: set up CI/CD pipeline" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: set up CI/CD pipeline" />
+    <MESSAGE value="feat: prevent signup if password check fails or duplicate ID/nickname exists" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: prevent signup if password check fails or duplicate ID/nickname exists" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

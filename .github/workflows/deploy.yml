@@ -92,6 +92,8 @@ jobs:
         run: |
           mkdir -p deploy
           mkdir -p deploy/frontend
+          mkdir -p deploy/.platform/nginx
+          
           cp -r .platform deploy/.platform  # .platform 아래 파일들이 자동으로 복사됨
           cp -r frontend/build deploy/frontend/build
           cp Dockerrun.aws.json deploy/Dockerrun.aws.json  # Dockerrun.aws.json 추가
