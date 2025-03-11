@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="feat: prevent signup if password check fails or duplicate ID/nickname exists">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="chore: update deployment configuration">
       <change beforePath="$PROJECT_DIR$/.platform/nginx/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/.platform/nginx/nginx.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -157,15 +155,7 @@
       <workItem from="1741241199370" duration="24000" />
       <workItem from="1741241433660" duration="13000" />
       <workItem from="1741241732202" duration="2430000" />
-      <workItem from="1741680027441" duration="1702000" />
-    </task>
-    <task id="LOCAL-00064" summary="chore: set up CI/CD pipeline">
-      <option name="closed" value="true" />
-      <created>1741173010249</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1741173010249</updated>
+      <workItem from="1741680027441" duration="2079000" />
     </task>
     <task id="LOCAL-00065" summary="chore: set up CI/CD pipeline">
       <option name="closed" value="true" />
@@ -551,7 +541,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741680738372</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="chore: update deployment configuration">
+      <option name="closed" value="true" />
+      <created>1741681778973</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1741681778973</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -572,7 +570,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/frontend" />
     </ignored-roots>
-    <MESSAGE value="first commit" />
     <MESSAGE value="함수와 페이지 기능 분리 및 회원가입 안내말 표시" />
     <MESSAGE value="한자, 단어, 테스트 문장 엔티티 생성" />
     <MESSAGE value="한자 및 단어 선택 페이지 작성" />
@@ -597,7 +594,8 @@
     <MESSAGE value="feat: add score and level system" />
     <MESSAGE value="chore: set up CI/CD pipeline" />
     <MESSAGE value="feat: prevent signup if password check fails or duplicate ID/nickname exists" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: prevent signup if password check fails or duplicate ID/nickname exists" />
+    <MESSAGE value="chore: update deployment configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: update deployment configuration" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
