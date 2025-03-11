@@ -12,7 +12,7 @@ const Footer = () => {
                     </div>
                     {/* 사이트 설명 */}
                     <p className="text-center md:text-left text-sm mt-4 md:mt-0 md:max-w-md">
-                        일본어를 쉽고 재미있게 배우세요. IROHA는 단어 학습, 문장 연습, 레벨 테스트 등 다양한 학습 방법을 제공합니다.
+                        IROHA를 통해 일본어를 쉽게 배우세요. IROHA는 단어 학습, 한자 학습, 각종 테스트 등 다양한 학습 방법을 제공합니다.
                     </p>
                 </div>
 

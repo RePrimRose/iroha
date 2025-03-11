@@ -110,7 +110,7 @@ const SignupSection = () => {
               <button
                   type="button"
                   onClick={() => handleNicknameCheck(username, setNicknameChecked)}
-                  className="px-3 py-2 bg-traditionalBlue text-white rounded-lg text-sm hover:bg-blue-700 transition"
+                  className="px-3 py-2 bg-traditionalBlue text-white rounded-lg text-xs hover:bg-blue-700 transition"
               >
                 중복 확인
               </button>
