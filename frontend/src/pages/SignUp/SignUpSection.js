@@ -47,7 +47,7 @@ const SignupSection = () => {
                 아이디 확인
               </button>
               {isIdChecked && (
-                  <div className="absolute top-full -left-4 p-2 w-max text-sm rounded shadow-lg">
+                  <div className="absolute top-full -left-4 p-2 w-max text-sm rounded">
                     {idChecked ? (
                         <div className="bg-red-100 text-red-700 before:border-b-red-100 p-2 rounded">
                           {idMessage}
@@ -96,7 +96,7 @@ const SignupSection = () => {
                 />
                 {passwordChecked && (
                     <div
-                        className="absolute left-0 mt-2 p-2 bg-red-100 text-red-700 text-sm rounded shadow-lg">
+                        className="absolute left-0 mt-2 p-2 bg-red-100 text-red-700 text-sm rounded">
                       비밀번호가 다릅니다.
                     </div>
                 )}
@@ -128,7 +128,7 @@ const SignupSection = () => {
                 중복 확인
               </button>
               {isNicknameChecked && (
-                  <div className="absolute top-full -left-4 p-2 w-max text-sm rounded shadow-lg">
+                  <div className="absolute top-full -left-4 p-2 w-max text-sm rounded">
                     {nicknameChecked ? (
                         <div className="bg-red-100 text-red-700 before:border-b-red-100 p-2 rounded">
                           중복된 닉네임이 있습니다.
