@@ -3,9 +3,9 @@ import {useNavigate} from "react-router-dom";
 import axios from "axios";
 
 const TestSelection = () => {
+    // { name: "빈칸 채우기", description: "빈칸에 들어갈 단어를 맞춰보세요.", type: "word-fillBlank", totalProgress: 0, currProgress: 0, reviewRatio: 0}
     const [testTypes, setTestTypes] = useState([
         { name: "문장 순서 맞추기", description: "뒤섞인 단어들을 조합해서 문장을 맞춰보세요.", type: "sentence-inOrder", totalProgress: 0, currProgress: 0, reviewRatio: 0 },
-        { name: "빈칸 채우기", description: "빈칸에 들어갈 단어를 맞춰보세요.", type: "word-fillBlank", totalProgress: 0, currProgress: 0, reviewRatio: 0},
         { name: "단어 뜻 맞추기", description: "단어의 뜻을 맞춰보세요.", type: "word-word", totalProgress: 0, currProgress: 0, reviewRatio: 0},
         { name: "한자 뜻 맞추기", description: "한자의 뜻을 맞춰보세요.", type: "kanji-kanji", totalProgress: 0, currProgress: 0, reviewRatio: 0 },]);
 
