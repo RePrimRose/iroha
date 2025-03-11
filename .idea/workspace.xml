@@ -7,7 +7,6 @@
     <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="feat: prevent signup if password check fails or duplicate ID/nickname exists">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/SignUp/SignUpSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/SignUp/SignUpSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/SignUp/SignUpUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/SignUp/SignUpUtils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,15 +157,7 @@
       <workItem from="1741241433660" duration="13000" />
       <workItem from="1741241732202" duration="2430000" />
       <workItem from="1741680027441" duration="5839000" />
-      <workItem from="1741686785166" duration="407000" />
-    </task>
-    <task id="LOCAL-00072" summary="chore: set up CI/CD pipeline">
-      <option name="closed" value="true" />
-      <created>1741176301833</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1741176301833</updated>
+      <workItem from="1741686785166" duration="1010000" />
     </task>
     <task id="LOCAL-00073" summary="chore: set up CI/CD pipeline">
       <option name="closed" value="true" />
@@ -552,7 +543,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741685626529</updated>
     </task>
-    <option name="localTasksCounter" value="121" />
+    <task id="LOCAL-00121" summary="feat: prevent signup if password check fails or duplicate ID/nickname exists">
+      <option name="closed" value="true" />
+      <created>1741687205549</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1741687205549</updated>
+    </task>
+    <option name="localTasksCounter" value="122" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

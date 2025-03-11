@@ -99,7 +99,7 @@ const SignupSection = () => {
             >
               닉네임
             </label>
-            <div className="relative items-center space-x-4">
+            <div className="flex items-center space-x-4">
               <input
                   type="text"
                   id="nickname"
