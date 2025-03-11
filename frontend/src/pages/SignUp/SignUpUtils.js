@@ -17,6 +17,8 @@ const validateId = (id) => {
 export const handleIdCheck = async (username, setIdChecked, setIsIdChecked, setIdMessage) => {
     const message = validateId(username);
 
+    setIsIdChecked(true);
+
     if(message != null) {
         setIdMessage(message);
         setIdChecked(true);
@@ -67,22 +69,25 @@ export const checkPassword = (e, password, setPasswordChecked) => {
 };
 
 {/* 회원가입 제출 */}
-export const handleSubmit = async (e, userid, username, password, navigate, idChecked, idMessage, nicknameChecked, passwordChecked, isNicknameChecked) => {
+export const handleSubmit = async (e, userid, username, password, navigate, idChecked, idMessage, nicknameChecked, passwordChecked, isNicknameChecked, isIdChecked) => {
     e.preventDefault();
 
     if (idChecked) {
-        alert(idMessage);
-        return;
-    } else if (nicknameChecked) {
-        alert("중복된 닉네임이 있습니다.");
-        return;
-    } else if (passwordChecked) {
-        alert("비밀번호가 다릅니다.");
-        return;
-    } else if (!isNicknameChecked) {
-        alert("닉네임 중복 확인을 해야합니다.");
-        return;
+        return alert(idMessage);
     }
+    if (!isIdChecked) {
+        return alert("아이디 체크를 해야합니다.");
+    }
+    if (nicknameChecked) {
+        return alert("중복된 닉네임이 있습니다.");
+    }
+    if (passwordChecked) {
+        return alert("비밀번호가 다릅니다.");
+    }
+    if (!isNicknameChecked) {
+        return alert("닉네임 중복 확인을 해야합니다.");
+    }
+
 
     try {
         const response = await axios.post(`${API_BASE_URL}/users`, {

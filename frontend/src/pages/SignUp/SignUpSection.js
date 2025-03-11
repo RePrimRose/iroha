@@ -148,7 +148,7 @@ const SignupSection = () => {
           {/* 회원가입 버튼 */}
           <button
               type="submit"
-              onClick={(e) => handleSubmit(e, userid, username, password, navigate, idChecked, idMessage, nicknameChecked, passwordChecked, isNicknameChecked)}
+              onClick={(e) => handleSubmit(e, userid, username, password, navigate, idChecked, idMessage, nicknameChecked, passwordChecked, isNicknameChecked, isIdChecked)}
               className="w-full bg-traditionalBlue text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition">
             회원가입
           </button>
