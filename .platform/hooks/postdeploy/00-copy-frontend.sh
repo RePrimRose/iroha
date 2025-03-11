@@ -15,6 +15,10 @@
      echo "🚨 No frontend build found! Deployment will continue without frontend files."
  fi
 
+ echo "🔄 Applying custom Nginx configuration..."
+ cp /var/app/current/.platform/nginx/nginx.conf /etc/nginx/nginx.conf
+ systemctl restart nginx
+
  # Nginx 재시작
  echo "🔄 Restarting Nginx..."
  systemctl restart nginx
