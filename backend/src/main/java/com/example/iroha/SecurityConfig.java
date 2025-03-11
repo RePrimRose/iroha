@@ -44,6 +44,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http, CorsFilter corsFilter, JwtRequestFilter jwtRequestFilter) throws Exception {
         http
+                .securityMatcher("/api/**")
                 .addFilter(corsFilter)
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
