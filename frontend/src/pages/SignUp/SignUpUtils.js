@@ -14,8 +14,8 @@ const validateId = (id) => {
     return null;
 };
 
-export const handleIdCheck = async (username, setIdChecked, setIsIdChecked, setIdMessage) => {
-    const message = validateId(username);
+export const handleIdCheck = async (userid, setIdChecked, setIsIdChecked, setIdMessage) => {
+    const message = validateId(userid);
 
     setIsIdChecked(true);
 
@@ -28,7 +28,7 @@ export const handleIdCheck = async (username, setIdChecked, setIsIdChecked, setI
     try {
         const response = await axios.post(`${API_BASE_URL}/auth/id-check`,
             {
-                userid: username
+                userid: userid
             });
         if(response.data.exists) {
             setIdMessage("중복된 아이디가 있습니다.")

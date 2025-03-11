@@ -41,7 +41,7 @@ const SignupSection = () => {
               />
               <button
                   type="button"
-                  onClick={() => handleIdCheck(username, setIdChecked, setIsIdChecked, setIdMessage)}
+                  onClick={() => handleIdCheck(userid, setIdChecked, setIsIdChecked, setIdMessage)}
                   className="px-3 py-2 bg-traditionalBlue text-white rounded-lg text-sm hover:bg-blue-700 transition whitespace-nowrap"
               >
                 아이디 확인
@@ -64,7 +64,7 @@ const SignupSection = () => {
           </div>
 
           {/* 비밀번호 입력 */}
-          <div className="mb-4 flex-col">
+          <div className="mb-10 flex-col">
             <div className="mb-4">
               <label
                   htmlFor="password"
