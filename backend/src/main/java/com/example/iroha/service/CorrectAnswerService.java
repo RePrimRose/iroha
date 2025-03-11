@@ -43,6 +43,15 @@ public class CorrectAnswerService {
         correctAnswerRepository.save(correctAnswer);
     }
 
+    /**
+     * 풀어본 문제의 데이터를 갱신합니다.
+     * 틀렸던 문제였고 일정 회수 복습을 했다면
+     * 점수를 받습니다.
+     *
+     * @param user 유저
+     * @param type 문제의 유형
+     * @param correctAnswer 문제 기록
+     */
     public void updateCorrectAnswer(User user, String type, CorrectAnswer correctAnswer) {
         if(correctAnswer.getReviewTime().isAfter(LocalDateTime.now().plusWeeks(1)) && !correctAnswer.isReceivedScore()) {
             Map<String, Integer> scores = user.getScore();
@@ -60,6 +69,15 @@ public class CorrectAnswerService {
         correctAnswerRepository.save(correctAnswer);
     }
 
+    /**
+     * 복습을 해야하는 문제가 있다면
+     * 그 문제의 id 값을 리턴합니다.
+     * 없다면 null을 리턴합니다.
+     *
+     * @param userId 유저 id
+     * @param type 문제의 유형
+     * @return itemId
+     */
     public Long findReviewTestIdByUserId(Long userId, String type) {
         List<CorrectAnswer> correctAnswerList = correctAnswerRepository.findByUserAndType(userId, type);
 

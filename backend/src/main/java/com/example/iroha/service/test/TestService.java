@@ -24,6 +24,13 @@ public class TestService {
     private final WordService wordService;
     private final UserService userService;
 
+    /**
+     * 다음 시험 문제를 유형에 맞게 가져옵니다.
+     *
+     * @param userId 유저 id
+     * @param requestData 유저가 방금 풀었던 문제 정보
+     * @return response 객체({@link TestDTO, 현재 진행도, 총 진행도}
+     */
     public Map<String, Object> getNextTest(String userId, RequestData requestData) {
         String type = requestData.getType();
         User user = userService.findUserByUserId(userId);
@@ -55,6 +62,17 @@ public class TestService {
         userService.updateUser(user);
     }
 
+    /**
+     * 정답을 받아와서 정답 여부를 확인하고
+     * 정답의 여부는 유형에 따라서 확인합니다.
+     * 정답 일시 유저의 점수가 오릅니다.
+     * DB에 저장합니다. {@link CorrectAnswer}
+     *
+     * @param userId 유저 id
+     * @param requestData 유저가 방금 풀었던 문제의 정보
+     * @param type 문제의 유형
+     * @return isCorrect(시험의 정답 여부)
+     */
     public boolean processAnswer(String userId, RequestData requestData, String type) {
         User user = userService.findUserByUserId(userId);
 

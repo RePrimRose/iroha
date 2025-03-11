@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30eaf832-8c80-4c85-b3c3-9906bea7089b" name="변경" comment="변경">
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/CorrectAnswerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/CorrectAnswerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/KanjiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/KanjiService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/TestSentenceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/TestSentenceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/WordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/WordService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/test/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/iroha/service/test/TestService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -158,6 +162,7 @@
       <workItem from="1740981936146" duration="3611000" />
       <workItem from="1740985801998" duration="19000" />
       <workItem from="1741069766558" duration="9173000" />
+      <workItem from="1741699671359" duration="1047000" />
     </task>
     <servers />
   </component>

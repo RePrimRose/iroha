@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="style: update UI">
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/SignUp/SignUpSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/SignUp/SignUpSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/SignUp/SignUpUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/SignUp/SignUpUtils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/CorrectAnswerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/CorrectAnswerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/KanjiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/KanjiService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/TestSentenceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/TestSentenceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/WordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/WordService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/test/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/service/test/TestService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,15 +161,7 @@
       <workItem from="1741241732202" duration="2430000" />
       <workItem from="1741680027441" duration="5839000" />
       <workItem from="1741686785166" duration="1292000" />
-      <workItem from="1741689537492" duration="4037000" />
-    </task>
-    <task id="LOCAL-00082" summary="chore: set up CI/CD pipeline">
-      <option name="closed" value="true" />
-      <created>1741233559486</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1741233559486</updated>
+      <workItem from="1741689537492" duration="4682000" />
     </task>
     <task id="LOCAL-00083" summary="chore: set up CI/CD pipeline">
       <option name="closed" value="true" />
@@ -552,7 +547,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741699343087</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="style: update UI">
+      <option name="closed" value="true" />
+      <created>1741699626751</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1741699626751</updated>
+    </task>
+    <option name="localTasksCounter" value="132" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

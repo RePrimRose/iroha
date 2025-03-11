@@ -34,6 +34,7 @@ public class TestSentenceService {
         return testSentenceRepository.findBySentenceContaining(sentence);
     }
 
+    // 시험을 시작하면 첫 문제를 정하는 함수
     public TestSentence findInitialInOrderTest(User user, String type) {
         String level = ScoreUtil.getInitialLevel(user.getScore().getOrDefault(type, 0), type);
         List<TestSentence> testSentences = testSentenceRepository.findInOrderTest(level, type);
@@ -41,6 +42,7 @@ public class TestSentenceService {
         return testSentences.get(randomIndex);
     }
 
+    // 첫 문제를 푼 뒤 정답에 따라 레벨을 조절해서 다음 문제를 정하는 함수
     public TestSentence findNextInOrderTest(User user, String type, String currLevel, boolean isCorrect) {
         String nextLevel = ScoreUtil.getNextLevel(user.getScore().getOrDefault(type, 0), type, currLevel, isCorrect);
         List<TestSentence> testSentences = testSentenceRepository.findInOrderTest(nextLevel, type);
@@ -59,6 +61,18 @@ public class TestSentenceService {
         return Objects.equals(answer,  NormalizeJapaneseText.normalizeJapaneseText(sentence.get().getSentence()));
     }
 
+    /**
+     * 유저의 테스트 진행 상황에 따라
+     * 다음 문제를 어떻게 가져올지 판단하는 함수
+     * 시험이 끝났다면 null을 리턴
+     *
+     * @param user 유저의 정보
+     * @param testProgress 테스트 진행도
+     * @param type 문제의 유형
+     * @param level 유저가 방금 풀었던 문제의 난이도
+     * @param isCorrect 유저가 방금 풀었던 문제의 정답 여부
+     * @return TestDTO(타입에 맞춰서 컨버팅)
+     */
     public TestDTO processTestSentence(User user, TestProgress testProgress, String type, String level, boolean isCorrect) {
         if (testProgressService.isTestOver(user, type)) {
             return testProgressService.isReviewOver(user, type) ? null :
@@ -88,6 +102,13 @@ public class TestSentenceService {
         );
     }
 
+    /**
+     * 문제의 순서를 맞추는 테스트를 위한 함수
+     * 나뉘어진 문장을 가져와서 랜덤하게 섞고 그 리스트를 리턴합니다.
+     *
+     * @param testSentence 문제
+     * @return question
+     */
     private List<Pair<String, String>> parseQuestion(TestSentence testSentence) {
         List<Pair<String, String>> question = new ArrayList<>();
         List<String> dividedSentence = testSentence.getDividedSentence();
