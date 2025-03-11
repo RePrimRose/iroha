@@ -76,7 +76,7 @@ const SignupSection = () => {
               <div className="relative items-center space-x-4">
                 <input
                     type="password"
-                    id="password"
+                    id="passwordcheck"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-traditionalBlue"
                     placeholder="비밀번호를 한번 더 입력하세요"
                     onChange={e => checkPassword(e, password, setPasswordChecked)}
@@ -112,7 +112,7 @@ const SignupSection = () => {
                   onClick={() => handleNicknameCheck(username, setNicknameChecked)}
                   className="px-3 py-2 bg-traditionalBlue text-white rounded-lg text-xs hover:bg-blue-700 transition"
               >
-                중복 확인
+                중복확인
               </button>
               {nicknameChecked && (
                   <div
