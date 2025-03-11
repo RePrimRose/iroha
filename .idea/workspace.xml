@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="chore: set up CI/CD pipeline">
-      <change afterPath="$PROJECT_DIR$/.platform/.ebextensions/nginx-restart.config" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/SignUp/SignUpUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/SignUp/SignUpUtils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,15 +155,8 @@
       <workItem from="1741232387450" duration="6826000" />
       <workItem from="1741241199370" duration="24000" />
       <workItem from="1741241433660" duration="13000" />
-      <workItem from="1741241732202" duration="1825000" />
-    </task>
-    <task id="LOCAL-00062" summary="chore: set up CI/CD pipeline">
-      <option name="closed" value="true" />
-      <created>1741172460355</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1741172460355</updated>
+      <workItem from="1741241732202" duration="2430000" />
+      <workItem from="1741680027441" duration="566000" />
     </task>
     <task id="LOCAL-00063" summary="chore: set up CI/CD pipeline">
       <option name="closed" value="true" />
@@ -549,7 +542,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741243026623</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="chore: set up CI/CD pipeline">
+      <option name="closed" value="true" />
+      <created>1741243581424</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1741243581424</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
