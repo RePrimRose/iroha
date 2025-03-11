@@ -6,6 +6,7 @@ const SignupSection = () => {
   const [idChecked, setIdChecked] = useState(false);
   const [idMessage, setIdMessage] = useState("");
   const [nicknameChecked, setNicknameChecked] = useState(false);
+  const [isNicknameChecked, setIsNickNameChecked] = useState(false);
   const [passwordChecked, setPasswordChecked] = useState(false);
   const [userid, setUserid] = useState("");
   const [username, setUsername] = useState("");
@@ -109,15 +110,21 @@ const SignupSection = () => {
               />
               <button
                   type="button"
-                  onClick={() => handleNicknameCheck(username, setNicknameChecked)}
+                  onClick={() => handleNicknameCheck(username, setNicknameChecked, setIsNickNameChecked)}
                   className="px-3 py-2 bg-traditionalBlue text-white rounded-lg text-sm hover:bg-blue-700 transition whitespace-nowrap"
               >
-                중복확인
+                중복 확인
               </button>
-              {nicknameChecked && (
+              {nicknameChecked && setIsNickNameChecked && (
                   <div
                       className="absolute left-0 mt-2 p-2 bg-red-100 text-red-700 text-sm rounded shadow-lg before:absolute before:top-[-6px] before:left-3 before:border-4 before:border-transparent before:border-b-red-100">
                     중복된 닉네임이 있습니다.
+                  </div>
+              )}
+              {!nicknameChecked && setIsNickNameChecked && (
+                  <div
+                      className="absolute left-0 mt-2 p-2 bg-red-100 text-green-500 text-sm rounded shadow-lg before:absolute before:top-[-6px] before:left-3 before:border-4 before:border-transparent before:border-b-red-100">
+                    사용 가능한 닉네임입니다.
                   </div>
               )}
             </div>
@@ -126,7 +133,7 @@ const SignupSection = () => {
           {/* 회원가입 버튼 */}
           <button
               type="submit"
-              onClick={(e) => handleSubmit(e, userid, username, password, navigate, idChecked, idMessage, nicknameChecked, passwordChecked)}
+              onClick={(e) => handleSubmit(e, userid, username, password, navigate, idChecked, idMessage, nicknameChecked, passwordChecked, isNicknameChecked)}
               className="w-full bg-traditionalBlue text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition">
             회원가입
           </button>

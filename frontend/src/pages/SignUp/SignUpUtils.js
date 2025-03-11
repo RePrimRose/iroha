@@ -51,17 +51,18 @@ export const handleIdCheck = async (e, idTimer, setUserid, setIdChecked, setIdMe
 };
 
 {/* 닉네임 유효성 검증 */}
-export const handleNicknameCheck = async (username, setNicknameChecked) => {
+export const handleNicknameCheck = async (username, setNicknameChecked, setIsNicknameChecked) => {
     try {
         const response = await axios.post(`${API_BASE_URL}/auth/name-check`,
             {
                 username: username
             })
         if(!response.data.exists) {
-            setNicknameChecked(false)
+            setNicknameChecked(false);
         } else {
-            setNicknameChecked(true)
+            setNicknameChecked(true);
         }
+        setIsNicknameChecked(true);
     } catch (error) {
         console.error(error);
     }
@@ -77,7 +78,7 @@ export const checkPassword = (e, password, setPasswordChecked) => {
 };
 
 {/* 회원가입 제출 */}
-export const handleSubmit = async (e, userid, username, password, navigate, idChecked, idMessage, nicknameChecked, passwordChecked) => {
+export const handleSubmit = async (e, userid, username, password, navigate, idChecked, idMessage, nicknameChecked, passwordChecked, isNicknameChecked) => {
     e.preventDefault();
 
     if (idChecked) {
@@ -88,6 +89,9 @@ export const handleSubmit = async (e, userid, username, password, navigate, idCh
         return;
     } else if (passwordChecked) {
         alert("비밀번호가 다릅니다.");
+        return;
+    } else if (!isNicknameChecked) {
+        alert("닉네임 중복 확인을 해야합니다.");
         return;
     }
 
