@@ -24,7 +24,7 @@ const SignupSection = () => {
           </h2>
 
           {/* ID 입력 및 중복 확인 */}
-          <div className="mb-4">
+          <div className="mb-10">
             <label
                 htmlFor="id"
                 className="block text-gray-700 font-medium mb-2 text-left"
@@ -64,7 +64,7 @@ const SignupSection = () => {
           </div>
 
           {/* 비밀번호 입력 */}
-          <div className="mb-10 flex-col">
+          <div className="mb-4 flex-col">
             <div className="mb-4">
               <label
                   htmlFor="password"
