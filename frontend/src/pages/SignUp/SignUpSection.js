@@ -92,7 +92,7 @@ const SignupSection = () => {
           </div>
 
           {/* 닉네임 입력 및 중복 확인 */}
-          <div className="mb-8">
+          <div className="mb-10">
             <label
                 htmlFor="nickname"
                 className="block text-gray-700 font-medium mb-2 text-left"
@@ -115,8 +115,8 @@ const SignupSection = () => {
                 중복 확인
               </button>
               {isNicknameChecked && (
-                  <div className="absolute top-[100%] mt-4 left-1/2 transform -translate-x-1/2 p-2 w-max text-sm rounded shadow-lg
-                    before:absolute before:top-[-6px] before:left-1/2 before:-translate-x-1/2 before:border-4 before:border-transparent">
+                  <div className="absolute top-full left-0 mt-2 p-2 w-max text-sm rounded shadow-lg
+                    before:absolute before:top-[-6px] before:left-3 before:border-4 before:border-transparent">
                     {nicknameChecked ? (
                         <div className="bg-red-100 text-red-700 before:border-b-red-100 p-2 rounded">
                           중복된 닉네임이 있습니다.
