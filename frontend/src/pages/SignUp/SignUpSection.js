@@ -92,7 +92,7 @@ const SignupSection = () => {
           </div>
 
           {/* 닉네임 입력 및 중복 확인 */}
-          <div className="mb-4">
+          <div className="mb-8">
             <label
                 htmlFor="nickname"
                 className="block text-gray-700 font-medium mb-2 text-left"
@@ -114,16 +114,18 @@ const SignupSection = () => {
               >
                 중복 확인
               </button>
-              {nicknameChecked && isNicknameChecked && (
-                  <div
-                      className="absolute left-0 mt-2 p-2 bg-red-100 text-red-700 text-sm rounded shadow-lg before:absolute before:top-[-6px] before:left-3 before:border-4 before:border-transparent before:border-b-red-100">
-                    중복된 닉네임이 있습니다.
-                  </div>
-              )}
-              {!nicknameChecked && isNicknameChecked && (
-                  <div
-                      className="absolute left-0 mt-2 p-2 bg-red-100 text-green-500 text-sm rounded shadow-lg before:absolute before:top-[-6px] before:left-3 before:border-4 before:border-transparent before:border-b-red-100">
-                    사용 가능한 닉네임입니다.
+              {isNicknameChecked && (
+                  <div className="absolute top-[100%] mt-4 left-1/2 transform -translate-x-1/2 p-2 w-max text-sm rounded shadow-lg
+                    before:absolute before:top-[-6px] before:left-1/2 before:-translate-x-1/2 before:border-4 before:border-transparent">
+                    {nicknameChecked ? (
+                        <div className="bg-red-100 text-red-700 before:border-b-red-100 p-2 rounded">
+                          중복된 닉네임이 있습니다.
+                        </div>
+                    ) : (
+                        <div className="bg-green-100 text-green-700 before:border-b-green-100 p-2 rounded">
+                          사용 가능한 닉네임입니다.
+                        </div>
+                    )}
                   </div>
               )}
             </div>
