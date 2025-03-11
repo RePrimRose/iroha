@@ -65,9 +65,9 @@ export const handleNicknameCheck = async (e, nameTimer, setUsername, setNickname
                         username: value
                     })
                 if(!response.data.exists) {
-                    setNicknameChecked(true)
-                } else {
                     setNicknameChecked(false)
+                } else {
+                    setNicknameChecked(true)
                 }
             } catch (error) {
                 console.error(error);
