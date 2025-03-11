@@ -4,6 +4,7 @@ import {checkPassword, handleIdCheck, handleNicknameCheck, handleSubmit} from ".
 
 const SignupSection = () => {
   const [idChecked, setIdChecked] = useState(false);
+  const [isIdChecked, setIsIdChecked] = useState(false);
   const [idMessage, setIdMessage] = useState("");
   const [nicknameChecked, setNicknameChecked] = useState(false);
   const [isNicknameChecked, setIsNickNameChecked] = useState(false);
@@ -13,8 +14,6 @@ const SignupSection = () => {
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
-
-  let idTimer;
 
   return (
       <section className="bg-gray-100 py-16">
@@ -32,18 +31,33 @@ const SignupSection = () => {
             >
               아이디
             </label>
-            <div className="relative items-center space-x-4">
+            <div className="relative flex items-center space-x-4">
               <input
                   type="text"
                   id="id"
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-traditionalBlue"
                   placeholder="아이디를 입력하세요"
-                  onChange={(e) => handleIdCheck(e, idTimer, setUserid, setIdChecked, setIdMessage)}
+                  onChange={(e) => setUserid(e.target.value)}
               />
-              {idChecked && (
-                  <div
-                      className="absolute left-0 mt-2 p-2 bg-red-100 text-red-700 text-sm rounded shadow-lg before:absolute before:top-[-6px] before:left-3 before:border-4 before:border-transparent before:border-b-red-100">
-                    {idMessage}
+              <button
+                  type="button"
+                  onClick={() => handleIdCheck(username, setIdChecked, setIsIdChecked, setIdMessage)}
+                  className="px-3 py-2 bg-traditionalBlue text-white rounded-lg text-sm hover:bg-blue-700 transition whitespace-nowrap"
+              >
+                아이디 확인
+              </button>
+              {isIdChecked && (
+                  <div className="absolute top-full -left-4 p-2 w-max text-sm rounded shadow-lg
+                    before:absolute before:top-[-6px] before:left-3 before:border-4 before:border-transparent">
+                    {idChecked ? (
+                        <div className="bg-red-100 text-red-700 before:border-b-red-100 p-2 rounded">
+                          {idMessage}
+                        </div>
+                    ) : (
+                        <div className="bg-green-100 text-green-700 before:border-b-green-100 p-2 rounded">
+                          사용 가능한 아이디입니다.
+                        </div>
+                    )}
                   </div>
               )}
             </div>

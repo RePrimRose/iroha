@@ -14,11 +14,8 @@ const validateId = (id) => {
     return null;
 };
 
-export const handleIdCheck = async (e, idTimer, setUserid, setIdChecked, setIdMessage) => {
-    const value = e.target.value;
-    setUserid(value);
-
-    const message = validateId(value);
+export const handleIdCheck = async (username, setIdChecked, setIsIdChecked, setIdMessage) => {
+    const message = validateId(username);
 
     if(message != null) {
         setIdMessage(message);
@@ -26,28 +23,20 @@ export const handleIdCheck = async (e, idTimer, setUserid, setIdChecked, setIdMe
         return;
     }
 
-    if(idTimer) {
-        clearTimeout(idTimer);
-    }
-
-    idTimer = setTimeout(async () => {
-        if(value) {
-            try {
-                const response = await axios.post(`${API_BASE_URL}/auth/id-check`,
-                    {
-                        userid: value
-                    });
-                if(response.data.exists) {
-                    setIdMessage("중복된 아이디가 있습니다.")
-                    setIdChecked(true);
-                } else {
-                    setIdChecked(false);
-                }
-            } catch (error) {
-                console.error(error);
-            }
+    try {
+        const response = await axios.post(`${API_BASE_URL}/auth/id-check`,
+            {
+                userid: username
+            });
+        if(response.data.exists) {
+            setIdMessage("중복된 아이디가 있습니다.")
+            setIdChecked(true);
+        } else {
+            setIdChecked(false);
         }
-    }, 500);
+    } catch (error) {
+        console.error(error);
+    }
 };
 
 {/* 닉네임 유효성 검증 */}
