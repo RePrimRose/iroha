@@ -18,7 +18,7 @@ const SignupSection = () => {
 
   return (
       <section className="bg-gray-100 py-16">
-        <div className="container mx-auto px-6 max-w-md bg-white shadow-lg rounded-lg p-8">
+        <div className="container mx-auto px-6 max-w-lg bg-white shadow-lg rounded-lg p-10">
           {/* 섹션 제목 */}
           <h2 className="text-2xl font-bold text-traditionalBlue text-center mb-8">
             회원가입
@@ -105,8 +105,15 @@ const SignupSection = () => {
                   id="nickname"
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-traditionalBlue"
                   placeholder="닉네임을 입력하세요"
-                  onChange={(e) => handleNicknameCheck(e, nameTimer, setUsername, setNicknameChecked)}
+                  onChange={(e) => setUsername(e.target.value)}
               />
+              <button
+                  type="button"
+                  onClick={() => handleNicknameCheck(username, setNicknameChecked)}
+                  className="px-3 py-2 bg-traditionalBlue text-white rounded-lg text-sm hover:bg-blue-700 transition"
+              >
+                중복 확인
+              </button>
               {nicknameChecked && (
                   <div
                       className="absolute left-0 mt-2 p-2 bg-red-100 text-red-700 text-sm rounded shadow-lg before:absolute before:top-[-6px] before:left-3 before:border-4 before:border-transparent before:border-b-red-100">

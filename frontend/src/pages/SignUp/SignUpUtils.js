@@ -51,29 +51,20 @@ export const handleIdCheck = async (e, idTimer, setUserid, setIdChecked, setIdMe
 };
 
 {/* 닉네임 유효성 검증 */}
-export const handleNicknameCheck = async (e, nameTimer, setUsername, setNicknameChecked) => {
-    const value = e.target.value;
-    setUsername(value);
-
-    clearTimeout(nameTimer);
-
-    nameTimer = setTimeout(async () => {
-        if(value) {
-            try {
-                const response = await axios.post(`${API_BASE_URL}/auth/name-check`,
-                    {
-                        username: value
-                    })
-                if(!response.data.exists) {
-                    setNicknameChecked(false)
-                } else {
-                    setNicknameChecked(true)
-                }
-            } catch (error) {
-                console.error(error);
-            }
+export const handleNicknameCheck = async (username, setNicknameChecked) => {
+    try {
+        const response = await axios.post(`${API_BASE_URL}/auth/name-check`,
+            {
+                username: username
+            })
+        if(!response.data.exists) {
+            setNicknameChecked(false)
+        } else {
+            setNicknameChecked(true)
         }
-    }, 500);
+    } catch (error) {
+        console.error(error);
+    }
 };
 
 {/* 비밀번호와 비밀번호 확인 체크 */}
