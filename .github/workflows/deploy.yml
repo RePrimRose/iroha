@@ -93,10 +93,13 @@ jobs:
           mkdir -p deploy
           mkdir -p deploy/frontend
           mkdir -p deploy/.platform/nginx
+          mkdir -p deploy/.platform/hooks/postdeploy
           
           cp -r .platform deploy/.platform  # .platform 아래 파일들이 자동으로 복사됨
           cp -r frontend/build deploy/frontend/build
           cp Dockerrun.aws.json deploy/Dockerrun.aws.json  # Dockerrun.aws.json 추가
+          cp .platform/hooks/postdeploy/00-copy-frontend.sh deploy/.platform/hooks/postdeploy/00-copy-frontend.sh
+          chmod +x deploy/.platform/hooks/postdeploy/00-copy-frontend.sh
           cd deploy && zip -r deploy.zip . && cd ..
 
       - name: Upload deployment package to S3
