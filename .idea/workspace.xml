@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="chore: add SSL certificate and configure HTTPS" />
+    <list default="true" id="cabfe367-9f5e-498b-92b5-8415ea9e0476" name="Changes" comment="chore: add SSL certificate and configure HTTPS">
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/iroha/SecurityConfig.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -159,15 +161,7 @@
       <workItem from="1741702147770" duration="61000" />
       <workItem from="1741703322383" duration="26000" />
       <workItem from="1741703673111" duration="37000" />
-      <workItem from="1741755193489" duration="376000" />
-    </task>
-    <task id="LOCAL-00091" summary="chore: set up CI/CD pipeline">
-      <option name="closed" value="true" />
-      <created>1741235014394</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1741235014394</updated>
+      <workItem from="1741755193489" duration="638000" />
     </task>
     <task id="LOCAL-00092" summary="chore: set up CI/CD pipeline">
       <option name="closed" value="true" />
@@ -553,7 +547,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741755264833</updated>
     </task>
-    <option name="localTasksCounter" value="140" />
+    <task id="LOCAL-00140" summary="chore: add SSL certificate and configure HTTPS">
+      <option name="closed" value="true" />
+      <created>1741755618416</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1741755618416</updated>
+    </task>
+    <option name="localTasksCounter" value="141" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
